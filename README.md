@@ -7,8 +7,11 @@ El objetivo es complementar la operación de campo, no duplicar un motor de rese
 **Estado:** código 1.0.4 (versionCode 5), con cartografía nacional referencial y
 Arequipa metropolitana incorporadas. La versión 1.0.3 renderiza los mapas nuevos
 sin red y conservó los cuatro eventos y ocho estados de asistencia tras actualizar.
-Su encuadre inicial nacional recorta los extremos; 1.0.4 prepara esa corrección
-con una compilación estable, todavía pendiente de validación física. No es un producto de rescate ni un servicio
+Su encuadre inicial nacional recortaba los extremos; **1.0.4 lo corrige y fue
+verificada físicamente sin red**: Perú referencial y Arequipa metropolitana se
+dibujan, y cuatro eventos y ocho estados de asistencia sobreviven a la actualización
+y a forzar cierre/reabrir (tres presentes). [Descarga de pruebas](https://github.com/yughiyami/salida-lista/releases/tag/v1.0.4).
+No es un producto de rescate ni un servicio
 que garantice localizar personas. Usar únicamente participantes ficticios durante
 la evaluación: aún faltan autenticación, cifrado y controles de producción.
 

@@ -4,10 +4,11 @@ Prototipo móvil offline para guías turísticos en Perú: consulta cartografía
 registra hitos e incidencias y conserva la asistencia aunque no haya internet.
 El objetivo es complementar la operación de campo, no duplicar un motor de reservas.
 
-**Estado:** código 1.0.3 (versionCode 4), con cartografía nacional referencial y
-Arequipa metropolitana incorporadas. La APK 1.0.3 está compilada, verificada
-estáticamente e instalada para pruebas; sus mapas nuevos aún esperan validación
-visual en el teléfono. La versión Android 1.0.2 sí fue probada. No es un producto de rescate ni un servicio
+**Estado:** código 1.0.4 (versionCode 5), con cartografía nacional referencial y
+Arequipa metropolitana incorporadas. La versión 1.0.3 renderiza los mapas nuevos
+sin red y conservó los cuatro eventos y ocho estados de asistencia tras actualizar.
+Su encuadre inicial nacional recorta los extremos; 1.0.4 prepara esa corrección
+con una compilación estable, todavía pendiente de validación física. No es un producto de rescate ni un servicio
 que garantice localizar personas. Usar únicamente participantes ficticios durante
 la evaluación: aún faltan autenticación, cifrado y controles de producción.
 

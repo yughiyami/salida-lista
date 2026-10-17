@@ -1,0 +1,22 @@
+{
+  "id": "colca-chivay",
+  "name": "Colca · Chivay y Yanque",
+  "bounds": [
+    -71.68,
+    -15.68,
+    -71.58,
+    -15.6
+  ],
+  "center": [
+    -71.63,
+    -15.64
+  ],
+  "zoom": 12,
+  "detail": "Chivay, Yanque y entorno inmediato; no cubre todo el valle.",
+  "source": "https://api.openstreetmap.org/api/0.6/map.json?bbox=-71.68,-15.68,-71.58,-15.6",
+  "downloadedOn": "2026-10-16",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "featureCount": 697,
+  "sourceSha256": "6893c2dc8f4e813cb1d2064b40e20d6f5db424a4ad212b90d3f747ecac7a09d5"
+}

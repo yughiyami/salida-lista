@@ -32,6 +32,9 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
@@ -39,3 +42,33 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Local AI tooling and audit output
+.codegraph/
+.claude/
+audit-report.json
+
+# Installers, private keys, local databases and device evidence
+*.apk
+*.aab
+*.keystore
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-shm
+*.sqlite-wal
+*.log
+/evidence/
+/artifacts/
+
+# Generated builds, downloads and local runtimes
+/build/
+/downloads/
+.cache/
+.venv/
+.venv-maps/
+*.osm.pbf
+*.db-*
+*.sqlite*

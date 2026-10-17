@@ -1,25 +1,46 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
-    "version": "1.0.0",
+    "name": "Salida Lista",
+    "slug": "salida-lista",
+    "version": "1.0.2",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/brand/salida-lista-mark.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.salidalista.mobile"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#163F35",
+        "foregroundImage": "./assets/brand/salida-lista-mark.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.salidalista.mobile",
+      "versionCode": 3
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      "./plugins/withCmakeObjectPathLimit",
+      "expo-sqlite",
+      "expo-router",
+      "expo-splash-screen",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Permite mostrar tu posición mientras usas el mapa y adjuntarla a eventos. No hay seguimiento en segundo plano.",
+          "isAndroidBackgroundLocationEnabled": false,
+          "isIosBackgroundLocationEnabled": false
+        }
+      ],
+      "@maplibre/maplibre-react-native"
+    ],
+    "scheme": "salidalista",
+    "platforms": [
+      "ios",
+      "android"
+    ]
   }
 }

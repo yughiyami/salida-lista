@@ -5,8 +5,9 @@ registra hitos e incidencias y conserva la asistencia aunque no haya internet.
 El objetivo es complementar la operación de campo, no duplicar un motor de reservas.
 
 **Estado:** código 1.0.3 (versionCode 4), con cartografía nacional referencial y
-Arequipa metropolitana incorporadas. La APK 1.0.3 está en compilación y aún no
-tiene validación física; la versión Android 1.0.2 sí fue probada. No es un producto de rescate ni un servicio
+Arequipa metropolitana incorporadas. La APK 1.0.3 está compilada, verificada
+estáticamente e instalada para pruebas; sus mapas nuevos aún esperan validación
+visual en el teléfono. La versión Android 1.0.2 sí fue probada. No es un producto de rescate ni un servicio
 que garantice localizar personas. Usar únicamente participantes ficticios durante
 la evaluación: aún faltan autenticación, cifrado y controles de producción.
 

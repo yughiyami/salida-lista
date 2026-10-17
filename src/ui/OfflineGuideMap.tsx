@@ -34,6 +34,7 @@ const MAP_STYLE: StyleSpecification = {
   ],
 };
 const STALE_AFTER_MS = 30_000;
+const NATIONAL_LABEL_ORDER = ["Lima", "Arequipa", "Cusco", "Trujillo", "Chiclayo", "Piura", "Iquitos", "Puno", "Tacna"];
 type Fix = {
   latitude: number;
   longitude: number;
@@ -247,6 +248,13 @@ export function OfflineGuideMap() {
               feature.properties?.natural === "peak" ||
               feature.properties?.tourism === "viewpoint"),
         )
+        .sort((a, b) => {
+          const rank = (properties: typeof a.properties) => {
+            const priority = selected.id === "peru-referencia" ? NATIONAL_LABEL_ORDER.indexOf(String(properties?.name)) : -1;
+            return priority >= 0 ? 10_000_000_000 - priority * 100_000_000 : Number(String(properties?.population ?? "0").replace(/[^0-9]/g, ""));
+          };
+          return rank(b.properties) - rank(a.properties);
+        })
         .slice(0, 9),
     [selected],
   );
@@ -274,6 +282,7 @@ export function OfflineGuideMap() {
         </Text>
       </View>
       <View style={s.packages}>
+        <Text style={s.small}>{selected.detail}</Text>
         {OFFLINE_MAP_PACKAGES.map((pack) => (
           <Pressable
             key={pack.id}
@@ -290,7 +299,7 @@ export function OfflineGuideMap() {
             <Text style={[s.packageText, pack.id === selectedId && s.packageSelectedText]}>{pack.name}</Text>
           </Pressable>
         ))}
-        <Text style={s.small}>5 paquetes incluidos · sin descarga. Selección temporal; una pantalla nueva inicia Arequipa centro.</Text>
+        <Text style={s.small}>{OFFLINE_MAP_PACKAGES.length} paquetes incluidos · sin descarga. Selección temporal; una pantalla nueva inicia Arequipa metropolitana.</Text>
       </View>
       <View style={s.mapClip}>
         <Map
@@ -313,6 +322,7 @@ export function OfflineGuideMap() {
             maxZoom={17}
           />
           <GeoJSONSource id="offline-local" data={selected.data}>
+            <Layer id="reference-border" type="line" filter={["has", "reference_boundary"]} paint={{ "line-color": "#849B82", "line-width": 1.2 }} />
             <Layer
               id="local-land"
               type="fill"
@@ -340,7 +350,7 @@ export function OfflineGuideMap() {
                 ["==", ["geometry-type"], "LineString"],
                 ["has", "waterway"],
               ]}
-              paint={{ "line-color": "#87B6C0", "line-width": 1.6 }}
+              paint={{ "line-color": "#87B6C0", "line-width": ["interpolate", ["linear"], ["zoom"], 8, 0.3, 12, 0.8, 16, 1.6] }}
             />
             <Layer
               id="local-roads-casing"
@@ -351,7 +361,7 @@ export function OfflineGuideMap() {
                 ["has", "highway"],
               ]}
               layout={{ "line-cap": "round", "line-join": "round" }}
-              paint={{ "line-color": "#FFFCF2", "line-width": 4.8 }}
+              paint={{ "line-color": "#FFFCF2", "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.9, 8, 1.2, 12, 1.8, 16, 4.8] }}
             />
             <Layer
               id="local-roads"
@@ -370,7 +380,7 @@ export function OfflineGuideMap() {
                 ],
               ]}
               layout={{ "line-cap": "round", "line-join": "round" }}
-              paint={{ "line-color": "#BD9B64", "line-width": 2.4 }}
+              paint={{ "line-color": "#BD9B64", "line-width": ["interpolate", ["linear"], ["zoom"], 4, 0.6, 8, 0.7, 12, 1.1, 16, 2.4] }}
             />
             <Layer
               id="local-trails"
@@ -387,7 +397,7 @@ export function OfflineGuideMap() {
               layout={{ "line-cap": "round", "line-join": "round" }}
               paint={{
                 "line-color": "#426951",
-                "line-width": 2,
+                "line-width": ["interpolate", ["linear"], ["zoom"], 10, 0.5, 14, 1.2, 17, 2],
                 "line-dasharray": [2, 2],
               }}
             />
@@ -470,6 +480,7 @@ export function OfflineGuideMap() {
         </Text>
         <AppIcon name="externalLink" size={12} color="#557562" />
       </Pressable>
+      {selected.id === "peru-referencia" && <Text style={[s.small, { paddingHorizontal: 15 }]}>Contorno: Natural Earth v5.1.2 · dominio público · referencial.</Text>}
       <View style={s.controls}>
         <Pressable
           testID="toggle-map-gps"
@@ -552,7 +563,7 @@ export function OfflineGuideMap() {
         )}
         <Text style={s.coverage}>
           {selected.detail} Límites (O, S, E, N): {selected.bounds.join(", ")}.
-          No cubre todo Arequipa ni Perú. Datos OSM parciales; no indican
+          No garantiza todas las calles ni senderos. Datos OSM parciales; no indican
           transitabilidad ni seguridad. El GPS y el registro local no están
           bloqueados por los límites del mapa ni por una ruta.
         </Text>
@@ -660,6 +671,10 @@ const s = StyleSheet.create({
   error: { fontSize: 12, lineHeight: 18, color: "#8D3927", padding: 5 },
   coverage: { fontSize: 10, color: "#7A7F6D", lineHeight: 16, marginTop: 5 },
 });
+
+
+
+
 
 
 

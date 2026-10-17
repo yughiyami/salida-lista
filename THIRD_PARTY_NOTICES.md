@@ -15,8 +15,20 @@ hashes y conversión. Conservar estos avisos y las obligaciones ODbL al
 redistribuir las bases; no son datos exclusivamente MIT. No se certifica
 actualidad, transitabilidad ni aptitud para navegación de seguridad.
 La app no consume tiles públicos de OSM en ejecución.
-La ampliación nacional/regional en desarrollo debe documentar allí procedencia,
-transformación, versión y licencia antes de distribuirse.
+La capa nacional referencial y Arequipa metropolitana derivan del extracto
+[Geofabrik Perú](https://download.geofabrik.de/south-america/peru.html).
+Los manifiestos registran SHA256 del PBF, timestamp OSM, filtros y generalización;
+el PBF grande queda en caché local y no se incluye en Git ni APK.
+
+## Contorno Natural Earth
+
+El contorno nacional referencial procede de Natural Earth, versión fijada
+[v5.1.2, países 1:10 millones](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_admin_0_countries.geojson),
+filtrado por `ADM0_A3=PER` y simplificado para esta vista.
+Natural Earth declara sus datos de [dominio público](https://www.naturalearthdata.com/about/terms-of-use/).
+Su atribución es independiente de OSM/ODbL. El manifiesto nacional conserva la URL
+original, versión y SHA256 de la fuente. **No es una delimitación legal,
+catastral, oficial ni una prueba de pertenencia territorial.**
 
 ## Fotografía de Salkantay
 
@@ -80,3 +92,5 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+

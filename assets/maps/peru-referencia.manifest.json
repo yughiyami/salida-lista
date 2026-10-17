@@ -1,0 +1,54 @@
+{
+  "id": "peru-referencia",
+  "source": "https://download.geofabrik.de/south-america/peru-latest.osm.pbf",
+  "downloadedOn": "2026-10-16",
+  "osmReplicationTimestamp": "2026-10-16T20:21:21Z",
+  "sourceBytes": 256582452,
+  "sourceSha256": "d9375cd7a5ff27ddd60a9311cb14e405df1d0d247b0bd3b4d6d68a8bb1ee787a",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors; extract Geofabrik",
+  "bounds": [
+    -81.5,
+    -18.5,
+    -68.5,
+    0.1
+  ],
+  "featureCount": 552,
+  "geometryTypes": {
+    "MultiPolygon": 1,
+    "Point": 548,
+    "MultiLineString": 3
+  },
+  "derivedBytes": 1668426,
+  "derivedSha256": "3b3a5cc3551a4a4cf23e8ffc8dd8258c750e6689f6b7767d77f983e96fd660db",
+  "budgetBytes": 4000000,
+  "simplificationDegrees": 0.003,
+  "roundingDecimals": 5,
+  "sourceWaysSeen": 1044313,
+  "skippedWaysMissingNodeLocation": 0,
+  "highwayFilter": [
+    "motorway",
+    "primary",
+    "trunk"
+  ],
+  "waterwaysIncluded": false,
+  "buildDependencies": {
+    "osmium": "4.3.1",
+    "shapely": "2.1.2"
+  },
+  "limitations": "Generalized reference, not all roads, no routing, no terrain, no safety certification; Arequipa is a rectangle, not department boundary.",
+  "aggregatedWayCounts": {
+    "primary": 13316,
+    "trunk": 11986,
+    "motorway": 1366
+  },
+  "boundarySource": {
+    "url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/v5.1.2/geojson/ne_10m_admin_0_countries.geojson",
+    "sourceBytes": 13287234,
+    "sourceSha256": "239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255",
+    "license": "Public domain",
+    "filter": "ADM0_A3=PER",
+    "referenceOnly": true,
+    "notLegalBoundary": true
+  }
+}

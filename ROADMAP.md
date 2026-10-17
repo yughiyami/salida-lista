@@ -2,10 +2,13 @@
 
 ## 1. Cartografía offline útil, no una promesa de cobertura total
 
-Prioridad: Arequipa y Colca. Combinar una capa nacional general con paquetes
-regionales de detalle y límites explícitos. La ampliación está en desarrollo;
-los cinco paquetes actuales son parciales. No confundir una silueta nacional con
-calles y senderos de todo Perú.
+Implementado en el código 1.0.3: una capa nacional generalizada (vías principales,
+548 ciudades/pueblos y contorno referencial) y un paquete metropolitano Arequipa
+de aproximadamente 32 × 30 km, además de los cinco extractos turísticos previos.
+No equivale a calles/senderos de todo Perú ni a todo el departamento de Arequipa.
+La APK nueva requiere validación física; la comprobación previa corresponde a 1.0.2.
+Siguiente etapa: paquetes regionales más detallados y descargables con límites
+explícitos, priorizando Arequipa y Colca.
 
 Criterios: procedencia/licencia verificadas; tamaño, fecha y cobertura visibles;
 mapa usable desde primera apertura sin red; descargas futuras recuperables y
@@ -49,3 +52,5 @@ Chat para reservar guías, motor de reservas, IA conversacional, tracking famili
 permanente, mesh entre teléfonos y WhatsApp satelital. Requieren validación y,
 en ciertos casos, hardware/servicio adicional. Ninguno sustituye un protocolo
 operativo de seguridad ni está implementado por este demo.
+
+

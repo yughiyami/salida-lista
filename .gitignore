@@ -72,3 +72,7 @@ audit-report.json
 *.osm.pbf
 *.db-*
 *.sqlite*
+
+# Python processing cache
+__pycache__/
+*.py[cod]

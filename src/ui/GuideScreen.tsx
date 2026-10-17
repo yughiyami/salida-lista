@@ -803,7 +803,7 @@ export function GuideScreen({ screen }: { screen: Screen }) {
                     </Text>
                     <Text style={s.body}>
                       Datos locales sin cifrado adicional. Usa solo información
-                      ficticia. El mapa OSM local incluye cinco extractos acotados de Arequipa, Colca y Salkantay; no ofrece navegación ni rutas certificadas. Sin
+                      ficticia. El mapa OSM local incluye paquetes referenciales locales de Perú, Arequipa, Colca y Salkantay; no ofrece navegación ni rutas certificadas. Sin
                       captura de fotos, audio, satélite integrado, conexión
                       entre celulares ni seguimiento en segundo plano.
                     </Text>
@@ -1268,4 +1268,5 @@ const s = StyleSheet.create({
   navLabel: { fontSize: 10, color: "#7A8775", fontWeight: "600" },
   navActive: { color: "#163F35" },
 });
+
 

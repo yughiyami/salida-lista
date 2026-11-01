@@ -52,6 +52,30 @@ export function validateOtpCode(raw: string): ValidationResult<string> {
   return { ok: true, value: parsed.data };
 }
 
+// Supabase hashes with bcrypt, which ignores everything past 72 bytes.
+export function validatePassword(raw: string): ValidationResult<string> {
+  if (raw.length === 0) {
+    return { ok: false, error: "Ingresa tu contraseña." };
+  }
+  if (raw.length < 8) {
+    return { ok: false, error: "La contraseña debe tener al menos 8 caracteres." };
+  }
+  if (new TextEncoder().encode(raw).length > 72) {
+    return { ok: false, error: "La contraseña no puede superar los 72 caracteres." };
+  }
+  return { ok: true, value: raw };
+}
+
+export function validatePasswordConfirmation(
+  password: string,
+  confirmation: string,
+): ValidationResult<string> {
+  if (password !== confirmation) {
+    return { ok: false, error: "Las contraseñas no coinciden." };
+  }
+  return { ok: true, value: confirmation };
+}
+
 export function normalizeDisplayName(raw: string): string {
   return raw.trim().replace(/\s+/g, " ");
 }
@@ -116,6 +140,22 @@ export function mapAuthErrorMessage(error: unknown): string {
     lower.includes("for security purposes")
   ) {
     return "Has realizado demasiados intentos. Espera un momento antes de volver a solicitar un código.";
+  }
+
+  if (lower.includes("invalid login credentials")) {
+    return "Correo o contraseña incorrectos.";
+  }
+
+  if (lower.includes("user already registered") || lower.includes("already been registered")) {
+    return "Ya existe una cuenta con ese correo. Inicia sesión.";
+  }
+
+  if (lower.includes("email not confirmed")) {
+    return "Tu correo aún no está confirmado. Pide a quien administra la app que desactive la confirmación de correo.";
+  }
+
+  if (lower.includes("password should be at least") || lower.includes("weak_password")) {
+    return "La contraseña debe tener al menos 8 caracteres.";
   }
 
   if (lower.includes("invalid email") || lower.includes("unable to validate email")) {

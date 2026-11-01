@@ -1,94 +1,94 @@
 import { useState } from "react";
-import {
-  ActivityIndicator,
-  KeyboardAvoidingView,
-  Platform,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { getSupabaseClient } from "../../lib/supabase";
 import {
   mapAuthErrorMessage,
   validateEmail,
+  validatePassword,
+  validatePasswordConfirmation,
 } from "../../features/auth/validation";
+import { Banner, Body, Button, Card, CardTitle, Field, colors } from "../../ui/kit";
+
+type Mode = "signin" | "signup";
 
 export default function LoginScreen() {
   const router = useRouter();
+  const [mode, setMode] = useState<Mode>("signin");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmation, setConfirmation] = useState("");
   const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [errors, setErrors] = useState<{ email?: string; password?: string; confirmation?: string; form?: string }>({});
+  const [info, setInfo] = useState<string | null>(null);
 
-  const handleSendCode = async () => {
+  const submit = async () => {
     if (busy) return;
-    setError(null);
+    setInfo(null);
 
-    const validated = validateEmail(email);
-    if (!validated.ok) {
-      setError(validated.error);
-      return;
-    }
+    const e = validateEmail(email);
+    const p = validatePassword(password);
+    const c = mode === "signup" ? validatePasswordConfirmation(password, confirmation) : { ok: true as const, value: "" };
+    const next = {
+      email: e.ok ? undefined : e.error,
+      // On sign-in only require a non-empty password: older accounts keep working.
+      password: mode === "signup" ? (p.ok ? undefined : p.error) : password ? undefined : "Ingresa tu contraseña.",
+      confirmation: c.ok ? undefined : c.error,
+    };
+    setErrors(next);
+    if (next.email || next.password || next.confirmation || !e.ok) return;
 
     setBusy(true);
     try {
       const supabase = getSupabaseClient();
-      const { error: otpError } = await supabase.auth.signInWithOtp({
-        email: validated.value,
-        options: {
-          shouldCreateUser: true,
-        },
-      });
-
-      if (otpError) {
-        setError(mapAuthErrorMessage(otpError));
-        return;
+      if (mode === "signin") {
+        const { error } = await supabase.auth.signInWithPassword({ email: e.value, password });
+        if (error) setErrors({ form: mapAuthErrorMessage(error) });
+      } else {
+        const { data, error } = await supabase.auth.signUp({ email: e.value, password });
+        if (error) {
+          setErrors({ form: mapAuthErrorMessage(error) });
+        } else if (!data.session) {
+          // The project still requires confirming the email, which needs SMTP.
+          setInfo("Cuenta creada, pero el proyecto exige confirmar el correo. Desactiva «Confirm email» en Supabase (Authentication → Providers → Email) e inicia sesión.");
+          setMode("signin");
+        }
       }
-
-      router.push({
-        pathname: "/(auth)/verificar",
-        params: { email: validated.value },
-      });
-    } catch (e) {
-      setError(mapAuthErrorMessage(e));
+    } catch (err) {
+      setErrors({ form: mapAuthErrorMessage(err) });
     } finally {
       setBusy(false);
     }
   };
 
+  const switchMode = (next: Mode) => {
+    setMode(next);
+    setErrors({});
+    setInfo(null);
+    setConfirmation("");
+  };
+
   return (
     <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <KeyboardAvoidingView
-        style={styles.flex}
-        behavior={Platform.OS === "ios" ? "padding" : undefined}
-      >
-        <ScrollView
-          contentContainerStyle={styles.container}
-          keyboardShouldPersistTaps="handled"
-        >
+      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
+        <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
           <Text style={styles.eyebrow}>SALIDA LISTA · ACCESO</Text>
           <Text accessibilityRole="header" style={styles.title}>
-            Iniciar sesión
+            {mode === "signin" ? "Iniciar sesión" : "Crear cuenta"}
           </Text>
-          <Text style={styles.subtitle}>
-            Te enviaremos un código de 6 dígitos a tu correo electrónico para
-            entrar sin contraseña.
-          </Text>
+          <Body>
+            {mode === "signin"
+              ? "Entra con tu correo y contraseña."
+              : "Usa tu correo y elige una contraseña de al menos 8 caracteres."}
+          </Body>
 
-          {error ? (
-            <View accessibilityRole="alert" style={styles.errorBox}>
-              <Text style={styles.errorText}>{error}</Text>
-            </View>
-          ) : null}
+          {errors.form ? <Banner tone="danger">{errors.form}</Banner> : null}
+          {info ? <Banner tone="warn">{info}</Banner> : null}
 
-          <View style={styles.card}>
-            <Text style={styles.label}>Correo electrónico</Text>
-            <TextInput
-              accessibilityLabel="Correo electrónico"
+          <Card>
+            <Field
+              label="Correo electrónico"
               value={email}
               onChangeText={setEmail}
               editable={!busy}
@@ -97,53 +97,56 @@ export default function LoginScreen() {
               autoCorrect={false}
               keyboardType="email-address"
               placeholder="nombre@ejemplo.com"
-              placeholderTextColor="#777F77"
-              style={styles.input}
-              onSubmitEditing={() => void handleSendCode()}
+              error={errors.email}
             />
-
+            <Field
+              label="Contraseña"
+              value={password}
+              onChangeText={setPassword}
+              editable={!busy}
+              secureTextEntry
+              autoCapitalize="none"
+              autoComplete={mode === "signin" ? "current-password" : "new-password"}
+              textContentType={mode === "signin" ? "password" : "newPassword"}
+              placeholder="Mínimo 8 caracteres"
+              error={errors.password}
+              onSubmitEditing={() => (mode === "signin" ? void submit() : undefined)}
+            />
+            {mode === "signup" ? (
+              <Field
+                label="Repite la contraseña"
+                value={confirmation}
+                onChangeText={setConfirmation}
+                editable={!busy}
+                secureTextEntry
+                autoCapitalize="none"
+                autoComplete="new-password"
+                error={errors.confirmation}
+                onSubmitEditing={() => void submit()}
+              />
+            ) : null}
+            <Button
+              label={mode === "signin" ? "Entrar" : "Crear cuenta"}
+              onPress={() => void submit()}
+              loading={busy}
+            />
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Enviar código de acceso"
-              accessibilityState={{ disabled: busy }}
+              accessibilityLabel={mode === "signin" ? "Crear una cuenta nueva" : "Ya tengo cuenta"}
               disabled={busy}
-              onPress={() => void handleSendCode()}
-              style={({ pressed }) => [
-                styles.primaryButton,
-                busy && styles.disabled,
-                pressed && styles.pressed,
-              ]}
+              onPress={() => switchMode(mode === "signin" ? "signup" : "signin")}
+              style={styles.switch}
             >
-              {busy ? (
-                <ActivityIndicator color="#FFFDF8" />
-              ) : (
-                <Text style={styles.primaryButtonText}>
-                  Enviar código de acceso
-                </Text>
-              )}
-            </Pressable>
-          </View>
-
-          <View style={styles.offlineCard}>
-            <Text style={styles.cardTitle}>¿Estás en ruta o sin señal?</Text>
-            <Text style={styles.offlineText}>
-              El modo guía funciona localmente en este teléfono sin necesidad de
-              iniciar sesión ni tener conexión a internet.
-            </Text>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel="Usar modo guía sin cuenta"
-              disabled={busy}
-              onPress={() => router.push("/guia")}
-              style={({ pressed }) => [
-                styles.secondaryButton,
-                pressed && styles.pressed,
-              ]}
-            >
-              <Text style={styles.secondaryButtonText}>
-                Usar modo guía sin cuenta
+              <Text style={styles.switchText}>
+                {mode === "signin" ? "¿No tienes cuenta? Crear una" : "¿Ya tienes cuenta? Iniciar sesión"}
               </Text>
             </Pressable>
+          </Card>
+
+          <View style={styles.offline}>
+            <CardTitle>¿Estás en ruta o sin señal?</CardTitle>
+            <Body>El modo guía funciona localmente en este teléfono sin iniciar sesión ni tener conexión.</Body>
+            <Button label="Usar modo guía sin cuenta" variant="ghost" disabled={busy} onPress={() => router.push("/guia")} />
           </View>
         </ScrollView>
       </KeyboardAvoidingView>
@@ -152,122 +155,11 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-    backgroundColor: "#F7F5EF",
-  },
-  flex: {
-    flex: 1,
-  },
-  container: {
-    padding: 24,
-    gap: 16,
-    maxWidth: 520,
-    width: "100%",
-    alignSelf: "center",
-  },
-  eyebrow: {
-    fontSize: 10,
-    fontWeight: "700",
-    letterSpacing: 1.8,
-    color: "#5B665F",
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "700",
-    color: "#163F35",
-    letterSpacing: -0.8,
-  },
-  subtitle: {
-    fontSize: 15,
-    lineHeight: 22,
-    color: "#5B665F",
-  },
-  errorBox: {
-    padding: 15,
-    backgroundColor: "#F6E4DC",
-    borderRadius: 12,
-  },
-  errorText: {
-    color: "#8D3927",
-    fontSize: 13,
-    lineHeight: 20,
-  },
-  card: {
-    padding: 20,
-    backgroundColor: "#FFFFFF",
-    borderWidth: 1,
-    borderColor: "#D8D2C5",
-    borderRadius: 18,
-    gap: 12,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: "600",
-    color: "#163F35",
-  },
-  input: {
-    minHeight: 52,
-    borderWidth: 1,
-    borderColor: "#BCCAB4",
-    borderRadius: 14,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: "#FFFDF8",
-    fontSize: 16,
-    color: "#163F35",
-  },
-  primaryButton: {
-    minHeight: 52,
-    backgroundColor: "#163F35",
-    borderRadius: 14,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-    marginTop: 4,
-  },
-  primaryButtonText: {
-    color: "#FFFDF8",
-    fontSize: 15,
-    fontWeight: "700",
-  },
-  offlineCard: {
-    padding: 20,
-    backgroundColor: "#EAF0E4",
-    borderRadius: 18,
-    gap: 10,
-  },
-  cardTitle: {
-    fontSize: 16,
-    fontWeight: "700",
-    color: "#163F35",
-  },
-  offlineText: {
-    fontSize: 14,
-    lineHeight: 21,
-    color: "#334D41",
-  },
-  secondaryButton: {
-    minHeight: 48,
-    borderWidth: 1,
-    borderColor: "#163F35",
-    borderRadius: 14,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    marginTop: 2,
-  },
-  secondaryButtonText: {
-    color: "#163F35",
-    fontSize: 14,
-    fontWeight: "700",
-  },
-  disabled: {
-    opacity: 0.5,
-  },
-  pressed: {
-    opacity: 0.78,
-  },
+  safe: { flex: 1, backgroundColor: colors.bg },
+  container: { padding: 24, gap: 16, maxWidth: 520, width: "100%", alignSelf: "center" },
+  eyebrow: { fontSize: 10, fontWeight: "700", letterSpacing: 1.8, color: colors.muted },
+  title: { fontSize: 32, fontWeight: "700", color: colors.ink, letterSpacing: -0.8 },
+  switch: { minHeight: 48, alignItems: "center", justifyContent: "center" },
+  switchText: { color: colors.ink, fontWeight: "600", textDecorationLine: "underline" },
+  offline: { padding: 20, backgroundColor: "#EAF0E4", borderRadius: 18, gap: 10 },
 });

@@ -23,15 +23,17 @@ npx supabase db push
 | `20261101030000_places_messages.sql` | Lugares, chat/avisos/SOS, tokens push, trigger de notificaciones, Realtime |
 | `20261101040000_privacy.sql` | Exportar datos, borrar cuenta, retención |
 
-## 2. Código de 6 dígitos en el correo
+## 2. Inicio de sesión con correo y contraseña (sin servidor SMTP)
 
-Dashboard → Authentication → Email Templates → **Magic Link**. Reemplaza el enlace por el código:
+La app usa correo + contraseña, así que **no se envía ningún correo**. Solo hay que desactivar la confirmación:
 
-```html
-<h2>Tu código de acceso</h2>
-<p>Ingresa este código en Salida Lista:</p>
-<p style="font-size:28px;letter-spacing:6px"><strong>{{ .Token }}</strong></p>
-```
+Dashboard → Authentication → Sign In / Providers → **Email** → apaga **Confirm email** → Save.
+
+Consecuencias que debes conocer:
+
+- Cualquiera puede crear una cuenta con un correo que no es suyo (no se verifica). La privacidad no depende del correo sino de los círculos y sus códigos.
+- **No hay "olvidé mi contraseña"**: recuperarla exige enviar un correo (SMTP). Para restablecer una, hazlo desde Authentication → Users → el usuario → Send password recovery / Reset, o configura un SMTP más adelante.
+- Si en algún momento configuras SMTP (Resend, Brevo, etc.), puedes volver a activar la confirmación sin cambiar la app.
 
 ## 3. Retención automática (opcional pero recomendado)
 

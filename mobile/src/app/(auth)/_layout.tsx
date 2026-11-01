@@ -17,7 +17,6 @@ export default function AuthLayout() {
         redirectTo="/(auth)/perfil"
       >
         <Stack.Screen name="login" />
-        <Stack.Screen name="verificar" />
       </Stack.Protected>
       <Stack.Protected
         guard={isAuthenticated}

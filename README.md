@@ -10,7 +10,7 @@ Primer incremento **móvil** del flujo del guía, React Native + Expo SDK 58 + E
 
 ## Versión 1.1.0 — círculos y ubicación en vivo (estilo Life360)
 
-Además del modo guía sin conexión, la app ahora tiene cuentas con código por correo y:
+Además del modo guía sin conexión, la app ahora tiene cuentas con correo y contraseña y:
 
 - **Círculos** con código de invitación de 8 caracteres, límite de intentos y reglas de visibilidad en la base de datos (RLS).
 - **Mapa en vivo** (MapLibre + OpenFreeMap) con avatar, batería y "visto hace…" de cada miembro; Realtime de Supabase.
@@ -34,7 +34,7 @@ npx supabase link --project-ref <project-id>
 npx supabase db push
 ```
 
-En el panel de Supabase (**Authentication → Providers → Email**), asegúrate de tener habilitado Email OTP (código de 6 dígitos).
+El acceso es con **correo y contraseña** (sin SMTP): en **Authentication → Providers → Email** apaga *Confirm email*. Ver el detalle y sus límites (sin recuperación de contraseña) en el documento anterior.
 
 ### 2. Configurar `mobile/.env`
 

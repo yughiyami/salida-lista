@@ -32,7 +32,7 @@ Dashboard → Authentication → Sign In / Providers → **Email** → apaga **C
 Consecuencias que debes conocer:
 
 - Cualquiera puede crear una cuenta con un correo que no es suyo (no se verifica). La privacidad no depende del correo sino de los círculos y sus códigos.
-- **No hay "olvidé mi contraseña"**: recuperarla exige enviar un correo (SMTP). Para restablecer una, hazlo desde Authentication → Users → el usuario → Send password recovery / Reset, o configura un SMTP más adelante.
+- **No hay "olvidé mi contraseña"**: recuperarla exige enviar un correo (SMTP). Sin SMTP, la única salida es borrar el usuario en Authentication → Users para que la persona cree la cuenta de nuevo (pierde su perfil y círculos), o configurar un SMTP más adelante.
 - Si en algún momento configuras SMTP (Resend, Brevo, etc.), puedes volver a activar la confirmación sin cambiar la app.
 
 ## 3. Retención automática (opcional pero recomendado)

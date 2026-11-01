@@ -60,3 +60,4 @@ Las 26 alertas moderadas provienen de dos avisos transitivos en herramientas de 
 ## Nota operativa
 
 No se ejecutó `npm audit fix --force` porque propone degradar paquetes centrales de Expo SDK 58 y `eslint-config-expo` a versiones incompatibles con el proyecto. La revisión y mitigación mediante `overrides` compatibles se abordará en la Fase 7 (Endurecimiento y publicación).
+

@@ -53,13 +53,13 @@ const eventLabels: Record<EventType, string> = {
   RETORNO: "Retorno",
 };
 const paths = {
-  home: "/",
-  prepare: "/preparar",
-  route: "/ruta",
-  participants: "/participantes",
-  event: "/evento",
-  pending: "/pendientes",
-  settings: "/ajustes",
+  home: "/guia",
+  prepare: "/guia/preparar",
+  route: "/guia/ruta",
+  participants: "/guia/participantes",
+  event: "/guia/evento",
+  pending: "/guia/pendientes",
+  settings: "/guia/ajustes",
 } as const;
 const checkItems = [
   [
@@ -303,7 +303,7 @@ export function GuideScreen({ screen }: { screen: Screen }) {
             }
             onPress={() =>
               screen !== "home" &&
-              (router.canGoBack() ? router.back() : router.replace("/"))
+              (router.canGoBack() ? router.back() : router.replace("/guia"))
             }
             style={s.back}
           >
@@ -686,7 +686,7 @@ export function GuideScreen({ screen }: { screen: Screen }) {
                           [
                             {
                               text: "Ver partes",
-                              onPress: () => router.replace("/pendientes"),
+                              onPress: () => router.replace("/guia/pendientes"),
                             },
                           ],
                         );

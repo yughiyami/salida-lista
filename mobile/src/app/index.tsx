@@ -1,4 +1,5 @@
-import { GuideScreen } from "../ui/GuideScreen";
-export default function Screen() {
-  return <GuideScreen screen="home" />;
+import { Redirect } from "expo-router";
+
+export default function Index() {
+  return <Redirect href="/(tabs)/mapa" />;
 }

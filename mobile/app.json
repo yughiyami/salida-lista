@@ -35,7 +35,8 @@
           "isIosBackgroundLocationEnabled": false
         }
       ],
-      "@maplibre/maplibre-react-native"
+      "@maplibre/maplibre-react-native",
+      "expo-status-bar"
     ],
     "scheme": "salidalista",
     "platforms": [

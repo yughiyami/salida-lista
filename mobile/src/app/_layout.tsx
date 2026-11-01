@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Stack, usePathname } from "expo-router";
 import { SQLiteProvider } from "expo-sqlite";
 import { StatusBar } from "expo-status-bar";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Pressable, Text, View, StyleSheet } from "react-native";
+import {
+  ActivityIndicator,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { initializeDatabase } from "../data/database";
+import { useSession } from "../features/auth/useSession";
 import { getSupabaseEnv } from "../lib/env";
 import "../lib/supabase";
 import { SupabaseConfigErrorScreen } from "../ui/SupabaseConfigErrorScreen";
@@ -18,6 +25,25 @@ export default function RootLayout() {
   const pathname = usePathname();
   const supabaseEnv = getSupabaseEnv();
   const isGuideRoute = pathname === "/guia" || pathname.startsWith("/guia/");
+
+  const session = useSession((s) => s.session);
+  const profile = useSession((s) => s.profile);
+  const isInitialized = useSession((s) => s.isInitialized);
+  const isLoadingProfile = useSession((s) => s.isLoadingProfile);
+  const initialize = useSession((s) => s.initialize);
+
+  useEffect(() => {
+    void initialize();
+  }, [initialize]);
+
+  const isAuthenticated = Boolean(session?.user);
+  const hasCompletedProfile = Boolean(
+    isAuthenticated &&
+      profile?.display_name &&
+      profile.display_name.trim().length >= 2,
+  );
+  const isAuthBootstrapping =
+    supabaseEnv.ok && (!isInitialized || isLoadingProfile);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -53,10 +79,33 @@ export default function RootLayout() {
                   headerShown: false,
                   contentStyle: { backgroundColor: "#F7F5EF" },
                 }}
-              />
+              >
+                <Stack.Screen name="guia" />
+                <Stack.Screen name="index" />
+                <Stack.Protected
+                  guard={hasCompletedProfile}
+                  redirectTo={
+                    isAuthenticated ? "/(auth)/perfil" : "/(auth)/login"
+                  }
+                >
+                  <Stack.Screen name="(tabs)" />
+                </Stack.Protected>
+                <Stack.Protected
+                  guard={!hasCompletedProfile}
+                  redirectTo="/(tabs)/mapa"
+                >
+                  <Stack.Screen name="(auth)" />
+                </Stack.Protected>
+              </Stack>
+
               {!supabaseEnv.ok && !isGuideRoute ? (
                 <View style={StyleSheet.absoluteFill}>
                   <SupabaseConfigErrorScreen errors={supabaseEnv.errors} />
+                </View>
+              ) : isAuthBootstrapping && !isGuideRoute ? (
+                <View style={[StyleSheet.absoluteFill, styles.loadingOverlay]}>
+                  <ActivityIndicator color="#163F35" size="large" />
+                  <Text style={styles.loadingText}>Verificando sesión…</Text>
                 </View>
               ) : null}
             </View>
@@ -66,10 +115,21 @@ export default function RootLayout() {
     </QueryClientProvider>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F7F5EF",
+  },
+  loadingOverlay: {
+    backgroundColor: "#F7F5EF",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 12,
+  },
+  loadingText: {
+    fontSize: 14,
+    color: "#5B665F",
   },
   error: {
     flex: 1,

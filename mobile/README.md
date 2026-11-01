@@ -69,23 +69,33 @@ aprobado para producción ni para almacenar datos personales reales.
 Requiere Node.js compatible con Expo SDK 58, npm y entorno nativo Android o iOS.
 MapLibre contiene código nativo: **no funciona en Expo Go**.
 
-Para habilitar las pantallas de cuenta y círculos con Supabase, copia `mobile/.env.example` a `mobile/.env` y completa las variables públicas de tu proyecto:
+Para habilitar las pantallas de cuenta y círculos con Supabase:
 
-```sh
-cp .env.example .env
-# Define EXPO_PUBLIC_SUPABASE_URL y EXPO_PUBLIC_SUPABASE_KEY en mobile/.env
-```
+1. En la raíz del repositorio (`D:\proyectos\react_test`), vincula tu proyecto de Supabase y aplica la migración de esquema y políticas RLS:
+   ```sh
+   npx supabase link --project-ref <project-id>
+   npx supabase db push
+   ```
+2. En `mobile/`, copia `mobile/.env.example` a `mobile/.env` y completa las variables públicas de tu proyecto:
+   ```sh
+   cp .env.example .env
+   # Define EXPO_PUBLIC_SUPABASE_URL y EXPO_PUBLIC_SUPABASE_KEY en mobile/.env
+   ```
 
 Si `mobile/.env` no está configurado, la aplicación muestra un aviso de configuración con acceso directo al **modo guía offline (`/guia`)**, que sigue funcionando localmente sin red ni cuenta.
+
+Para verificar y compilar el development build en Android o iOS:
 
 ```sh
 npm ci
 npm run typecheck
 npm run lint
 npm test
-npm run android
+npx expo run:android
+# O mediante EAS Build (development):
+# npx eas-cli@latest build --profile development --platform android
 # En macOS con Xcode:
-npm run ios
+npx expo run:ios
 ```
 
 `npm test` ejecuta pruebas de persistencia y datos cartográficos;

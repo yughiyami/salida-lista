@@ -1,26 +1,78 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useSession } from "../../features/auth/useSession";
 
 export default function SettingsTabScreen() {
   const router = useRouter();
+  const user = useSession((s) => s.user);
+  const profile = useSession((s) => s.profile);
+  const signOut = useSession((s) => s.signOut);
+  const [signingOut, setSigningOut] = useState(false);
+
+  const handleSignOut = async () => {
+    if (signingOut) return;
+    setSigningOut(true);
+    try {
+      await signOut();
+      router.replace("/(auth)/login");
+    } finally {
+      setSigningOut(false);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.safe} edges={["top"]}>
-      <View style={styles.container}>
-        <View style={styles.badge}>
-          <Text style={styles.badgeText}>Próximamente</Text>
-        </View>
+      <ScrollView contentContainerStyle={styles.container}>
         <Text accessibilityRole="header" style={styles.title}>
           Ajustes
         </Text>
+
         <View style={styles.card}>
-          <Text style={styles.cardTitle}>Cuenta y privacidad</Text>
+          <Text style={styles.cardTitle}>Mi cuenta</Text>
+          <View style={styles.infoRow}>
+            <Text style={styles.label}>Nombre visible</Text>
+            <Text style={styles.value}>
+              {profile?.display_name ?? "Sin configurar"}
+            </Text>
+          </View>
+          <View style={styles.infoRow}>
+            <Text style={styles.label}>Correo electrónico</Text>
+            <Text style={styles.value}>
+              {user?.email ?? "No disponible"}
+            </Text>
+          </View>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Cerrar sesión"
+            disabled={signingOut}
+            onPress={() => void handleSignOut()}
+            style={({ pressed }) => [
+              styles.signOutButton,
+              signingOut && styles.disabled,
+              pressed && styles.pressed,
+            ]}
+          >
+            <Text style={styles.signOutText}>
+              {signingOut ? "Cerrando sesión…" : "Cerrar sesión"}
+            </Text>
+          </Pressable>
+        </View>
+
+        <View style={styles.card}>
+          <View style={styles.rowBetween}>
+            <Text style={styles.cardTitle}>Preferencias de ubicación</Text>
+            <View style={styles.badge}>
+              <Text style={styles.badgeText}>Próximamente</Text>
+            </View>
+          </View>
           <Text style={styles.description}>
-            Próximamente podrás gestionar tu perfil, permisos de ubicación y
-            preferencias de cuenta desde esta pantalla.
+            Próximamente podrás gestionar alertas de lugares y preferencias de
+            compartir ubicación por círculo.
           </Text>
         </View>
+
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Operación en campo</Text>
           <Text style={styles.description}>
@@ -36,7 +88,7 @@ export default function SettingsTabScreen() {
             <Text style={styles.buttonText}>Modo guía (offline)</Text>
           </Pressable>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -47,12 +99,16 @@ const styles = StyleSheet.create({
     backgroundColor: "#F7F5EF",
   },
   container: {
-    flex: 1,
     padding: 24,
     gap: 14,
   },
+  rowBetween: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    gap: 8,
+  },
   badge: {
-    alignSelf: "flex-start",
     backgroundColor: "#E4EAD9",
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -82,6 +138,21 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#163F35",
   },
+  infoRow: {
+    gap: 3,
+    paddingVertical: 4,
+    borderBottomWidth: 1,
+    borderBottomColor: "#EFECE4",
+  },
+  label: {
+    fontSize: 12,
+    color: "#5B665F",
+  },
+  value: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#163F35",
+  },
   description: {
     fontSize: 15,
     lineHeight: 22,
@@ -95,6 +166,25 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingHorizontal: 16,
     paddingVertical: 14,
+  },
+  signOutButton: {
+    minHeight: 48,
+    borderWidth: 1,
+    borderColor: "#8D3927",
+    borderRadius: 14,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    marginTop: 4,
+  },
+  signOutText: {
+    color: "#8D3927",
+    fontSize: 14,
+    fontWeight: "700",
+  },
+  disabled: {
+    opacity: 0.5,
   },
   pressed: {
     opacity: 0.8,

@@ -12,15 +12,46 @@ Primer incremento **móvil** del flujo del guía, React Native + Expo SDK 58 + E
 
 Requisito para las pruebas de repositorio: Node 24. Dependencias fijadas en `mobile/package-lock.json`.
 
+### 1. Configurar proyecto de Supabase y migración
+
+Desde la raíz del repositorio (`D:\proyectos\react_test`), vincula tu proyecto de Supabase y aplica la migración inicial (`supabase/migrations/20260419000000_initial_circles_schema.sql`):
+
+```powershell
+npx supabase link --project-ref <project-id>
+npx supabase db push
+```
+
+En el panel de Supabase (**Authentication → Providers → Email**), asegúrate de tener habilitado Email OTP (código de 6 dígitos).
+
+### 2. Configurar `mobile/.env`
+
+Copia `mobile/.env.example` a `mobile/.env` y define las variables públicas del proyecto:
+
+```powershell
+cd D:\proyectos\react_test\mobile
+Copy-Item .env.example .env
+# Edita mobile/.env con EXPO_PUBLIC_SUPABASE_URL y EXPO_PUBLIC_SUPABASE_KEY
+```
+
+Si `mobile/.env` no existe o es inválido, la aplicación nunca falla al arrancar: muestra una pantalla de configuración en español con acceso directo a **"Usar modo guía sin cuenta" (`/guia`)**.
+
+### 3. Ejecutar y compilar Development Build
+
 ```powershell
 cd D:\proyectos\react_test\mobile
 npm ci
 npm start
 ```
 
-Abrir en un dispositivo/entorno compatible con SDK 58. Metro sirve para desarrollo; no acredita arranque totalmente offline. No hay experiencia web objetivo ni dashboard web.
+Abrir en un dispositivo/entorno compatible con SDK 58 (MapLibre y `expo-secure-store` requieren compilación nativa / development build, no Expo Go). Para compilar el development build localmente o con EAS:
 
-Para un APK interno con JavaScript embebido, después de asociar el proyecto a tu cuenta Expo y configurar firma:
+```powershell
+npx expo run:android
+# O con EAS Build:
+npx eas-cli@latest build --profile development --platform android
+```
+
+Para un APK interno de vista previa con JavaScript embebido:
 
 ```powershell
 npx eas-cli@latest build --platform android --profile preview

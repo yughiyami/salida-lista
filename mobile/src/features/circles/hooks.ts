@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import {
   useMutation,
   useQuery,
@@ -158,11 +158,22 @@ export function useCircleMutations() {
 export function useRealtimeSync(onFeedMessage?: (m: FeedMessage) => void) {
   const qc = useQueryClient();
   const userId = useSession((s) => s.user?.id);
+  // The handler lives in a ref so a new function identity never re-subscribes.
+  const feedHandler = useRef(onFeedMessage);
+  useEffect(() => {
+    feedHandler.current = onFeedMessage;
+  }, [onFeedMessage]);
 
   useEffect(() => {
     if (!supabase || !userId) return;
-    const channel = supabase
-      .channel(`circles:${userId}`)
+    // supabase.channel() returns the existing channel for a repeated topic, and
+    // an already-subscribed channel rejects new callbacks. Use a unique topic.
+    const topic = `circles:${userId}:${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+    // Realtime is an enhancement: if it fails to start, queries still refetch.
+    let channel: ReturnType<typeof supabase.channel>;
+    try {
+    channel = supabase
+      .channel(topic)
       .on("postgres_changes", { event: "*", schema: "public", table: "user_locations" }, (payload) => {
         const row = payload.new as MemberLocation | Record<string, never>;
         if (payload.eventType === "DELETE" || !("user_id" in row)) {
@@ -185,7 +196,7 @@ export function useRealtimeSync(onFeedMessage?: (m: FeedMessage) => void) {
           old && !old.some((m) => m.id === message.id) ? [...old, message] : old,
         );
         if (message.kind === "sos") void qc.invalidateQueries({ queryKey: keys.sos });
-        onFeedMessage?.(message);
+        feedHandler.current?.(message);
       })
       .on("postgres_changes", { event: "UPDATE", schema: "public", table: "messages" }, (payload) => {
         const message = payload.new as FeedMessage;
@@ -195,11 +206,14 @@ export function useRealtimeSync(onFeedMessage?: (m: FeedMessage) => void) {
         if (message.kind === "sos") void qc.invalidateQueries({ queryKey: keys.sos });
       })
       .subscribe();
+    } catch {
+      return;
+    }
 
     return () => {
       void supabase?.removeChannel(channel);
     };
-  }, [qc, userId, onFeedMessage]);
+  }, [qc, userId]);
 }
 
 export type { Circle, CircleMember, FeedMessage, MemberLocation, MemberProfile, Place };

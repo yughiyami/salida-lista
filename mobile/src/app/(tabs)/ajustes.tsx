@@ -1,197 +1,278 @@
 import { useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Alert, Share, StyleSheet, Switch, Text, View } from "react-native";
 import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useQueryClient } from "@tanstack/react-query";
 import { useSession } from "../../features/auth/useSession";
+import * as api from "../../features/circles/api";
+import { keys, useUserSettings } from "../../features/circles/hooks";
+import { mapCircleError } from "../../features/circles/validation";
+import { describePause, PAUSE_OPTIONS } from "../../features/location/pause";
+import {
+  ensureBackgroundPermission,
+  ensureForegroundPermission,
+  stopBackgroundUpdates,
+  stopGeofences,
+} from "../../features/location/sharing";
+import { clearLocationData } from "../../features/location/store";
+import { registerForPush } from "../../features/push/register";
+import { Banner, Body, Button, Card, CardTitle, Screen, colors } from "../../ui/kit";
+import { useNow } from "../../ui/useNow";
+
+async function stopAllLocationWork() {
+  try {
+    await stopBackgroundUpdates();
+    await stopGeofences();
+    await clearLocationData();
+  } catch {
+    // Nothing running or the module is unavailable: safe to ignore.
+  }
+}
 
 export default function SettingsTabScreen() {
   const router = useRouter();
+  const qc = useQueryClient();
   const user = useSession((s) => s.user);
   const profile = useSession((s) => s.profile);
   const signOut = useSession((s) => s.signOut);
-  const [signingOut, setSigningOut] = useState(false);
+  const settings = useUserSettings();
+  const now = useNow();
+  const [busy, setBusy] = useState<string | null>(null);
+  const [notice, setNotice] = useState<{ tone: "info" | "danger" | "warn"; text: string } | null>(null);
 
-  const handleSignOut = async () => {
-    if (signingOut) return;
-    setSigningOut(true);
+  const data = settings.data;
+  const consent = Boolean(data?.location_consent_at);
+  const background = Boolean(data?.background_consent_at);
+  const pause = describePause(data?.sharing_paused_until, now);
+
+  const run = async (key: string, task: () => Promise<void>) => {
+    if (busy) return;
+    setBusy(key);
+    setNotice(null);
     try {
-      await signOut();
-      router.replace("/(auth)/login");
+      await task();
+      await qc.invalidateQueries({ queryKey: keys.settings });
+    } catch (e) {
+      setNotice({ tone: "danger", text: mapCircleError(e) });
     } finally {
-      setSigningOut(false);
+      setBusy(null);
     }
   };
 
+  const toggleSharing = (next: boolean) =>
+    run("sharing", async () => {
+      if (next) {
+        if (!(await ensureForegroundPermission())) {
+          setNotice({ tone: "danger", text: "El teléfono no tiene el permiso de ubicación. Actívalo en sus ajustes." });
+          return;
+        }
+        await api.updateLocationSettings({ grantLocation: true });
+      } else {
+        await stopAllLocationWork();
+        await api.updateLocationSettings({ grantLocation: false, grantBackground: false });
+      }
+    });
+
+  const toggleBackground = (next: boolean) => {
+    if (!next) {
+      void run("background", async () => {
+        await stopBackgroundUpdates();
+        await stopGeofences();
+        await api.updateLocationSettings({ grantBackground: false });
+      });
+      return;
+    }
+    // Prominent disclosure required by Google Play before the permission prompt.
+    Alert.alert(
+      "Ubicación en segundo plano",
+      "Salida Lista recogerá tu ubicación aunque la app esté cerrada o no la estés usando, para que tu círculo sepa dónde estás y para avisar cuando llegas o sales de un lugar. Verás una notificación permanente mientras esté activa. Puedes pausarla o apagarla aquí cuando quieras.",
+      [
+        { text: "Ahora no", style: "cancel" },
+        {
+          text: "Entiendo, continuar",
+          onPress: () =>
+            void run("background", async () => {
+              if (!(await ensureBackgroundPermission())) {
+                setNotice({
+                  tone: "warn",
+                  text: "Para usarla elige «Permitir todo el tiempo» en los permisos de ubicación del teléfono.",
+                });
+                return;
+              }
+              await api.updateLocationSettings({ grantLocation: true, grantBackground: true });
+            }),
+        },
+      ],
+    );
+  };
+
+  const pauseFor = (minutes: number) =>
+    run("pause", () => api.updateLocationSettings({ pauseMinutes: minutes }).then(() => undefined));
+  const resume = () =>
+    run("pause", () => api.updateLocationSettings({ resume: true }).then(() => undefined));
+
+  const enablePush = () =>
+    run("push", async () => {
+      if (!user) return;
+      const problem = await registerForPush(user.id);
+      setNotice(
+        problem
+          ? { tone: "warn", text: problem }
+          : { tone: "info", text: "Notificaciones activadas en este teléfono." },
+      );
+    });
+
+  const exportData = () =>
+    run("export", async () => {
+      const json = JSON.stringify(await api.exportMyData(), null, 2);
+      await Share.share({ title: "Mis datos de Salida Lista", message: json });
+    });
+
+  const confirmDelete = () =>
+    Alert.alert(
+      "Eliminar mi cuenta",
+      "Se borrarán tu perfil, tu ubicación, tu historial y tus mensajes. Esto no se puede deshacer.",
+      [
+        { text: "Cancelar", style: "cancel" },
+        {
+          text: "Eliminar para siempre",
+          style: "destructive",
+          onPress: () =>
+            void run("delete", async () => {
+              await api.deleteMyAccount();
+              await stopAllLocationWork();
+              qc.clear();
+              await signOut();
+              router.replace("/(auth)/login");
+            }),
+        },
+      ],
+    );
+
+  const handleSignOut = () =>
+    run("signout", async () => {
+      await stopAllLocationWork();
+      qc.clear();
+      await signOut();
+      router.replace("/(auth)/login");
+    });
+
   return (
-    <SafeAreaView style={styles.safe} edges={["top"]}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <Text accessibilityRole="header" style={styles.title}>
-          Ajustes
-        </Text>
+    <Screen title="Ajustes">
+      {notice ? <Banner tone={notice.tone}>{notice.text}</Banner> : null}
 
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Mi cuenta</Text>
-          <View style={styles.infoRow}>
-            <Text style={styles.label}>Nombre visible</Text>
-            <Text style={styles.value}>
-              {profile?.display_name ?? "Sin configurar"}
-            </Text>
-          </View>
-          <View style={styles.infoRow}>
-            <Text style={styles.label}>Correo electrónico</Text>
-            <Text style={styles.value}>
-              {user?.email ?? "No disponible"}
-            </Text>
-          </View>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Cerrar sesión"
-            disabled={signingOut}
-            onPress={() => void handleSignOut()}
-            style={({ pressed }) => [
-              styles.signOutButton,
-              signingOut && styles.disabled,
-              pressed && styles.pressed,
-            ]}
-          >
-            <Text style={styles.signOutText}>
-              {signingOut ? "Cerrando sesión…" : "Cerrar sesión"}
-            </Text>
-          </Pressable>
-        </View>
+      <Card>
+        <CardTitle>Mi cuenta</CardTitle>
+        <Info label="Nombre visible" value={profile?.display_name ?? "Sin configurar"} />
+        <Info label="Correo electrónico" value={user?.email ?? "No disponible"} />
+        <Button label="Cerrar sesión" variant="ghost" onPress={() => void handleSignOut()} loading={busy === "signout"} />
+      </Card>
 
-        <View style={styles.card}>
-          <View style={styles.rowBetween}>
-            <Text style={styles.cardTitle}>Preferencias de ubicación</Text>
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>Próximamente</Text>
-            </View>
-          </View>
-          <Text style={styles.description}>
-            Próximamente podrás gestionar alertas de lugares y preferencias de
-            compartir ubicación por círculo.
-          </Text>
-        </View>
+      <Card>
+        <CardTitle>Compartir ubicación</CardTitle>
+        <ToggleRow
+          label="Compartir mi ubicación con mis círculos"
+          value={consent}
+          disabled={busy !== null || !settings.isSuccess}
+          onChange={(v) => void toggleSharing(v)}
+        />
+        {consent ? (
+          <>
+            <Text style={styles.status}>{pause.label}</Text>
+            {pause.paused ? (
+              <Button label="Reanudar ahora" onPress={() => void resume()} loading={busy === "pause"} />
+            ) : (
+              <>
+                <Body>Pausar temporalmente:</Body>
+                <View style={styles.row}>
+                  {PAUSE_OPTIONS.map((o) => (
+                    <View key={o.minutes} style={{ flexBasis: "47%", flexGrow: 1 }}>
+                      <Button label={o.label} variant="secondary" onPress={() => void pauseFor(o.minutes)} disabled={busy !== null} />
+                    </View>
+                  ))}
+                </View>
+              </>
+            )}
+            <ToggleRow
+              label="Seguir compartiendo con la app cerrada (segundo plano)"
+              value={background}
+              disabled={busy !== null}
+              onChange={toggleBackground}
+            />
+            <Body>
+              {background
+                ? "Activo: verás una notificación fija mientras se comparte. Habilita avisos de llegada y salida de lugares."
+                : "Apagado: solo se comparte mientras usas la app. No habrá avisos automáticos de lugares."}
+            </Body>
+          </>
+        ) : (
+          <Body>Apagado: nadie ve tu ubicación y no se guarda ninguna.</Body>
+        )}
+      </Card>
 
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Operación en campo</Text>
-          <Text style={styles.description}>
-            Accede al modo de guía para preparar salidas, revisar asistencia y
-            registrar eventos locales sin conexión.
-          </Text>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel="Modo guía (offline)"
-            onPress={() => router.push("/guia")}
-            style={({ pressed }) => [styles.button, pressed && styles.pressed]}
-          >
-            <Text style={styles.buttonText}>Modo guía (offline)</Text>
-          </Pressable>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+      <Card>
+        <CardTitle>Notificaciones</CardTitle>
+        <Body>Recibe avisos de SOS, llegadas a lugares y mensajes aunque tengas la app cerrada.</Body>
+        <Button label="Activar notificaciones" variant="secondary" onPress={() => void enablePush()} loading={busy === "push"} />
+      </Card>
+
+      <Card>
+        <CardTitle>Privacidad y datos</CardTitle>
+        <Body>
+          Solo las personas de tus círculos ven tu ubicación, y solo la de los círculos con los que la compartes. Guardamos tu historial de ubicación 30 días y el chat 90 días; después se borran solos.
+        </Body>
+        <Button label="Descargar mis datos" variant="secondary" onPress={() => void exportData()} loading={busy === "export"} />
+        <Button label="Eliminar mi cuenta" variant="danger" onPress={confirmDelete} loading={busy === "delete"} />
+      </Card>
+
+      <Card>
+        <CardTitle>Operación en campo</CardTitle>
+        <Body>Accede al modo guía para preparar salidas, revisar asistencia y registrar eventos locales sin conexión.</Body>
+        <Button label="Modo guía (offline)" onPress={() => router.push("/guia")} />
+      </Card>
+    </Screen>
+  );
+}
+
+function Info({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.info}>
+      <Text style={styles.label}>{label}</Text>
+      <Text style={styles.value}>{value}</Text>
+    </View>
+  );
+}
+
+function ToggleRow({
+  label,
+  value,
+  onChange,
+  disabled,
+}: {
+  label: string;
+  value: boolean;
+  onChange: (v: boolean) => void;
+  disabled?: boolean;
+}) {
+  return (
+    <View style={styles.toggle}>
+      <Text style={styles.toggleText}>{label}</Text>
+      <Switch
+        accessibilityLabel={label}
+        value={value}
+        disabled={disabled}
+        onValueChange={onChange}
+        trackColor={{ true: colors.ink, false: colors.border }}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: {
-    flex: 1,
-    backgroundColor: "#F7F5EF",
-  },
-  container: {
-    padding: 24,
-    gap: 14,
-  },
-  rowBetween: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    gap: 8,
-  },
-  badge: {
-    backgroundColor: "#E4EAD9",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 8,
-  },
-  badgeText: {
-    fontSize: 11,
-    fontWeight: "700",
-    color: "#163F35",
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: "700",
-    color: "#163F35",
-    letterSpacing: -0.8,
-  },
-  card: {
-    padding: 20,
-    backgroundColor: "#FFFFFF",
-    borderWidth: 1,
-    borderColor: "#D8D2C5",
-    borderRadius: 18,
-    gap: 12,
-  },
-  cardTitle: {
-    fontSize: 17,
-    fontWeight: "600",
-    color: "#163F35",
-  },
-  infoRow: {
-    gap: 3,
-    paddingVertical: 4,
-    borderBottomWidth: 1,
-    borderBottomColor: "#EFECE4",
-  },
-  label: {
-    fontSize: 12,
-    color: "#5B665F",
-  },
-  value: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#163F35",
-  },
-  description: {
-    fontSize: 15,
-    lineHeight: 22,
-    color: "#5B665F",
-  },
-  button: {
-    minHeight: 52,
-    backgroundColor: "#163F35",
-    borderRadius: 14,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 14,
-  },
-  signOutButton: {
-    minHeight: 48,
-    borderWidth: 1,
-    borderColor: "#8D3927",
-    borderRadius: 14,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    marginTop: 4,
-  },
-  signOutText: {
-    color: "#8D3927",
-    fontSize: 14,
-    fontWeight: "700",
-  },
-  disabled: {
-    opacity: 0.5,
-  },
-  pressed: {
-    opacity: 0.8,
-  },
-  buttonText: {
-    color: "#FFFFFF",
-    fontSize: 15,
-    fontWeight: "700",
-  },
+  info: { gap: 3, paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: "#EFECE4" },
+  label: { fontSize: 12, color: colors.muted },
+  value: { fontSize: 16, fontWeight: "600", color: colors.ink },
+  status: { fontSize: 15, fontWeight: "700", color: colors.ink },
+  row: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
+  toggle: { flexDirection: "row", alignItems: "center", gap: 12 },
+  toggleText: { flex: 1, fontSize: 15, color: colors.ink, fontWeight: "600" },
 });

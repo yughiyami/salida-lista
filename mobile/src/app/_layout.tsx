@@ -89,6 +89,9 @@ export default function RootLayout() {
                   }
                 >
                   <Stack.Screen name="(tabs)" />
+                  <Stack.Screen name="circulo/[id]" />
+                  <Stack.Screen name="chat/[id]" />
+                  <Stack.Screen name="lugar/nuevo" />
                 </Stack.Protected>
                 <Stack.Protected
                   guard={!hasCompletedProfile}

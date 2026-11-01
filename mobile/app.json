@@ -2,7 +2,7 @@
   "expo": {
     "name": "Salida Lista",
     "slug": "salida-lista",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/brand/salida-lista-mark.png",
     "userInterfaceStyle": "light",
@@ -17,7 +17,15 @@
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.salidalista.mobile",
-      "versionCode": 5
+      "versionCode": 6,
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION",
+        "POST_NOTIFICATIONS"
+      ]
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,14 +38,23 @@
       [
         "expo-location",
         {
-          "locationWhenInUsePermission": "Permite mostrar tu posición mientras usas el mapa y adjuntarla a eventos. No hay seguimiento en segundo plano.",
-          "isAndroidBackgroundLocationEnabled": false,
-          "isIosBackgroundLocationEnabled": false
+          "locationAlwaysAndWhenInUsePermission": "Salida Lista comparte tu ubicación con tu círculo aunque la app esté cerrada, para avisar cuando llegas o sales de un lugar. Puedes pausarlo o apagarlo en Ajustes.",
+          "locationWhenInUsePermission": "Salida Lista usa tu ubicación para mostrarte en el mapa y compartirla con tu círculo mientras usas la app.",
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true,
+          "isIosBackgroundLocationEnabled": true
         }
       ],
       "@maplibre/maplibre-react-native",
       "expo-status-bar",
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-notifications",
+        {
+          "color": "#163F35",
+          "defaultChannel": "circle"
+        }
+      ]
     ],
     "scheme": "salidalista",
     "platforms": [

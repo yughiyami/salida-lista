@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-16",
+  "package": "com.salidalista.mobile",
+  "version": "1.0.1",
+  "airplaneAtFirstSave": true,
+  "wifiAtFirstSave": false,
+  "activeDefaultNetworkAtFirstSave": "none",
+  "events": [
+    {
+      "id": "99b487c2-02d6-4cd1-b34d-4496503efca1",
+      "description": "PRUEBA-AVION-01-Arequipa",
+      "positionAttached": false
+    }
+  ],
+  "persistenceAfterForceStop": "pending",
+  "attendanceComparison": "pending",
+  "note": "Prueba interrumpida: teléfono cambió a otra app y volvió a tener red. No acredita la comparación completa. Sin coordenadas privadas."
+}

@@ -1,0 +1,9 @@
+{
+  "version": "1.0.2",
+  "upgradeFrom": "1.0.1",
+  "eventsSameIdsAndNotes": true,
+  "allEightAttendanceStatesUnchanged": true,
+  "eventCount": 3,
+  "presentCount": 3,
+  "network": "airplane on; wifi disabled; no active default network"
+}

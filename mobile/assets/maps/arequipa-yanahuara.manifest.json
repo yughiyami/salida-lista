@@ -1,0 +1,22 @@
+{
+  "id": "arequipa-yanahuara",
+  "name": "Arequipa · Yanahuara",
+  "bounds": [
+    -71.548,
+    -16.392,
+    -71.535,
+    -16.38
+  ],
+  "center": [
+    -71.542,
+    -16.386
+  ],
+  "zoom": 14,
+  "detail": "Yanahuara y entorno inmediato; no cubre todos los distritos de Arequipa.",
+  "source": "https://api.openstreetmap.org/api/0.6/map.json?bbox=-71.548,-16.392,-71.535,-16.38",
+  "downloadedOn": "2026-10-16",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "featureCount": 660,
+  "sourceSha256": "02dab1fdfee0179f257a2fcebfa81cd33411d8ab74ac73e0e9f51699e10f9b0d"
+}

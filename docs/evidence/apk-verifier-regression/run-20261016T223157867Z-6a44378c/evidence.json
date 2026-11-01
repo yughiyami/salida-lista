@@ -1,0 +1,459 @@
+{
+  "schemaVersion": 1,
+  "checkedAtUtc": "2026-10-16T22:31:57.8948490Z",
+  "scope": "Static APK verification only; no device or GPS test",
+  "apkFileName": "SalidaLista-1.0.1-Android.apk",
+  "sizeBytes": 86077015,
+  "sha256": "71a61d78c34880057586c11cd9dd53c3a726413c0104ec44aeccd175e2cb40b2",
+  "expected": {
+    "versionName": "1.0.1",
+    "packageName": "com.salidalista.mobile",
+    "abis": [
+      "arm64-v8a",
+      "x86_64"
+    ],
+    "versionCode": "2"
+  },
+  "metadata": {
+    "packageName": "com.salidalista.mobile",
+    "versionCode": "2",
+    "versionName": "1.0.1"
+  },
+  "abis": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "nativeLibraries": [
+    {
+      "abi": "arm64-v8a",
+      "file": "libappmodules.so",
+      "sizeBytes": 1733808
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libc++_shared.so",
+      "sizeBytes": 1292904
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libexpo-modules-core.so",
+      "sizeBytes": 1585336
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libexpo-modules-jsi.so",
+      "sizeBytes": 90520
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libexpo-modules-v2.so",
+      "sizeBytes": 338640
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libexpo-modules-worklets.so",
+      "sizeBytes": 116072
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libexpo-sqlite.so",
+      "sizeBytes": 1896432
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libfbjni.so",
+      "sizeBytes": 177000
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libgesturehandler.so",
+      "sizeBytes": 92160
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libgifimage.so",
+      "sizeBytes": 319088
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libhermestooling.so",
+      "sizeBytes": 141216
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libhermesvm.so",
+      "sizeBytes": 2704136
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libimagepipeline.so",
+      "sizeBytes": 8760
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libjsi.so",
+      "sizeBytes": 412696
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libmaplibre.so",
+      "sizeBytes": 10846016
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libnative-filters.so",
+      "sizeBytes": 277744
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libnative-imagetranscoder.so",
+      "sizeBytes": 585376
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libreact_codegen_rngesturehandler_codegen.so",
+      "sizeBytes": 287264
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libreact_codegen_rnscreens.so",
+      "sizeBytes": 977680
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libreact_codegen_rnsvg.so",
+      "sizeBytes": 653368
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libreact_codegen_safeareacontext.so",
+      "sizeBytes": 126240
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libreactnative.so",
+      "sizeBytes": 7049088
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libreanimated.so",
+      "sizeBytes": 1666920
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "librnscreens.so",
+      "sizeBytes": 104088
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libstatic-webp.so",
+      "sizeBytes": 502112
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libworklets.so",
+      "sizeBytes": 1288448
+    },
+    {
+      "abi": "arm64-v8a",
+      "file": "libzstd-kmp.so",
+      "sizeBytes": 731872
+    },
+    {
+      "abi": "x86_64",
+      "file": "libappmodules.so",
+      "sizeBytes": 1822800
+    },
+    {
+      "abi": "x86_64",
+      "file": "libc++_shared.so",
+      "sizeBytes": 1252080
+    },
+    {
+      "abi": "x86_64",
+      "file": "libexpo-modules-core.so",
+      "sizeBytes": 1538560
+    },
+    {
+      "abi": "x86_64",
+      "file": "libexpo-modules-jsi.so",
+      "sizeBytes": 86896
+    },
+    {
+      "abi": "x86_64",
+      "file": "libexpo-modules-v2.so",
+      "sizeBytes": 348016
+    },
+    {
+      "abi": "x86_64",
+      "file": "libexpo-modules-worklets.so",
+      "sizeBytes": 110248
+    },
+    {
+      "abi": "x86_64",
+      "file": "libexpo-sqlite.so",
+      "sizeBytes": 1947760
+    },
+    {
+      "abi": "x86_64",
+      "file": "libfbjni.so",
+      "sizeBytes": 172952
+    },
+    {
+      "abi": "x86_64",
+      "file": "libgesturehandler.so",
+      "sizeBytes": 88080
+    },
+    {
+      "abi": "x86_64",
+      "file": "libgifimage.so",
+      "sizeBytes": 303032
+    },
+    {
+      "abi": "x86_64",
+      "file": "libhermestooling.so",
+      "sizeBytes": 137744
+    },
+    {
+      "abi": "x86_64",
+      "file": "libhermesvm.so",
+      "sizeBytes": 2830688
+    },
+    {
+      "abi": "x86_64",
+      "file": "libimagepipeline.so",
+      "sizeBytes": 8464
+    },
+    {
+      "abi": "x86_64",
+      "file": "libjsi.so",
+      "sizeBytes": 418872
+    },
+    {
+      "abi": "x86_64",
+      "file": "libmaplibre.so",
+      "sizeBytes": 11207424
+    },
+    {
+      "abi": "x86_64",
+      "file": "libnative-filters.so",
+      "sizeBytes": 270784
+    },
+    {
+      "abi": "x86_64",
+      "file": "libnative-imagetranscoder.so",
+      "sizeBytes": 720432
+    },
+    {
+      "abi": "x86_64",
+      "file": "libreact_codegen_rngesturehandler_codegen.so",
+      "sizeBytes": 294160
+    },
+    {
+      "abi": "x86_64",
+      "file": "libreact_codegen_rnscreens.so",
+      "sizeBytes": 1003248
+    },
+    {
+      "abi": "x86_64",
+      "file": "libreact_codegen_rnsvg.so",
+      "sizeBytes": 737672
+    },
+    {
+      "abi": "x86_64",
+      "file": "libreact_codegen_safeareacontext.so",
+      "sizeBytes": 127376
+    },
+    {
+      "abi": "x86_64",
+      "file": "libreactnative.so",
+      "sizeBytes": 7258056
+    },
+    {
+      "abi": "x86_64",
+      "file": "libreanimated.so",
+      "sizeBytes": 1719480
+    },
+    {
+      "abi": "x86_64",
+      "file": "librnscreens.so",
+      "sizeBytes": 100928
+    },
+    {
+      "abi": "x86_64",
+      "file": "libstatic-webp.so",
+      "sizeBytes": 561176
+    },
+    {
+      "abi": "x86_64",
+      "file": "libworklets.so",
+      "sizeBytes": 1237080
+    },
+    {
+      "abi": "x86_64",
+      "file": "libzstd-kmp.so",
+      "sizeBytes": 816568
+    }
+  ],
+  "embeddedBundle": {
+    "sizeBytes": 4439536,
+    "count": 1,
+    "entry": "assets/index.android.bundle"
+  },
+  "tools": {
+    "buildTools": "37.0.0",
+    "javaMajorRequired": 21
+  },
+  "checks": [
+    {
+      "name": "jdk21",
+      "passed": true,
+      "detail": "java -version exit=0"
+    },
+    {
+      "name": "signature",
+      "passed": true,
+      "detail": "apksigner verify exit=0; public certificate details in log"
+    },
+    {
+      "name": "aaptExit",
+      "passed": true,
+      "detail": "aapt dump badging exit=0"
+    },
+    {
+      "name": "expectedMetadata",
+      "passed": true,
+      "detail": "Expected com.salidalista.mobile / versionName 1.0.1 / versionCode 2"
+    },
+    {
+      "name": "uniqueZipEntries",
+      "passed": true,
+      "detail": "Exact duplicate entry names=0 (ordinal, case-sensitive)"
+    },
+    {
+      "name": "abi:arm64-v8a",
+      "passed": true,
+      "detail": "Required native ABI arm64-v8a"
+    },
+    {
+      "name": "library:arm64-v8a/libreactnative.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:arm64-v8a/libappmodules.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:arm64-v8a/libmaplibre.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:arm64-v8a/libexpo-sqlite.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:arm64-v8a/libreanimated.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:arm64-v8a/libworklets.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "hermes:arm64-v8a",
+      "passed": true,
+      "detail": "Nonempty libhermesvm.so (current RN) or libhermes.so (older naming)"
+    },
+    {
+      "name": "abi:x86_64",
+      "passed": true,
+      "detail": "Required native ABI x86_64"
+    },
+    {
+      "name": "library:x86_64/libreactnative.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:x86_64/libappmodules.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:x86_64/libmaplibre.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:x86_64/libexpo-sqlite.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:x86_64/libreanimated.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "library:x86_64/libworklets.so",
+      "passed": true,
+      "detail": "Required nonempty native core library"
+    },
+    {
+      "name": "hermes:x86_64",
+      "passed": true,
+      "detail": "Nonempty libhermesvm.so (current RN) or libhermes.so (older naming)"
+    },
+    {
+      "name": "moduleParity:arm64-v8a/libreanimated.so",
+      "passed": true,
+      "detail": "Optional module found in APK must cover both required ABIs"
+    },
+    {
+      "name": "moduleParity:x86_64/libreanimated.so",
+      "passed": true,
+      "detail": "Optional module found in APK must cover both required ABIs"
+    },
+    {
+      "name": "moduleParity:arm64-v8a/libworklets.so",
+      "passed": true,
+      "detail": "Optional module found in APK must cover both required ABIs"
+    },
+    {
+      "name": "moduleParity:x86_64/libworklets.so",
+      "passed": true,
+      "detail": "Optional module found in APK must cover both required ABIs"
+    },
+    {
+      "name": "moduleParity:arm64-v8a/libmaplibre.so",
+      "passed": true,
+      "detail": "Optional module found in APK must cover both required ABIs"
+    },
+    {
+      "name": "moduleParity:x86_64/libmaplibre.so",
+      "passed": true,
+      "detail": "Optional module found in APK must cover both required ABIs"
+    },
+    {
+      "name": "embeddedJsBundle",
+      "passed": true,
+      "detail": "Nonempty embedded JS/Hermes bundle; no Metro required for bundle delivery"
+    }
+  ],
+  "passed": true,
+  "apkStructureVerified": true,
+  "runtimeGpsVerified": false,
+  "deviceRuntimeTested": false,
+  "logs": [
+    "java-version.log",
+    "apksigner.log",
+    "aapt-badging.log"
+  ],
+  "error": null
+}

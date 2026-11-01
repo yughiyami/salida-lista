@@ -1,0 +1,18 @@
+{
+  "version": "1.0.4",
+  "upgradeFrom": "1.0.3",
+  "forceStopVerified": true,
+  "fourEventIdsAndNotesUnchanged": true,
+  "displayedEventTimesUnchanged": true,
+  "allEightAttendanceStatesUnchanged": true,
+  "presentCount": 3,
+  "airplaneModeBeforeAndAfter": true,
+  "wifiBeforeAndAfter": "disabled",
+  "activeDefaultNetworkBeforeAndAfter": "none",
+  "arequipaMapRendered": true,
+  "peruMapRendered": true,
+  "nationalNorthSouthFramingVerifiedVisually": true,
+  "gpsActivated": false,
+  "storageCleared": false,
+  "sourceGuardFile": "source-guard-1.0.4.json"
+}

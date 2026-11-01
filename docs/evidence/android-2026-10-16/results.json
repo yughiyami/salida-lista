@@ -1,0 +1,23 @@
+{
+  "date": "2026-10-16",
+  "device": "emulator-5554",
+  "package": "com.salidalista.mobile",
+  "variant": "release",
+  "architecture": "x86_64",
+  "network": "Active default network: none",
+  "eventsRetained": [
+    "ID: 45f1575b-cd46-4b25-b964-618d24e71ec5",
+    "ID: d78be521-5f29-4d3a-b143-0bc482257942"
+  ],
+  "participantsChecked": [
+    "Valeria Torres, presente",
+    "Mateo Rojas, presente"
+  ],
+  "restartPids": [
+    8781,
+    10316,
+    11292
+  ],
+  "result": "PASS",
+  "scope": "Emulador Android. No acredita iOS, teléfono físico ni campo."
+}

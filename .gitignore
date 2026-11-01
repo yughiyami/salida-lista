@@ -1,0 +1,49 @@
+# Dependencies & build outputs
+node_modules/
+.expo/
+dist/
+web-build/
+*.tsbuildinfo
+
+# Native generated directories (CNG)
+mobile/android/
+mobile/ios/
+
+# Binaries, archives & signing keys
+artifacts/
+*.apk
+*.aab
+*.keystore
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.pem
+
+# Environment & credentials
+.env
+.env.*
+*.local
+docs/server.env
+docs/server.env.*
+!.env.example
+!mobile/.env.example
+!docs/server.env.example
+
+# Databases & local storage
+*.db
+*.db-shm
+*.db-wal
+*.db-*
+*.sqlite*
+
+# Local caches & tools
+.codegraph/
+.claude/
+.cache/
+.venv/
+.venv-maps/
+*.osm.pbf
+__pycache__/
+*.py[cod]

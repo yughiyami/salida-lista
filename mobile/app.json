@@ -1,0 +1,46 @@
+{
+  "expo": {
+    "name": "Salida Lista",
+    "slug": "salida-lista",
+    "version": "1.0.4",
+    "orientation": "portrait",
+    "icon": "./assets/brand/salida-lista-mark.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.salidalista.mobile"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#163F35",
+        "foregroundImage": "./assets/brand/salida-lista-mark.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.salidalista.mobile",
+      "versionCode": 5
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "./plugins/withCmakeObjectPathLimit",
+      "expo-sqlite",
+      "expo-router",
+      "expo-splash-screen",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Permite mostrar tu posición mientras usas el mapa y adjuntarla a eventos. No hay seguimiento en segundo plano.",
+          "isAndroidBackgroundLocationEnabled": false,
+          "isIosBackgroundLocationEnabled": false
+        }
+      ],
+      "@maplibre/maplibre-react-native"
+    ],
+    "scheme": "salidalista",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}

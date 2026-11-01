@@ -1,0 +1,34 @@
+{
+  "events": [
+    "ID: 45f1575b-cd46-4b25-b964-618d24e71ec5",
+    "ID: d78be521-5f29-4d3a-b143-0bc482257942"
+  ],
+  "checklist": [
+    {
+      "content-desc": "Participantes revisados, Confirma la presencia de cada persona.",
+      "checked": "false"
+    },
+    {
+      "content-desc": "✓, Ficha y protocolo locales, Revisa los datos de demostración en este teléfono.",
+      "checked": "true"
+    },
+    {
+      "content-desc": "✓, Equipo verificado, Verificación manual; la app no certifica el equipo.",
+      "checked": "true"
+    },
+    {
+      "content-desc": "Canal alternativo revisado, Confirma el medio real con tu agencia.",
+      "checked": "false"
+    }
+  ],
+  "participants": [
+    {
+      "content-desc": "Valeria Torres, presente",
+      "checked": "true"
+    },
+    {
+      "content-desc": "Mateo Rojas, presente",
+      "checked": "true"
+    }
+  ]
+}

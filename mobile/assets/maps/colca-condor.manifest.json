@@ -1,0 +1,22 @@
+{
+  "id": "colca-condor",
+  "name": "Colca · Cruz del Cóndor",
+  "bounds": [
+    -71.96,
+    -15.64,
+    -71.88,
+    -15.57
+  ],
+  "center": [
+    -71.92,
+    -15.605
+  ],
+  "zoom": 12,
+  "detail": "Mirador Cruz del Cóndor y entorno; no cubre todo Cabanaconde.",
+  "source": "https://api.openstreetmap.org/api/0.6/map.json?bbox=-71.96,-15.64,-71.88,-15.57",
+  "downloadedOn": "2026-10-16",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "featureCount": 216,
+  "sourceSha256": "8d0a1f4a6a120bb1c6620087938c99d3f1f6127d7bd202d4eb0fd3f84362cd3c"
+}

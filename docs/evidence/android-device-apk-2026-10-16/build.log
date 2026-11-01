@@ -1,0 +1,1981 @@
+Configuration on demand is an incubating feature.
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:shared:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:processResources NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:classes UP-TO-DATE
+> Task :gradle-plugin:shared:processResources NO-SOURCE
+> Task :gradle-plugin:shared:classes UP-TO-DATE
+> Task :gradle-plugin:shared:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin-shared:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-settings-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-gradle-plugin:expo-autolinking-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-module-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-module-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-module-gradle-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:compileKotlin UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:compileJava NO-SOURCE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:pluginDescriptors UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:processResources UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:classes UP-TO-DATE
+> Task :expo-gradle-plugin:expo-autolinking-plugin:jar UP-TO-DATE
+> Task :expo-gradle-plugin:expo-max-sdk-override-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+> Task :expo-module-gradle-plugin:compileKotlin UP-TO-DATE
+> Task :expo-module-gradle-plugin:compileJava NO-SOURCE
+> Task :expo-module-gradle-plugin:classes UP-TO-DATE
+> Task :expo-module-gradle-plugin:jar UP-TO-DATE
+
+> Configure project :
+[32m[ExpoRootProject][0m The Kotlin Gradle plugin used by this build is [32m2.2.10[0m, but the version catalog declares [33m2.2.0[0m. Using the plugin version.
+[32m[ExpoRootProject][0m Using the following versions:
+  - buildTools:  [32m37.0.0[0m
+  - minSdk:      [32m24[0m
+  - compileSdk:  [32m37[0m
+  - targetSdk:   [32m36[0m
+  - ndk:         [32m27.1.12297006[0m
+  - kotlin:      [32m2.2.10[0m
+  - ksp:         [32m2.2.10-2.0.2[0m
+[32m[ExpoRootProject][0m Overriding CMake version: [32m3.31.6[0m
+
+> Configure project :app
+WARNING: The option setting 'android.builtInKotlin=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+WARNING: The option setting 'android.newDsl=false' is deprecated.
+The current default is 'true'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+ ℹ️  [33mApplying gradle plugin[0m '[32mexpo-max-sdk-override-plugin[0m'
+  [expo-max-sdk-override-plugin] This plugin will find all permissions declared with `android:maxSdkVersion`. If there exists a declaration with the `android:maxSdkVersion` annotation and another one without, the plugin will remove the annotation from the final merged manifest. In order to see a log with the changes run a clean build of the app.
+WARNING: API 'applicationVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling applicationVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+WARNING: API 'testVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling testVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+WARNING: API 'unitTestVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling unitTestVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+
+> Configure project :maplibre_maplibre-react-native
+WARNING: API 'libraryVariants' is obsolete and has been replaced with 'AndroidComponentsExtension'.
+It will be removed in version 10.0 of the Android Gradle plugin.
+The legacy variant API is disabled by default in AGP 9.0, but can be re-enabled by adding 
+    android.newDsl=false
+to this project's gradle.properties file.
+For more information, see http://developer.android.com/build/r/new-dsl.
+
+To determine what is calling libraryVariants, use -Pandroid.debug.obsoleteApi=true on the command line to display more information.
+
+> Configure project :expo
+
+Using expo modules
+  - [32mexpo-dom-webview[0m (58.0.2)
+  - [32mexpo-log-box[0m (58.0.12)
+  - [32mexpo-constants[0m (58.0.12)
+
+> Configure project :expo-modules-core
+Linking react-native-worklets native libs into expo-modules-core build tasks
+task ':react-native-worklets:mergeDebugNativeLibs'
+task ':react-native-worklets:mergeReleaseNativeLibs'
+
+> Configure project :expo
+  - [32mexpo-modules-core[0m (58.0.20)
+  - [33m[📦][0m [32mexpo-asset[0m (58.0.16)
+  - [33m[📦][0m [32mexpo-crypto[0m (58.0.6)
+  - [33m[📦][0m [32mexpo-file-system[0m (58.0.9)
+  - [33m[📦][0m [32mexpo-font[0m (58.0.8)
+  - [33m[📦][0m [32mexpo-keep-awake[0m (58.0.3)
+  - [33m[📦][0m [32mexpo-linking[0m (58.0.13)
+  - [33m[📦][0m [32mexpo-location[0m (58.0.16)
+  - [33m[📦][0m [32mexpo-router[0m (58.0.21)
+  - [33m[📦][0m [32mexpo-splash-screen[0m (58.0.9)
+  - [33m[📦][0m [32mexpo-sqlite[0m (58.0.13)
+  - [33m[📦][0m [32mexpo-status-bar[0m (58.0.3)
+
+
+> Task :react-native-reanimated:assertMinimalReactNativeVersionTask
+> Task :app:generateAutolinkingNewArchitectureFiles
+> Task :app:generateAutolinkingPackageList
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:generateReactNativeEntryPoint
+> Task :app:preBuild
+> Task :app:preReleaseBuild
+> Task :react-native-reanimated:assertWorkletsVersionTask
+> Task :react-native-worklets:assertMinimalReactNativeVersionTask
+> Task :react-native-reanimated:generateCodegenSchemaFromJavaScript
+> Task :react-native-worklets:generateCodegenSchemaFromJavaScript
+> Task :react-native-worklets:generateCodegenArtifactsFromSchema
+> Task :react-native-reanimated:generateCodegenArtifactsFromSchema
+> Task :react-native-worklets:prepareWorkletsHeadersForPrefabs
+> Task :react-native-worklets:preBuild
+> Task :react-native-worklets:preReleaseBuild
+> Task :react-native-reanimated:prepareReanimatedHeadersForPrefabs
+> Task :react-native-reanimated:preBuild
+> Task :react-native-reanimated:preReleaseBuild
+> Task :app:mergeReleaseJniLibFolders
+> Task :expo:generateInlineModules
+> Task :expo:generatePackagesList
+> Task :expo:preBuild
+> Task :expo:preReleaseBuild
+> Task :expo:mergeReleaseJniLibFolders
+> Task :expo:mergeReleaseNativeLibs NO-SOURCE
+> Task :expo:copyReleaseJniLibsProjectOnly
+
+> Task :react-native-worklets:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Warning (dev) at CMakeLists.txt:1 (project):
+C/C++:   cmake_minimum_required() should be called prior to this top-level project()
+C/C++:   call.  Please see the cmake-commands(7) manual for usage documentation of
+C/C++:   both commands.
+C/C++: This warning is for project developers.  Use -Wno-dev to suppress it.
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   .cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+
+> Task :expo-constants:createReleaseExpoConfig
+> Task :expo-constants:preBuild UP-TO-DATE
+> Task :expo-constants:preReleaseBuild
+> Task :expo-constants:mergeReleaseJniLibFolders
+> Task :expo-constants:mergeReleaseNativeLibs NO-SOURCE
+> Task :expo-constants:copyReleaseJniLibsProjectOnly
+> Task :expo-dom-webview:preBuild UP-TO-DATE
+> Task :expo-dom-webview:preReleaseBuild UP-TO-DATE
+> Task :expo-dom-webview:mergeReleaseJniLibFolders
+> Task :expo-dom-webview:mergeReleaseNativeLibs NO-SOURCE
+> Task :expo-dom-webview:copyReleaseJniLibsProjectOnly
+> Task :expo-log-box:preBuild UP-TO-DATE
+> Task :expo-log-box:preReleaseBuild UP-TO-DATE
+> Task :expo-log-box:mergeReleaseJniLibFolders
+> Task :expo-log-box:mergeReleaseNativeLibs NO-SOURCE
+> Task :expo-log-box:copyReleaseJniLibsProjectOnly
+> Task :expo-modules-core:decompressPrebuiltNativeLibs
+> Task :expo-modules-core:preBuild
+> Task :expo-modules-core:preReleaseBuild
+> Task :expo-modules-core:unpackExpoModulesV2Cpp
+> Task :expo-modules-core:mergeReleaseJniLibFolders
+
+> Task :react-native-worklets:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-qgqq3n/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-qgqq3n/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-qgqq3n/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-zh00wv/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-zh00wv/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-worklets/android/.cxx/RelWithDebInfo/3a141r5w/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-zh00wv/CMakeLists.txt:4 (project)
+
+> Task :maplibre_maplibre-react-native:generateCodegenSchemaFromJavaScript
+> Task :maplibre_maplibre-react-native:generateCodegenArtifactsFromSchema
+> Task :maplibre_maplibre-react-native:preBuild
+> Task :maplibre_maplibre-react-native:preReleaseBuild
+> Task :maplibre_maplibre-react-native:mergeReleaseJniLibFolders
+> Task :maplibre_maplibre-react-native:mergeReleaseNativeLibs NO-SOURCE
+> Task :maplibre_maplibre-react-native:copyReleaseJniLibsProjectOnly
+> Task :react-native-gesture-handler:generateCodegenSchemaFromJavaScript
+> Task :react-native-gesture-handler:generateCodegenArtifactsFromSchema
+> Task :react-native-gesture-handler:preBuild
+> Task :react-native-gesture-handler:preReleaseBuild
+> Task :react-native-gesture-handler:mergeReleaseJniLibFolders
+> Task :react-native-masked-view_masked-view:preBuild UP-TO-DATE
+> Task :react-native-masked-view_masked-view:preReleaseBuild UP-TO-DATE
+> Task :react-native-masked-view_masked-view:mergeReleaseJniLibFolders
+> Task :react-native-masked-view_masked-view:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-masked-view_masked-view:copyReleaseJniLibsProjectOnly
+> Task :react-native-reanimated:mergeReleaseJniLibFolders
+> Task :react-native-safe-area-context:generateCodegenSchemaFromJavaScript
+> Task :react-native-safe-area-context:generateCodegenArtifactsFromSchema
+> Task :react-native-safe-area-context:preBuild
+> Task :react-native-safe-area-context:preReleaseBuild
+> Task :react-native-safe-area-context:mergeReleaseJniLibFolders
+> Task :react-native-safe-area-context:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-safe-area-context:copyReleaseJniLibsProjectOnly
+> Task :react-native-screens:generateCodegenSchemaFromJavaScript
+> Task :react-native-screens:generateCodegenArtifactsFromSchema
+> Task :react-native-screens:preBuild
+> Task :react-native-screens:preReleaseBuild
+
+> Task :react-native-screens:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:3 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:3 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   .cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:3 (project)
+
+> Task :react-native-worklets:buildCMakeRelWithDebInfo[arm64-v8a][worklets]
+
+> Task :react-native-screens:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:3 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-0qkxa4/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-0qkxa4/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-0qkxa4/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-t4pn9a/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-t4pn9a/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-screens/android/.cxx/RelWithDebInfo/6k2e2i5q/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-t4pn9a/CMakeLists.txt:4 (project)
+
+> Task :react-native-worklets:buildCMakeRelWithDebInfo[arm64-v8a][worklets]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-worklets\android\build\intermediates\cxx\RelWithDebInfo\3a141r5w\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-worklets\android\build\intermediates\cxx\RelWithDebInfo\3a141r5w\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-worklets:configureCMakeRelWithDebInfo[x86_64]
+C/C++: CMake Warning (dev) at CMakeLists.txt:1 (project):
+C/C++:   cmake_minimum_required() should be called prior to this top-level project()
+C/C++:   call.  Please see the cmake-commands(7) manual for usage documentation of
+C/C++:   both commands.
+C/C++: This warning is for project developers.  Use -Wno-dev to suppress it.
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   .cxx/RelWithDebInfo/3a141r5w/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   .cxx/RelWithDebInfo/3a141r5w/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:1 (project)
+
+> Task :react-native-worklets:buildCMakeRelWithDebInfo[x86_64][worklets]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-worklets\android\build\intermediates\cxx\RelWithDebInfo\3a141r5w\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-worklets\android\build\intermediates\cxx\RelWithDebInfo\3a141r5w\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-worklets:externalNativeBuildRelease
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-worklets\android\build\intermediates\cmake\release\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-worklets\android\build\intermediates\cmake\release\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-worklets\android\build\intermediates\cmake\release\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-worklets\android\build\intermediates\cmake\release\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-worklets:generateJsonModelRelease
+> Task :react-native-worklets:prefabReleaseConfigurePackage
+
+> Task :react-native-reanimated:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Warning (dev) at CMakeLists.txt:1 (project):
+C/C++:   cmake_minimum_required() should be called prior to this top-level project()
+C/C++:   call.  Please see the cmake-commands(7) manual for usage documentation of
+C/C++:   both commands.
+C/C++: This warning is for project developers.  Use -Wno-dev to suppress it.
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   .cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+
+> Task :react-native-screens:buildCMakeRelWithDebInfo[arm64-v8a]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-screens\android\build\intermediates\cxx\RelWithDebInfo\6k2e2i5q\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-screens\android\build\intermediates\cxx\RelWithDebInfo\6k2e2i5q\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-worklets:prefabReleasePackage
+> Task :react-native-worklets:mergeReleaseJniLibFolders
+> Task :react-native-worklets:mergeReleaseNativeLibs
+> Task :react-native-worklets:copyReleaseJniLibsProjectOnly
+
+> Task :react-native-reanimated:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-wdlmr8/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-wdlmr8/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-wdlmr8/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-fp30sg/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-fp30sg/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-reanimated/android/.cxx/RelWithDebInfo/286u60r3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-fp30sg/CMakeLists.txt:4 (project)
+
+> Task :expo-modules-core:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:5 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:5 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   .cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:5 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:5 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-37zzti/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-37zzti/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-37zzti/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-yz975i/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-yz975i/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/.cxx/RelWithDebInfo/3a705oc3/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-yz975i/CMakeLists.txt:4 (project)
+
+> Task :react-native-reanimated:configureCMakeRelWithDebInfo[x86_64]
+C/C++: CMake Warning (dev) at CMakeLists.txt:1 (project):
+C/C++:   cmake_minimum_required() should be called prior to this top-level project()
+C/C++:   call.  Please see the cmake-commands(7) manual for usage documentation of
+C/C++:   both commands.
+C/C++: This warning is for project developers.  Use -Wno-dev to suppress it.
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   .cxx/RelWithDebInfo/286u60r3/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   .cxx/RelWithDebInfo/286u60r3/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:1 (project)
+
+> Task :react-native-reanimated:generateJsonModelRelease
+> Task :react-native-reanimated:prefabReleaseConfigurePackage
+
+> Task :app:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:28 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:28 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:28 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:28 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-9qphw9/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-9qphw9/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-9qphw9/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-p65b1t/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-p65b1t/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-p65b1t/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/_CMakeLTOTest-C/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/_CMakeLTOTest-C/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/CMakeFiles/_CMakeLTOTest-C/src/CMakeLists.txt:2 (project)
+C/C++: CMake Warning in D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/CMakeLists.txt:
+C/C++:   The object file directory
+C/C++:     D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/arm64-v8a/rngesturehandler_codegen_autolinked_build/CMakeFiles/react_codegen_rngesturehandler_codegen.dir/./
+C/C++:   has 180 characters.  The maximum full path to an object file is 240
+C/C++:   characters (see CMAKE_OBJECT_PATH_MAX).  Object file
+C/C++:     716fe84ec39793c95fb88fe83358a765/RNGestureHandlerDetectorShadowNode.cpp.o
+C/C++:   cannot be safely placed under this directory.  The build may not work
+C/C++:   correctly.
+
+> Task :app:configureCMakeRelWithDebInfo[x86_64]
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:28 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:28 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:28 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:28 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/CMakeScratch/TryCompile-7r0rqp/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/CMakeScratch/TryCompile-7r0rqp/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/CMakeScratch/TryCompile-7r0rqp/CMakeLists.txt:4 (project)
+
+> Task :react-native-reanimated:buildCMakeRelWithDebInfo[arm64-v8a][reanimated]
+
+> Task :app:configureCMakeRelWithDebInfo[x86_64]
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/CMakeScratch/TryCompile-m9zxe3/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/CMakeScratch/TryCompile-m9zxe3/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/CMakeScratch/TryCompile-m9zxe3/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/_CMakeLTOTest-CXX/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/_CMakeLTOTest-C/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/_CMakeLTOTest-C/src/CMakeLists.txt:2 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/CMakeFiles/_CMakeLTOTest-C/src/CMakeLists.txt:2 (project)
+C/C++: CMake Warning in D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/CMakeLists.txt:
+C/C++:   The object file directory
+C/C++:     D:/proyectos/react_test/mobile/android/app/.cxx/RelWithDebInfo/6d4i4y2y/x86_64/rngesturehandler_codegen_autolinked_build/CMakeFiles/react_codegen_rngesturehandler_codegen.dir/./
+C/C++:   has 177 characters.  The maximum full path to an object file is 240
+C/C++:   characters (see CMAKE_OBJECT_PATH_MAX).  Object file
+C/C++:     716fe84ec39793c95fb88fe83358a765/RNGestureHandlerDetectorShadowNode.cpp.o
+C/C++:   cannot be safely placed under this directory.  The build may not work
+C/C++:   correctly.
+
+> Task :expo-modules-core:buildCMakeRelWithDebInfo[arm64-v8a]
+C/C++: ninja: Entering directory `D:\proyectos\react_test\mobile\node_modules\expo-modules-core\android\.cxx\RelWithDebInfo\3a705oc3\arm64-v8a'
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Serializable.cpp:1:
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Serializable.h:7:
+C/C++: D:/proyectos/react_test/mobile/node_modules/react-native-worklets/Common/cpp/worklets/SharedItems/Serializable.h:3:2: warning: Do not include this file directly, it will be removed in the future. Prefer including specific Serializable headers. [-W#warnings]
+C/C++:     3 | #warning Do not include this file directly, it will be removed in the future. Prefer including specific Serializable headers.
+C/C++:       |  ^
+C/C++: 1 warning generated.
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/SynchronizableFrontendConverter.cpp:3:
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Serializable.h:7:
+C/C++: D:/proyectos/react_test/mobile/node_modules/react-native-worklets/Common/cpp/worklets/SharedItems/Serializable.h:3:2: warning: Do not include this file directly, it will be removed in the future. Prefer including specific Serializable headers. [-W#warnings]
+C/C++:     3 | #warning Do not include this file directly, it will be removed in the future. Prefer including specific Serializable headers.
+C/C++:       |  ^
+C/C++: 1 warning generated.
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Worklet.cpp:1:
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Worklet.h:5:
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Serializable.h:7:
+C/C++: D:/proyectos/react_test/mobile/node_modules/react-native-worklets/Common/cpp/worklets/SharedItems/Serializable.h:3:2: warning: Do not include this file directly, it will be removed in the future. Prefer including specific Serializable headers. [-W#warnings]
+C/C++:     3 | #warning Do not include this file directly, it will be removed in the future. Prefer including specific Serializable headers.
+C/C++:       |  ^
+C/C++: D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Worklet.cpp:39:3: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+C/C++:    39 |   workletRuntime->runSync(worklet);
+C/C++:       |   ^~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~
+C/C++: 2 warnings generated.
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/WorkletsOnLoad.cpp:3:
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Worklet.h:5:
+C/C++: In file included from D:/proyectos/react_test/mobile/node_modules/expo-modules-core/android/src/main/cpp/worklets/Serializable.h:7:
+C/C++: D:/proyectos/react_test/mobile/node_modules/react-native-worklets/Common/cpp/worklets/SharedItems/Serializable.h:3:2: warning: Do not include this file directly, it will be removed in the future. Prefer including specific Serializable headers. [-W#warnings]
+C/C++:     3 | #warning Do not include this file directly, it will be removed in the future. Prefer including specific Serializable headers.
+C/C++:       |  ^
+C/C++: 1 warning generated.
+
+> Task :react-native-reanimated:buildCMakeRelWithDebInfo[arm64-v8a][reanimated]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-reanimated\android\build\intermediates\cxx\RelWithDebInfo\286u60r3\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-reanimated\android\build\intermediates\cxx\RelWithDebInfo\286u60r3\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-reanimated:buildCMakeRelWithDebInfo[x86_64][reanimated]
+
+> Task :expo-modules-core:buildCMakeRelWithDebInfo[arm64-v8a]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\expo-modules-core\android\build\intermediates\cxx\RelWithDebInfo\3a705oc3\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\expo-modules-core\android\build\intermediates\cxx\RelWithDebInfo\3a705oc3\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :expo-modules-core:configureCMakeRelWithDebInfo[x86_64]
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   .cxx/RelWithDebInfo/3a705oc3/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:5 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   .cxx/RelWithDebInfo/3a705oc3/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:5 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:5 (project)
+
+> Task :expo-modules-core:buildCMakeRelWithDebInfo[x86_64]
+
+> Task :react-native-reanimated:buildCMakeRelWithDebInfo[x86_64][reanimated]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-reanimated\android\build\intermediates\cxx\RelWithDebInfo\286u60r3\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-reanimated\android\build\intermediates\cxx\RelWithDebInfo\286u60r3\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-reanimated:externalNativeBuildRelease
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-reanimated\android\build\intermediates\cmake\release\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-reanimated\android\build\intermediates\cmake\release\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-reanimated\android\build\intermediates\cmake\release\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-reanimated\android\build\intermediates\cmake\release\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-reanimated:prefabReleasePackage
+> Task :app:buildCMakeRelWithDebInfo[arm64-v8a]
+
+> Task :expo-modules-core:buildCMakeRelWithDebInfo[x86_64]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\expo-modules-core\android\build\intermediates\cxx\RelWithDebInfo\3a705oc3\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\expo-modules-core\android\build\intermediates\cxx\RelWithDebInfo\3a705oc3\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :expo-modules-core:mergeReleaseNativeLibs
+> Task :expo-modules-core:copyReleaseJniLibsProjectOnly
+
+> Task :react-native-gesture-handler:configureCMakeRelWithDebInfo[arm64-v8a]
+C/C++: CMake Warning (dev) at CMakeLists.txt:1 (project):
+C/C++:   cmake_minimum_required() should be called prior to this top-level project()
+C/C++:   call.  Please see the cmake-commands(7) manual for usage documentation of
+C/C++:   both commands.
+C/C++: This warning is for project developers.  Use -Wno-dev to suppress it.
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:146 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-5zyxqq/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-5zyxqq/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-5zyxqq/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-i81bbd/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-i81bbd/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-CXX.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCXXInformation.cmake:48 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/arm64-v8a/CMakeFiles/CMakeScratch/TryCompile-i81bbd/CMakeLists.txt:4 (project)
+C/C++: CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+
+> Task :react-native-gesture-handler:buildCMakeRelWithDebInfo[arm64-v8a]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-gesture-handler\android\build\intermediates\cxx\RelWithDebInfo\481vo414\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-gesture-handler\android\build\intermediates\cxx\RelWithDebInfo\481vo414\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-gesture-handler:configureCMakeRelWithDebInfo[x86_64]
+C/C++: CMake Warning (dev) at CMakeLists.txt:1 (project):
+C/C++:   cmake_minimum_required() should be called prior to this top-level project()
+C/C++:   call.  Please see the cmake-commands(7) manual for usage documentation of
+C/C++:   both commands.
+C/C++: This warning is for project developers.  Use -Wno-dev to suppress it.
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android-legacy.toolchain.cmake:35 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/android.toolchain.cmake:55 (include)
+C/C++:   D:/proyectos/react_test/mobile/node_modules/react-native-gesture-handler/android/.cxx/RelWithDebInfo/481vo414/x86_64/CMakeFiles/3.31.6/CMakeSystem.cmake:6 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at C:/Users/marro/AppData/Local/Android/Sdk/ndk/27.1.12297006/build/cmake/flags.cmake:18 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+C/C++: Call Stack (most recent call first):
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang.cmake:23 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/Platform/Android-Clang-C.cmake:1 (include)
+C/C++:   C:/Users/marro/AppData/Local/Android/Sdk/cmake/3.31.6/share/cmake-3.31/Modules/CMakeCInformation.cmake:48 (include)
+C/C++:   CMakeLists.txt:1 (project)
+C/C++: CMake Deprecation Warning at CMakeLists.txt:2 (cmake_minimum_required):
+C/C++:   Compatibility with CMake < 3.10 will be removed from a future version of
+C/C++:   CMake.
+C/C++:   Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+C/C++:   to tell CMake that the project requires at least <min> but has been updated
+C/C++:   to work with policies introduced by <max> or earlier.
+
+> Task :react-native-gesture-handler:buildCMakeRelWithDebInfo[x86_64]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-gesture-handler\android\build\intermediates\cxx\RelWithDebInfo\481vo414\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-gesture-handler\android\build\intermediates\cxx\RelWithDebInfo\481vo414\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-gesture-handler:mergeReleaseNativeLibs
+> Task :react-native-gesture-handler:copyReleaseJniLibsProjectOnly
+> Task :react-native-reanimated:mergeReleaseNativeLibs
+> Task :react-native-reanimated:copyReleaseJniLibsProjectOnly
+> Task :react-native-screens:configureCMakeRelWithDebInfo[x86_64]
+
+> Task :react-native-screens:buildCMakeRelWithDebInfo[x86_64]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-screens\android\build\intermediates\cxx\RelWithDebInfo\6k2e2i5q\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\node_modules\react-native-screens\android\build\intermediates\cxx\RelWithDebInfo\6k2e2i5q\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :react-native-screens:mergeReleaseJniLibFolders
+> Task :react-native-screens:mergeReleaseNativeLibs
+> Task :react-native-screens:copyReleaseJniLibsProjectOnly
+> Task :react-native-svg:generateCodegenSchemaFromJavaScript
+> Task :react-native-svg:generateCodegenArtifactsFromSchema
+> Task :react-native-svg:preBuild
+> Task :react-native-svg:preReleaseBuild
+> Task :react-native-svg:mergeReleaseJniLibFolders
+> Task :react-native-svg:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-svg:copyReleaseJniLibsProjectOnly
+> Task :maplibre_maplibre-react-native:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :maplibre_maplibre-react-native:generateReleaseBuildConfig FROM-CACHE
+> Task :maplibre_maplibre-react-native:generateReleaseResources FROM-CACHE
+> Task :maplibre_maplibre-react-native:packageReleaseResources FROM-CACHE
+> Task :maplibre_maplibre-react-native:processReleaseNavigationResources FROM-CACHE
+> Task :maplibre_maplibre-react-native:parseReleaseLocalResources FROM-CACHE
+> Task :maplibre_maplibre-react-native:generateReleaseRFile FROM-CACHE
+> Task :maplibre_maplibre-react-native:compileReleaseKotlin FROM-CACHE
+> Task :maplibre_maplibre-react-native:javaPreCompileRelease FROM-CACHE
+> Task :maplibre_maplibre-react-native:compileReleaseJavaWithJavac FROM-CACHE
+> Task :maplibre_maplibre-react-native:mergeReleaseGeneratedProguardFiles
+> Task :maplibre_maplibre-react-native:exportReleaseConsumerProguardFiles
+> Task :react-native-gesture-handler:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-gesture-handler:generateReleaseBuildConfig FROM-CACHE
+> Task :react-native-gesture-handler:generateReleaseResources FROM-CACHE
+> Task :react-native-gesture-handler:packageReleaseResources FROM-CACHE
+> Task :react-native-gesture-handler:processReleaseNavigationResources FROM-CACHE
+> Task :react-native-gesture-handler:parseReleaseLocalResources FROM-CACHE
+> Task :react-native-gesture-handler:generateReleaseRFile FROM-CACHE
+> Task :react-native-reanimated:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-reanimated:generateReleaseBuildConfig FROM-CACHE
+> Task :react-native-reanimated:generateReleaseResources FROM-CACHE
+> Task :react-native-reanimated:packageReleaseResources FROM-CACHE
+> Task :react-native-reanimated:processReleaseNavigationResources FROM-CACHE
+> Task :react-native-reanimated:parseReleaseLocalResources FROM-CACHE
+> Task :react-native-reanimated:generateReleaseRFile FROM-CACHE
+> Task :react-native-worklets:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-worklets:generateReleaseBuildConfig FROM-CACHE
+> Task :react-native-worklets:generateReleaseResources FROM-CACHE
+> Task :react-native-worklets:packageReleaseResources FROM-CACHE
+> Task :react-native-worklets:processReleaseNavigationResources FROM-CACHE
+> Task :react-native-worklets:parseReleaseLocalResources FROM-CACHE
+> Task :react-native-worklets:generateReleaseRFile FROM-CACHE
+> Task :react-native-worklets:compileReleaseKotlin FROM-CACHE
+> Task :react-native-worklets:javaPreCompileRelease FROM-CACHE
+> Task :react-native-worklets:compileReleaseJavaWithJavac FROM-CACHE
+> Task :react-native-worklets:bundleLibCompileToJarRelease
+> Task :react-native-reanimated:compileReleaseKotlin FROM-CACHE
+> Task :react-native-reanimated:javaPreCompileRelease FROM-CACHE
+> Task :react-native-reanimated:compileReleaseJavaWithJavac FROM-CACHE
+> Task :react-native-reanimated:bundleLibCompileToJarRelease
+> Task :react-native-svg:generateReleaseBuildConfig FROM-CACHE
+> Task :react-native-svg:generateReleaseResources FROM-CACHE
+> Task :react-native-svg:packageReleaseResources FROM-CACHE
+> Task :react-native-svg:processReleaseNavigationResources FROM-CACHE
+> Task :react-native-svg:parseReleaseLocalResources FROM-CACHE
+> Task :react-native-svg:generateReleaseRFile FROM-CACHE
+> Task :react-native-svg:javaPreCompileRelease FROM-CACHE
+> Task :react-native-svg:compileReleaseJavaWithJavac FROM-CACHE
+> Task :react-native-svg:bundleLibCompileToJarRelease
+> Task :react-native-gesture-handler:compileReleaseKotlin FROM-CACHE
+> Task :react-native-gesture-handler:javaPreCompileRelease FROM-CACHE
+> Task :react-native-gesture-handler:compileReleaseJavaWithJavac FROM-CACHE
+> Task :react-native-gesture-handler:mergeReleaseGeneratedProguardFiles
+> Task :react-native-gesture-handler:exportReleaseConsumerProguardFiles
+> Task :react-native-reanimated:mergeReleaseGeneratedProguardFiles
+> Task :react-native-reanimated:exportReleaseConsumerProguardFiles
+> Task :react-native-safe-area-context:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-safe-area-context:generateReleaseBuildConfig FROM-CACHE
+> Task :react-native-safe-area-context:generateReleaseResources FROM-CACHE
+> Task :react-native-safe-area-context:packageReleaseResources FROM-CACHE
+> Task :react-native-safe-area-context:processReleaseNavigationResources FROM-CACHE
+> Task :react-native-safe-area-context:parseReleaseLocalResources FROM-CACHE
+> Task :react-native-safe-area-context:generateReleaseRFile FROM-CACHE
+> Task :react-native-safe-area-context:compileReleaseKotlin FROM-CACHE
+> Task :react-native-safe-area-context:javaPreCompileRelease FROM-CACHE
+> Task :react-native-safe-area-context:compileReleaseJavaWithJavac FROM-CACHE
+> Task :react-native-safe-area-context:mergeReleaseGeneratedProguardFiles
+> Task :react-native-safe-area-context:exportReleaseConsumerProguardFiles
+> Task :react-native-screens:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :react-native-screens:generateReleaseBuildConfig FROM-CACHE
+> Task :react-native-screens:generateReleaseResources FROM-CACHE
+> Task :react-native-screens:packageReleaseResources FROM-CACHE
+> Task :react-native-screens:processReleaseNavigationResources FROM-CACHE
+> Task :react-native-screens:parseReleaseLocalResources FROM-CACHE
+> Task :react-native-screens:generateReleaseRFile FROM-CACHE
+> Task :react-native-screens:compileReleaseKotlin FROM-CACHE
+> Task :react-native-screens:javaPreCompileRelease FROM-CACHE
+> Task :react-native-screens:compileReleaseJavaWithJavac FROM-CACHE
+> Task :react-native-screens:mergeReleaseGeneratedProguardFiles
+> Task :react-native-screens:exportReleaseConsumerProguardFiles
+> Task :expo:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo:generateReleaseResources FROM-CACHE
+> Task :expo:packageReleaseResources FROM-CACHE
+> Task :expo:processReleaseNavigationResources FROM-CACHE
+> Task :expo:parseReleaseLocalResources FROM-CACHE
+> Task :expo:generateReleaseRFile FROM-CACHE
+> Task :expo-constants:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-constants:generateReleaseResources FROM-CACHE
+> Task :expo-constants:packageReleaseResources FROM-CACHE
+> Task :expo-constants:processReleaseNavigationResources FROM-CACHE
+> Task :expo-constants:parseReleaseLocalResources FROM-CACHE
+> Task :expo-constants:generateReleaseRFile FROM-CACHE
+> Task :expo-modules-core:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-modules-core:generateReleaseBuildConfig FROM-CACHE
+> Task :expo-modules-core:generateReleaseResources FROM-CACHE
+> Task :expo-modules-core:packageReleaseResources FROM-CACHE
+> Task :expo-modules-core:processReleaseNavigationResources FROM-CACHE
+> Task :expo-modules-core:parseReleaseLocalResources FROM-CACHE
+> Task :expo-modules-core:generateReleaseRFile FROM-CACHE
+> Task :expo-modules-core:compileReleaseKotlin FROM-CACHE
+> Task :expo-modules-core:javaPreCompileRelease FROM-CACHE
+> Task :expo-modules-core:compileReleaseJavaWithJavac FROM-CACHE
+> Task :expo-modules-core:bundleLibCompileToJarRelease
+> Task :expo-constants:compileReleaseKotlin FROM-CACHE
+> Task :expo-constants:javaPreCompileRelease FROM-CACHE
+> Task :expo-constants:compileReleaseJavaWithJavac NO-SOURCE
+> Task :expo-constants:bundleLibCompileToJarRelease
+> Task :expo-dom-webview:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-dom-webview:generateReleaseResources FROM-CACHE
+> Task :expo-dom-webview:packageReleaseResources FROM-CACHE
+> Task :expo-dom-webview:processReleaseNavigationResources FROM-CACHE
+> Task :expo-dom-webview:parseReleaseLocalResources FROM-CACHE
+> Task :expo-dom-webview:generateReleaseRFile FROM-CACHE
+> Task :expo-dom-webview:compileReleaseKotlin FROM-CACHE
+> Task :expo-dom-webview:javaPreCompileRelease FROM-CACHE
+> Task :expo-dom-webview:compileReleaseJavaWithJavac NO-SOURCE
+> Task :expo-dom-webview:bundleLibCompileToJarRelease
+> Task :expo-log-box:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :expo-log-box:generateReleaseBuildConfig FROM-CACHE
+> Task :expo-log-box:generateReleaseResources FROM-CACHE
+> Task :expo-log-box:packageReleaseResources FROM-CACHE
+> Task :expo-log-box:processReleaseNavigationResources FROM-CACHE
+> Task :expo-log-box:parseReleaseLocalResources FROM-CACHE
+> Task :expo-log-box:generateReleaseRFile FROM-CACHE
+> Task :expo-log-box:compileReleaseKotlin FROM-CACHE
+> Task :expo-log-box:javaPreCompileRelease FROM-CACHE
+> Task :expo-log-box:compileReleaseJavaWithJavac FROM-CACHE
+> Task :expo-log-box:bundleLibCompileToJarRelease
+> Task :expo:compileReleaseKotlin FROM-CACHE
+> Task :expo:javaPreCompileRelease FROM-CACHE
+> Task :expo:compileReleaseJavaWithJavac NO-SOURCE
+> Task :expo:mergeReleaseGeneratedProguardFiles
+> Task :expo:exportReleaseConsumerProguardFiles
+> Task :expo-modules-core:mergeReleaseGeneratedProguardFiles
+> Task :expo-modules-core:exportReleaseConsumerProguardFiles
+> Task :react-native-worklets:mergeReleaseGeneratedProguardFiles
+> Task :react-native-worklets:exportReleaseConsumerProguardFiles
+> Task :react-native-masked-view_masked-view:generateReleaseResources FROM-CACHE
+> Task :react-native-masked-view_masked-view:packageReleaseResources FROM-CACHE
+> Task :react-native-masked-view_masked-view:processReleaseNavigationResources FROM-CACHE
+> Task :react-native-masked-view_masked-view:parseReleaseLocalResources FROM-CACHE
+> Task :react-native-masked-view_masked-view:generateReleaseRFile FROM-CACHE
+> Task :react-native-masked-view_masked-view:javaPreCompileRelease FROM-CACHE
+> Task :react-native-masked-view_masked-view:compileReleaseJavaWithJavac FROM-CACHE
+> Task :react-native-masked-view_masked-view:mergeReleaseGeneratedProguardFiles
+> Task :react-native-masked-view_masked-view:exportReleaseConsumerProguardFiles
+> Task :react-native-svg:mergeReleaseGeneratedProguardFiles
+> Task :react-native-svg:exportReleaseConsumerProguardFiles
+> Task :expo-log-box:mergeReleaseGeneratedProguardFiles
+> Task :expo-log-box:exportReleaseConsumerProguardFiles
+> Task :expo-dom-webview:mergeReleaseGeneratedProguardFiles
+> Task :expo-dom-webview:exportReleaseConsumerProguardFiles
+> Task :expo-constants:mergeReleaseGeneratedProguardFiles
+> Task :expo-constants:exportReleaseConsumerProguardFiles
+> Task :expo:bundleLibCompileToJarRelease
+> Task :maplibre_maplibre-react-native:bundleLibCompileToJarRelease
+> Task :react-native-gesture-handler:bundleLibCompileToJarRelease
+> Task :react-native-masked-view_masked-view:bundleLibCompileToJarRelease
+> Task :react-native-safe-area-context:bundleLibCompileToJarRelease
+> Task :react-native-screens:bundleLibCompileToJarRelease
+> Task :expo:prepareReleaseArtProfile
+> Task :expo-constants:prepareReleaseArtProfile
+> Task :expo-dom-webview:prepareReleaseArtProfile
+> Task :expo-log-box:prepareReleaseArtProfile
+> Task :expo-modules-core:prepareReleaseArtProfile
+> Task :maplibre_maplibre-react-native:prepareReleaseArtProfile
+> Task :react-native-gesture-handler:prepareReleaseArtProfile
+> Task :react-native-masked-view_masked-view:prepareReleaseArtProfile
+> Task :react-native-reanimated:prepareReleaseArtProfile
+> Task :react-native-safe-area-context:prepareReleaseArtProfile
+> Task :react-native-screens:prepareReleaseArtProfile
+> Task :react-native-svg:prepareReleaseArtProfile
+> Task :react-native-worklets:prepareReleaseArtProfile
+> Task :expo:writeReleaseAarMetadata
+> Task :expo-constants:writeReleaseAarMetadata
+> Task :expo-dom-webview:writeReleaseAarMetadata
+> Task :expo-log-box:writeReleaseAarMetadata
+> Task :expo-modules-core:writeReleaseAarMetadata
+> Task :maplibre_maplibre-react-native:writeReleaseAarMetadata
+> Task :react-native-gesture-handler:writeReleaseAarMetadata
+> Task :react-native-masked-view_masked-view:writeReleaseAarMetadata
+> Task :react-native-reanimated:writeReleaseAarMetadata
+> Task :react-native-safe-area-context:writeReleaseAarMetadata
+> Task :react-native-screens:writeReleaseAarMetadata
+> Task :react-native-svg:writeReleaseAarMetadata
+> Task :react-native-worklets:writeReleaseAarMetadata
+> Task :expo:extractDeepLinksRelease FROM-CACHE
+> Task :expo:processReleaseManifest FROM-CACHE
+> Task :expo-constants:extractDeepLinksRelease FROM-CACHE
+> Task :expo-constants:processReleaseManifest FROM-CACHE
+> Task :expo-dom-webview:extractDeepLinksRelease FROM-CACHE
+> Task :expo-dom-webview:processReleaseManifest FROM-CACHE
+> Task :expo-log-box:extractDeepLinksRelease FROM-CACHE
+> Task :expo-log-box:processReleaseManifest FROM-CACHE
+> Task :expo-modules-core:extractDeepLinksRelease FROM-CACHE
+> Task :expo-modules-core:processReleaseManifest FROM-CACHE
+> Task :maplibre_maplibre-react-native:extractDeepLinksRelease FROM-CACHE
+> Task :maplibre_maplibre-react-native:processReleaseManifest FROM-CACHE
+> Task :react-native-gesture-handler:extractDeepLinksRelease FROM-CACHE
+> Task :react-native-gesture-handler:processReleaseManifest FROM-CACHE
+> Task :react-native-masked-view_masked-view:extractDeepLinksRelease FROM-CACHE
+> Task :react-native-masked-view_masked-view:processReleaseManifest FROM-CACHE
+> Task :react-native-reanimated:extractDeepLinksRelease FROM-CACHE
+> Task :react-native-reanimated:processReleaseManifest FROM-CACHE
+> Task :react-native-safe-area-context:extractDeepLinksRelease FROM-CACHE
+> Task :react-native-safe-area-context:processReleaseManifest FROM-CACHE
+> Task :react-native-screens:extractDeepLinksRelease FROM-CACHE
+> Task :react-native-screens:processReleaseManifest FROM-CACHE
+> Task :react-native-svg:extractDeepLinksRelease FROM-CACHE
+> Task :react-native-svg:processReleaseManifest FROM-CACHE
+> Task :react-native-worklets:extractDeepLinksRelease FROM-CACHE
+> Task :react-native-worklets:processReleaseManifest FROM-CACHE
+> Task :expo:mapReleaseSourceSetPaths
+> Task :expo:compileReleaseLibraryResources FROM-CACHE
+> Task :expo-constants:mapReleaseSourceSetPaths
+> Task :expo-constants:compileReleaseLibraryResources FROM-CACHE
+> Task :expo-dom-webview:mapReleaseSourceSetPaths
+> Task :expo-dom-webview:compileReleaseLibraryResources FROM-CACHE
+> Task :expo-log-box:mapReleaseSourceSetPaths
+> Task :expo-log-box:compileReleaseLibraryResources FROM-CACHE
+> Task :expo-modules-core:mapReleaseSourceSetPaths
+> Task :expo-modules-core:compileReleaseLibraryResources FROM-CACHE
+> Task :maplibre_maplibre-react-native:mapReleaseSourceSetPaths
+> Task :maplibre_maplibre-react-native:compileReleaseLibraryResources FROM-CACHE
+> Task :react-native-gesture-handler:mapReleaseSourceSetPaths
+> Task :react-native-gesture-handler:compileReleaseLibraryResources FROM-CACHE
+> Task :react-native-masked-view_masked-view:mapReleaseSourceSetPaths
+> Task :react-native-masked-view_masked-view:compileReleaseLibraryResources FROM-CACHE
+> Task :react-native-reanimated:mapReleaseSourceSetPaths
+> Task :react-native-reanimated:compileReleaseLibraryResources FROM-CACHE
+> Task :react-native-safe-area-context:mapReleaseSourceSetPaths
+> Task :react-native-safe-area-context:compileReleaseLibraryResources FROM-CACHE
+> Task :react-native-screens:mapReleaseSourceSetPaths
+> Task :react-native-screens:compileReleaseLibraryResources FROM-CACHE
+> Task :react-native-svg:mapReleaseSourceSetPaths
+> Task :react-native-svg:compileReleaseLibraryResources FROM-CACHE
+> Task :react-native-worklets:mapReleaseSourceSetPaths
+> Task :react-native-worklets:compileReleaseLibraryResources FROM-CACHE
+> Task :expo:bundleLibRuntimeToJarRelease
+> Task :expo-constants:bundleLibRuntimeToJarRelease
+> Task :expo-dom-webview:bundleLibRuntimeToJarRelease
+> Task :expo-log-box:bundleLibRuntimeToJarRelease
+> Task :expo-modules-core:bundleLibRuntimeToJarRelease
+> Task :maplibre_maplibre-react-native:bundleLibRuntimeToJarRelease
+> Task :react-native-gesture-handler:bundleLibRuntimeToJarRelease
+> Task :react-native-masked-view_masked-view:bundleLibRuntimeToJarRelease
+> Task :react-native-reanimated:bundleLibRuntimeToJarRelease
+> Task :react-native-safe-area-context:bundleLibRuntimeToJarRelease
+> Task :react-native-screens:bundleLibRuntimeToJarRelease
+> Task :react-native-svg:bundleLibRuntimeToJarRelease
+> Task :react-native-worklets:bundleLibRuntimeToJarRelease
+> Task :expo:processReleaseJavaRes
+> Task :expo-constants:processReleaseJavaRes
+> Task :expo-dom-webview:processReleaseJavaRes
+> Task :expo-log-box:processReleaseJavaRes
+> Task :expo-modules-core:processReleaseJavaRes
+> Task :maplibre_maplibre-react-native:processReleaseJavaRes
+> Task :react-native-gesture-handler:processReleaseJavaRes
+> Task :react-native-masked-view_masked-view:processReleaseJavaRes NO-SOURCE
+> Task :react-native-reanimated:processReleaseJavaRes
+> Task :react-native-safe-area-context:processReleaseJavaRes
+> Task :react-native-screens:processReleaseJavaRes
+> Task :react-native-svg:processReleaseJavaRes NO-SOURCE
+> Task :react-native-worklets:processReleaseJavaRes
+> Task :expo:generateReleaseAssets UP-TO-DATE
+> Task :expo:mergeReleaseAssets
+> Task :expo-constants:generateReleaseAssets UP-TO-DATE
+> Task :expo-constants:mergeReleaseAssets
+> Task :expo-dom-webview:generateReleaseAssets UP-TO-DATE
+> Task :expo-dom-webview:mergeReleaseAssets
+> Task :expo-log-box:generateReleaseAssets UP-TO-DATE
+> Task :expo-log-box:mergeReleaseAssets
+> Task :expo-modules-core:generateReleaseAssets UP-TO-DATE
+> Task :expo-modules-core:mergeReleaseAssets
+> Task :maplibre_maplibre-react-native:generateReleaseAssets UP-TO-DATE
+> Task :maplibre_maplibre-react-native:mergeReleaseAssets
+> Task :react-native-gesture-handler:generateReleaseAssets UP-TO-DATE
+> Task :react-native-gesture-handler:mergeReleaseAssets
+> Task :react-native-masked-view_masked-view:generateReleaseAssets UP-TO-DATE
+> Task :react-native-masked-view_masked-view:mergeReleaseAssets
+> Task :react-native-reanimated:generateReleaseAssets UP-TO-DATE
+> Task :react-native-reanimated:mergeReleaseAssets
+> Task :react-native-safe-area-context:generateReleaseAssets UP-TO-DATE
+> Task :react-native-safe-area-context:mergeReleaseAssets
+> Task :react-native-screens:generateReleaseAssets UP-TO-DATE
+> Task :react-native-screens:mergeReleaseAssets
+> Task :react-native-svg:generateReleaseAssets UP-TO-DATE
+> Task :react-native-svg:mergeReleaseAssets
+> Task :react-native-worklets:generateReleaseAssets UP-TO-DATE
+> Task :react-native-worklets:mergeReleaseAssets
+> Task :expo:createFullJarRelease
+> Task :expo:extractProguardFiles
+> Task :expo-constants:createFullJarRelease
+> Task :expo-constants:extractProguardFiles
+> Task :expo-modules-core:createFullJarRelease
+> Task :expo-modules-core:extractProguardFiles
+> Task :react-native-worklets:createFullJarRelease
+> Task :react-native-worklets:extractProguardFiles
+> Task :react-native-worklets:generateReleaseLintModel
+> Task :react-native-worklets:prepareLintJarForPublish
+> Task :expo-modules-core:generateReleaseLintModel
+> Task :expo-modules-core:prepareLintJarForPublish
+> Task :expo-constants:generateReleaseLintModel
+> Task :expo-constants:prepareLintJarForPublish
+> Task :expo-dom-webview:createFullJarRelease
+> Task :expo-dom-webview:extractProguardFiles
+> Task :expo-dom-webview:generateReleaseLintModel
+> Task :expo-dom-webview:prepareLintJarForPublish
+> Task :expo-log-box:createFullJarRelease
+> Task :expo-log-box:extractProguardFiles
+> Task :expo-log-box:generateReleaseLintModel
+> Task :expo-log-box:prepareLintJarForPublish
+> Task :expo:generateReleaseLintModel
+> Task :expo:prepareLintJarForPublish
+> Task :maplibre_maplibre-react-native:createFullJarRelease
+> Task :maplibre_maplibre-react-native:extractProguardFiles
+> Task :maplibre_maplibre-react-native:generateReleaseLintModel
+> Task :maplibre_maplibre-react-native:prepareLintJarForPublish
+> Task :react-native-gesture-handler:createFullJarRelease
+> Task :react-native-gesture-handler:extractProguardFiles
+> Task :react-native-reanimated:createFullJarRelease
+> Task :react-native-reanimated:extractProguardFiles
+> Task :react-native-reanimated:generateReleaseLintModel
+> Task :react-native-reanimated:prepareLintJarForPublish
+> Task :react-native-svg:createFullJarRelease
+> Task :react-native-svg:extractProguardFiles
+> Task :react-native-svg:generateReleaseLintModel
+> Task :react-native-svg:prepareLintJarForPublish
+> Task :react-native-gesture-handler:generateReleaseLintModel
+> Task :react-native-gesture-handler:prepareLintJarForPublish
+> Task :react-native-masked-view_masked-view:createFullJarRelease
+> Task :react-native-masked-view_masked-view:extractProguardFiles
+> Task :react-native-masked-view_masked-view:generateReleaseLintModel
+> Task :react-native-masked-view_masked-view:prepareLintJarForPublish
+> Task :react-native-safe-area-context:createFullJarRelease
+> Task :react-native-safe-area-context:extractProguardFiles
+> Task :react-native-safe-area-context:generateReleaseLintModel
+> Task :react-native-safe-area-context:prepareLintJarForPublish
+> Task :react-native-screens:createFullJarRelease
+> Task :react-native-screens:extractProguardFiles
+> Task :react-native-screens:generateReleaseLintModel
+> Task :react-native-screens:prepareLintJarForPublish
+> Task :maplibre_maplibre-react-native:checkReleaseAarMetadata
+> Task :maplibre_maplibre-react-native:stripReleaseDebugSymbols NO-SOURCE
+> Task :maplibre_maplibre-react-native:copyReleaseJniLibsProjectAndLocalJars
+> Task :maplibre_maplibre-react-native:extractDeepLinksForAarRelease FROM-CACHE
+> Task :maplibre_maplibre-react-native:extractReleaseAnnotations FROM-CACHE
+> Task :maplibre_maplibre-react-native:mergeReleaseConsumerProguardFiles
+> Task :maplibre_maplibre-react-native:mergeReleaseJavaResource
+> Task :maplibre_maplibre-react-native:syncReleaseLibJars FROM-CACHE
+> Task :maplibre_maplibre-react-native:bundleReleaseLocalLintAar
+> Task :react-native-gesture-handler:checkReleaseAarMetadata
+> Task :react-native-gesture-handler:stripReleaseDebugSymbols
+> Task :react-native-gesture-handler:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-gesture-handler:extractDeepLinksForAarRelease FROM-CACHE
+> Task :react-native-gesture-handler:extractReleaseAnnotations FROM-CACHE
+> Task :react-native-gesture-handler:mergeReleaseConsumerProguardFiles
+> Task :react-native-gesture-handler:mergeReleaseJavaResource
+> Task :react-native-gesture-handler:syncReleaseLibJars FROM-CACHE
+> Task :react-native-gesture-handler:bundleReleaseLocalLintAar
+> Task :react-native-reanimated:checkReleaseAarMetadata
+> Task :react-native-reanimated:stripReleaseDebugSymbols
+> Task :react-native-reanimated:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-reanimated:extractDeepLinksForAarRelease FROM-CACHE
+> Task :react-native-reanimated:extractReleaseAnnotations FROM-CACHE
+> Task :react-native-reanimated:mergeReleaseConsumerProguardFiles
+> Task :react-native-reanimated:mergeReleaseJavaResource
+> Task :react-native-reanimated:syncReleaseLibJars FROM-CACHE
+> Task :react-native-reanimated:bundleReleaseLocalLintAar
+> Task :react-native-safe-area-context:checkReleaseAarMetadata
+> Task :react-native-safe-area-context:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-safe-area-context:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-safe-area-context:extractDeepLinksForAarRelease FROM-CACHE
+> Task :react-native-safe-area-context:extractReleaseAnnotations FROM-CACHE
+> Task :react-native-safe-area-context:mergeReleaseConsumerProguardFiles
+> Task :react-native-safe-area-context:mergeReleaseJavaResource
+> Task :react-native-safe-area-context:syncReleaseLibJars FROM-CACHE
+> Task :react-native-safe-area-context:bundleReleaseLocalLintAar
+> Task :react-native-screens:checkReleaseAarMetadata
+> Task :react-native-screens:stripReleaseDebugSymbols
+> Task :react-native-screens:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-screens:extractDeepLinksForAarRelease FROM-CACHE
+> Task :react-native-screens:extractReleaseAnnotations FROM-CACHE
+> Task :react-native-screens:mergeReleaseConsumerProguardFiles
+> Task :react-native-screens:mergeReleaseJavaResource
+> Task :react-native-screens:syncReleaseLibJars FROM-CACHE
+> Task :react-native-screens:bundleReleaseLocalLintAar
+> Task :expo:checkReleaseAarMetadata
+> Task :expo:stripReleaseDebugSymbols NO-SOURCE
+> Task :expo:copyReleaseJniLibsProjectAndLocalJars
+> Task :expo:extractDeepLinksForAarRelease FROM-CACHE
+> Task :expo:extractReleaseAnnotations FROM-CACHE
+> Task :expo:mergeReleaseConsumerProguardFiles
+> Task :expo:mergeReleaseJavaResource
+> Task :expo:syncReleaseLibJars FROM-CACHE
+> Task :expo:bundleReleaseLocalLintAar
+> Task :expo-modules-core:checkReleaseAarMetadata
+> Task :expo-modules-core:stripReleaseDebugSymbols
+> Task :expo-modules-core:copyReleaseJniLibsProjectAndLocalJars
+> Task :expo-modules-core:extractDeepLinksForAarRelease FROM-CACHE
+> Task :expo-modules-core:extractReleaseAnnotations FROM-CACHE
+> Task :expo-modules-core:mergeReleaseConsumerProguardFiles
+> Task :expo-modules-core:mergeReleaseJavaResource
+> Task :expo-modules-core:syncReleaseLibJars FROM-CACHE
+> Task :expo-modules-core:bundleReleaseLocalLintAar
+> Task :react-native-worklets:checkReleaseAarMetadata
+> Task :react-native-worklets:stripReleaseDebugSymbols
+> Task :react-native-worklets:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-worklets:extractDeepLinksForAarRelease FROM-CACHE
+> Task :react-native-worklets:extractReleaseAnnotations FROM-CACHE
+> Task :react-native-worklets:mergeReleaseConsumerProguardFiles
+> Task :react-native-worklets:mergeReleaseJavaResource
+> Task :react-native-worklets:syncReleaseLibJars FROM-CACHE
+> Task :react-native-worklets:bundleReleaseLocalLintAar
+> Task :react-native-masked-view_masked-view:checkReleaseAarMetadata
+> Task :react-native-masked-view_masked-view:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-masked-view_masked-view:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-masked-view_masked-view:extractDeepLinksForAarRelease FROM-CACHE
+> Task :react-native-masked-view_masked-view:extractReleaseAnnotations FROM-CACHE
+> Task :react-native-masked-view_masked-view:mergeReleaseConsumerProguardFiles
+> Task :react-native-masked-view_masked-view:mergeReleaseJavaResource
+> Task :react-native-masked-view_masked-view:syncReleaseLibJars FROM-CACHE
+> Task :react-native-masked-view_masked-view:bundleReleaseLocalLintAar
+> Task :react-native-svg:checkReleaseAarMetadata
+> Task :react-native-svg:stripReleaseDebugSymbols NO-SOURCE
+> Task :react-native-svg:copyReleaseJniLibsProjectAndLocalJars
+> Task :react-native-svg:extractDeepLinksForAarRelease FROM-CACHE
+> Task :react-native-svg:extractReleaseAnnotations FROM-CACHE
+> Task :react-native-svg:mergeReleaseConsumerProguardFiles
+> Task :react-native-svg:mergeReleaseJavaResource
+> Task :react-native-svg:syncReleaseLibJars FROM-CACHE
+> Task :react-native-svg:bundleReleaseLocalLintAar
+> Task :expo-log-box:checkReleaseAarMetadata
+> Task :expo-log-box:stripReleaseDebugSymbols NO-SOURCE
+> Task :expo-log-box:copyReleaseJniLibsProjectAndLocalJars
+> Task :expo-log-box:extractDeepLinksForAarRelease FROM-CACHE
+> Task :expo-log-box:extractReleaseAnnotations FROM-CACHE
+> Task :expo-log-box:mergeReleaseConsumerProguardFiles
+> Task :expo-log-box:mergeReleaseJavaResource
+> Task :expo-log-box:syncReleaseLibJars FROM-CACHE
+> Task :expo-log-box:bundleReleaseLocalLintAar
+> Task :expo-dom-webview:checkReleaseAarMetadata
+> Task :expo-dom-webview:stripReleaseDebugSymbols NO-SOURCE
+> Task :expo-dom-webview:copyReleaseJniLibsProjectAndLocalJars
+> Task :expo-dom-webview:extractDeepLinksForAarRelease FROM-CACHE
+> Task :expo-dom-webview:extractReleaseAnnotations FROM-CACHE
+> Task :expo-dom-webview:mergeReleaseConsumerProguardFiles
+
+> Task :app:buildCMakeRelWithDebInfo[arm64-v8a]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\android\app\build\intermediates\cxx\RelWithDebInfo\6d4i4y2y\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.arm64-v8a\libreactnative.so' to 'D:\proyectos\react_test\mobile\android\app\build\intermediates\cxx\RelWithDebInfo\6d4i4y2y\obj\arm64-v8a\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :expo-dom-webview:mergeReleaseJavaResource
+> Task :expo-dom-webview:syncReleaseLibJars FROM-CACHE
+> Task :expo-dom-webview:bundleReleaseLocalLintAar
+> Task :expo-constants:checkReleaseAarMetadata
+> Task :expo-constants:stripReleaseDebugSymbols NO-SOURCE
+> Task :expo-constants:copyReleaseJniLibsProjectAndLocalJars
+> Task :expo-constants:extractDeepLinksForAarRelease FROM-CACHE
+> Task :expo-constants:extractReleaseAnnotations FROM-CACHE
+> Task :expo-constants:mergeReleaseConsumerProguardFiles
+> Task :expo-constants:mergeReleaseJavaResource
+> Task :expo-constants:syncReleaseLibJars FROM-CACHE
+> Task :expo-constants:bundleReleaseLocalLintAar
+> Task :expo-constants:writeReleaseLintModelMetadata
+> Task :expo-dom-webview:writeReleaseLintModelMetadata
+> Task :expo-log-box:writeReleaseLintModelMetadata
+> Task :expo-modules-core:writeReleaseLintModelMetadata
+> Task :react-native-worklets:writeReleaseLintModelMetadata
+> Task :expo:lintVitalAnalyzeRelease SKIPPED
+> Task :expo:writeReleaseLintModelMetadata
+> Task :expo-constants:lintVitalAnalyzeRelease SKIPPED
+> Task :expo-dom-webview:lintVitalAnalyzeRelease SKIPPED
+> Task :expo-log-box:lintVitalAnalyzeRelease SKIPPED
+> Task :expo-modules-core:lintVitalAnalyzeRelease SKIPPED
+> Task :maplibre_maplibre-react-native:lintVitalAnalyzeRelease SKIPPED
+> Task :maplibre_maplibre-react-native:writeReleaseLintModelMetadata
+> Task :react-native-reanimated:writeReleaseLintModelMetadata
+> Task :react-native-svg:writeReleaseLintModelMetadata
+> Task :react-native-gesture-handler:lintVitalAnalyzeRelease SKIPPED
+> Task :react-native-gesture-handler:writeReleaseLintModelMetadata
+> Task :react-native-masked-view_masked-view:lintVitalAnalyzeRelease SKIPPED
+> Task :react-native-masked-view_masked-view:writeReleaseLintModelMetadata
+> Task :react-native-reanimated:lintVitalAnalyzeRelease SKIPPED
+> Task :react-native-safe-area-context:lintVitalAnalyzeRelease SKIPPED
+> Task :react-native-safe-area-context:writeReleaseLintModelMetadata
+> Task :react-native-screens:lintVitalAnalyzeRelease SKIPPED
+> Task :react-native-screens:writeReleaseLintModelMetadata
+> Task :react-native-svg:lintVitalAnalyzeRelease SKIPPED
+> Task :react-native-worklets:lintVitalAnalyzeRelease SKIPPED
+> Task :expo:generateReleaseLintVitalModel
+> Task :expo-constants:generateReleaseLintVitalModel
+> Task :expo-dom-webview:generateReleaseLintVitalModel
+> Task :expo-log-box:generateReleaseLintVitalModel
+> Task :expo-modules-core:generateReleaseLintVitalModel
+> Task :maplibre_maplibre-react-native:generateReleaseLintVitalModel
+> Task :react-native-gesture-handler:generateReleaseLintVitalModel
+> Task :react-native-masked-view_masked-view:generateReleaseLintVitalModel
+> Task :react-native-reanimated:generateReleaseLintVitalModel
+> Task :react-native-safe-area-context:generateReleaseLintVitalModel
+> Task :react-native-screens:generateReleaseLintVitalModel
+> Task :react-native-svg:generateReleaseLintVitalModel
+> Task :react-native-worklets:generateReleaseLintVitalModel
+> Task :app:buildCMakeRelWithDebInfo[x86_64]
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\android\app\build\intermediates\cxx\RelWithDebInfo\6d4i4y2y\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+C/C++: Hard link from 'C:\Users\marro\.gradle\caches\9.4.1\transforms\b0adc4c64e70a08d131f9ede103b8629\transformed\react-android-0.88.0-release\prefab\modules\reactnative\libs\android.x86_64\libreactnative.so' to 'D:\proyectos\react_test\mobile\android\app\build\intermediates\cxx\RelWithDebInfo\6d4i4y2y\obj\x86_64\libreactnative.so' failed. Doing a slower copy instead.
+
+> Task :app:buildKotlinToolingMetadata
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :app:generateReleaseBuildConfig
+> Task :app:mergeReleaseNativeLibs
+
+> Task :app:createBundleReleaseJsAndAssets
+Using src/app as the root directory for Expo Router.
+Starting Metro Bundler
+
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+| (node:1624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:1624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:1624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:1624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:1624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+| (node:1624) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+| (Use `node --trace-warnings ...` to show where the warning was created)
+Android Bundled 37843ms node_modules\expo-router\entry.js (3290 modules)
+Writing bundle output to: android\app\build\generated\assets\react\release\index.android.bundle
+Writing sourcemap output to: android\app\build\intermediates\sourcemaps\react\release\index.android.bundle.packager.map
+Copying 33 asset files
+Done writing bundle output
+Done writing sourcemap output
+
+> Task :app:generateReleaseResValues FROM-CACHE
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:processReleaseNavigationResources
+> Task :app:parseReleaseLocalResources
+> Task :app:generateReleaseRFile
+> Task :app:stripReleaseDebugSymbols
+
+> Task :app:compileReleaseKotlin
+w: file:///D:/proyectos/react_test/mobile/android/app/src/main/java/com/salidalista/mobile/MainActivity.kt:36:20 'constructor(activity: ReactActivity, mainComponentName: String, fabricEnabled: Boolean): DefaultReactActivityDelegate' is deprecated. Creating DefaultReactActivityDelegate with flags is deprecated.
+
+> Task :app:javaPreCompileRelease FROM-CACHE
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:extractReleaseNativeSymbolTables
+> Task :app:mergeReleaseArtProfile
+> Task :app:checkReleaseAarMetadata
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:compileReleaseNavigationResources FROM-CACHE
+> Task :app:mergeReleaseNativeDebugMetadata
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease FROM-CACHE
+
+> Task :app:processReleaseMainManifest
+D:\proyectos\react_test\mobile\android\app\src\main\AndroidManifest.xml Warning:
+	provider#expo.modules.filesystem.FileSystemFileProvider@android:authorities was tagged at AndroidManifest.xml:0 to replace other declarations but no other declaration present
+
+> Task :app:expoReleaseOverrideMaxSdkConflicts
+[33m---------- Expo Max Sdk Override Plugin ----------[0m
+[32m>>> No 'android:maxSdkVersion' conflicts found[0m
+[33m--------------------------------------------------[0m
+
+> Task :app:processReleaseManifest
+> Task :app:processReleaseManifestForPackage
+> Task :app:extractProguardFiles
+> Task :app:processReleaseJavaRes
+> Task :app:mergeReleaseJavaResource
+> Task :app:mergeReleaseStartupProfile
+> Task :app:generateReleaseAssets UP-TO-DATE
+> Task :app:mergeReleaseAssets
+> Task :app:compressReleaseAssets
+> Task :app:extractReleaseVersionControlInfo
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:lintVitalAnalyzeRelease
+> Task :app:lintVitalReportRelease
+> Task :app:lintVitalRelease
+> Task :app:collectReleaseDependencies
+> Task :app:sdkReleaseDependencyData
+> Task :app:validateSigningRelease
+> Task :app:writeReleaseAppMetadata
+> Task :app:writeReleaseSigningConfigVersions
+> Task :app:mergeReleaseResources
+> Task :app:processReleaseResources
+> Task :app:mergeReleaseGeneratedProguardFiles
+> Task :app:optimizeReleaseResources
+> Task :app:expandReleaseArtProfileWildcards
+> Task :app:minifyReleaseWithR8
+> Task :app:compileReleaseArtProfile
+> Task :app:packageRelease
+> Task :app:createReleaseApkListingFileRedirect
+> Task :app:assembleRelease
+
+[Incubating] Problems report is available at: file:///D:/proyectos/react_test/mobile/android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.4.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 31m 38s
+618 actionable tasks: 400 executed, 190 from cache, 28 up-to-date

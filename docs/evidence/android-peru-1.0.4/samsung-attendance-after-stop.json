@@ -1,0 +1,34 @@
+[
+  {
+    "label": "Andrés León, presente",
+    "checked": "false"
+  },
+  {
+    "label": "Camila Vega, presente",
+    "checked": "false"
+  },
+  {
+    "label": "Diego Salas, presente",
+    "checked": "false"
+  },
+  {
+    "label": "Lucía Flores, presente",
+    "checked": "true"
+  },
+  {
+    "label": "Mateo Rojas, presente",
+    "checked": "true"
+  },
+  {
+    "label": "Nicolás Ruiz, presente",
+    "checked": "false"
+  },
+  {
+    "label": "Sofía Castro, presente",
+    "checked": "false"
+  },
+  {
+    "label": "Valeria Torres, presente",
+    "checked": "true"
+  }
+]

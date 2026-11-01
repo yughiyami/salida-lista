@@ -1,0 +1,23 @@
+{
+  "version": "1.0.2",
+  "device": "Samsung SM-A715F",
+  "forceStopVerified": true,
+  "fourEventIdsAndNotesUnchanged": true,
+  "displayedEventTimestampsUnchanged": true,
+  "allEightAttendanceStatesUnchanged": true,
+  "eventCount": 4,
+  "presentCount": 3,
+  "airplaneBeforeAndAfter": true,
+  "wifiBeforeAndAfter": "disabled",
+  "activeDefaultNetworkBeforeAndAfter": "none",
+  "mapVisualChecks": [
+    "Arequipa centro",
+    "Yanahuara",
+    "Chivay/Yanque",
+    "Cruz del Condor",
+    "Salkantay"
+  ],
+  "gpsActivatedByAgent": false,
+  "uninstalled": false,
+  "storageCleared": false
+}

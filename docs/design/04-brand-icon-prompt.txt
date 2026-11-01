@@ -1,0 +1,10 @@
+Tool: built-in image_gen (not CLI). Generated 2026-10-16.
+Asset: mobile/assets/brand/salida-lista-mark.png
+Purpose: real launcher icon and home header brand, not a UI screenshot.
+
+Prompt:
+Create a production Android launcher icon asset for an existing Peruvian tourism field-guide mobile app named Salida Lista. Output ONE square 1024x1024 PNG, perfectly flat solid opaque forest-green background #163F35 edge to edge. No text, no letters, no typography, no device frame, no rounded outer square, no drop shadows, no gradients, no badge, no mockup. Design a refined highly legible compact ivory #F7F5EF symbol: two clean Andean mountain peaks integrated with one gently curving trail rising toward a small warm ochre #C18A34 waypoint dot. Calm professional outdoor operations identity, not rescue or emergency branding, no shield or medical cross. Consistent medium-weight rounded geometric strokes, elegant negative space, strong silhouette at tiny size. Keep ALL foreground artwork strictly within the central 56% of the square (safe zone for Android adaptive circular/squircle masks), centered with generous equal forest-green margins. Actual app asset, not a presentation. Exact solid background color is important.
+
+The actual generated PNG is 1254x1254. Expo prebuild resizes it for Android launcher densities. The generated source is preserved unchanged; it is not a geographic image or evidence of a running UI.
+Adaptive foreground uses this opaque source with a matching forest background. The old Expo background and monochrome template references were removed; no incorrect Expo-themed icon is retained.
+Functional UI icons are Lucide React Native SVG components rather than generated raster assets; source attribution/license: node_modules/lucide-react-native/LICENSE.

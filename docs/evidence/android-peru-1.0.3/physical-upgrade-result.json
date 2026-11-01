@@ -1,0 +1,17 @@
+{
+  "version": "1.0.3",
+  "upgradeFrom": "1.0.2",
+  "eventsSameIdsAndNotes": true,
+  "allEightAttendanceStatesUnchanged": true,
+  "eventCount": 4,
+  "presentCount": 3,
+  "mapRendering": [
+    "Arequipa metropolitana",
+    "Peru referencia"
+  ],
+  "airplaneMode": true,
+  "wifi": "disabled",
+  "activeDefaultNetwork": "none",
+  "gpsActivated": false,
+  "knownIssue": "Initial national viewport crops north/south; embedded source map shows zoom4 while working source zoom3.1 was saved after bundling. Fix next release."
+}

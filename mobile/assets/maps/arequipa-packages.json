@@ -1,0 +1,6 @@
+[
+ {"id":"arequipa-centro","name":"Arequipa · centro histórico","bounds":[-71.545,-16.405,-71.530,-16.390],"center":[-71.537,-16.398],"zoom":14,"detail":"Centro histórico; extracto urbano parcial de aproximadamente 1,6 × 1,7 km."},
+ {"id":"arequipa-yanahuara","name":"Arequipa · Yanahuara","bounds":[-71.548,-16.392,-71.535,-16.380],"center":[-71.542,-16.386],"zoom":14,"detail":"Yanahuara y entorno inmediato; no cubre todos los distritos de Arequipa."},
+ {"id":"colca-chivay","name":"Colca · Chivay y Yanque","bounds":[-71.68,-15.68,-71.58,-15.60],"center":[-71.63,-15.64],"zoom":12,"detail":"Chivay, Yanque y entorno inmediato; no cubre todo el valle."},
+ {"id":"colca-condor","name":"Colca · Cruz del Cóndor","bounds":[-71.96,-15.64,-71.88,-15.57],"center":[-71.92,-15.605],"zoom":12,"detail":"Mirador Cruz del Cóndor y entorno; no cubre todo Cabanaconde."}
+]

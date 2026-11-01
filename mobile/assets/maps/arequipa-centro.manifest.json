@@ -1,0 +1,22 @@
+{
+  "id": "arequipa-centro",
+  "name": "Arequipa · centro histórico",
+  "bounds": [
+    -71.545,
+    -16.405,
+    -71.53,
+    -16.39
+  ],
+  "center": [
+    -71.537,
+    -16.398
+  ],
+  "zoom": 14,
+  "detail": "Centro histórico; extracto urbano parcial de aproximadamente 1,6 × 1,7 km.",
+  "source": "https://api.openstreetmap.org/api/0.6/map.json?bbox=-71.545,-16.405,-71.53,-16.39",
+  "downloadedOn": "2026-10-16",
+  "license": "ODbL-1.0",
+  "attribution": "© OpenStreetMap contributors",
+  "featureCount": 1017,
+  "sourceSha256": "0f22a6561cd7b8e4c423bca1009d19e0aed6c4b556a982494b0d9acc6f159a7c"
+}

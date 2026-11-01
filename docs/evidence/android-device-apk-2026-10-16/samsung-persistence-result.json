@@ -1,0 +1,12 @@
+{
+  "device": "Samsung SM-A715F",
+  "version": "1.0.1",
+  "eventsSameIdsAndNotes": true,
+  "eventCount": 3,
+  "attendanceAllEightUnchanged": true,
+  "presentCount": 3,
+  "forceStopExecuted": true,
+  "uninstalled": false,
+  "storageCleared": false,
+  "networkDuringSaveAndReopen": "airplane=true; wifi disabled; active default network none"
+}

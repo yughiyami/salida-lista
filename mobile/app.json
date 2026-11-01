@@ -36,7 +36,8 @@
         }
       ],
       "@maplibre/maplibre-react-native",
-      "expo-status-bar"
+      "expo-status-bar",
+      "expo-secure-store"
     ],
     "scheme": "salidalista",
     "platforms": [

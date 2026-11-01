@@ -69,6 +69,15 @@ aprobado para producción ni para almacenar datos personales reales.
 Requiere Node.js compatible con Expo SDK 58, npm y entorno nativo Android o iOS.
 MapLibre contiene código nativo: **no funciona en Expo Go**.
 
+Para habilitar las pantallas de cuenta y círculos con Supabase, copia `mobile/.env.example` a `mobile/.env` y completa las variables públicas de tu proyecto:
+
+```sh
+cp .env.example .env
+# Define EXPO_PUBLIC_SUPABASE_URL y EXPO_PUBLIC_SUPABASE_KEY en mobile/.env
+```
+
+Si `mobile/.env` no está configurado, la aplicación muestra un aviso de configuración con acceso directo al **modo guía offline (`/guia`)**, que sigue funcionando localmente sin red ni cuenta.
+
 ```sh
 npm ci
 npm run typecheck
@@ -122,7 +131,8 @@ hash, no solo repetir la URL. El proceso no añade dependencias Python a la app.
 ## Arquitectura
 
 - React Native 0.88, React 19.3, Expo SDK 58 y Expo Router.
-- `src/app/`: rutas; `src/ui/`: pantallas y mapa MapLibre.
+- `src/app/`: rutas (`(tabs)/` para la app principal y `guia/` para el modo guía offline); `src/ui/`: pantallas y mapa MapLibre.
+- `src/lib/`: validación de variables de entorno con Zod (`env.ts`) y cliente de Supabase con `LargeSecureStore` (`supabase.ts`).
 - `src/data/`: SQLite y acceso al estado local; `src/domain/`: modelos y reportes.
 - `assets/maps/`: bases derivadas, originales pequeños y manifiestos; fuentes
   nacionales grandes solo en caché local ignorada.
@@ -131,8 +141,9 @@ hash, no solo repetir la URL. El proceso no añade dependencias Python a la app.
 ## Bókun y WhatsApp
 
 **Aún no hay conexión con Bókun ni con WhatsApp Business Platform.** No se necesitan
-credenciales para ejecutar el demo offline. `.env.example` es solo documentación;
-el incremento actual no consume esas variables.
+credenciales para ejecutar el modo guía offline (`/guia`). Para la capa conectada de
+Supabase se deben definir `EXPO_PUBLIC_SUPABASE_URL` y `EXPO_PUBLIC_SUPABASE_KEY` en
+`mobile/.env` (copiando desde `.env.example`).
 
 La futura integración requiere backend: claves de acceso y secreto de Bókun según
 el acceso autorizado del operador; para WhatsApp, cuenta empresarial, número/ID,

@@ -181,7 +181,7 @@ export default function MapTabScreen() {
         places={visiblePlaces}
         selectedId={selected}
         onSelectMember={(id) => setSelected((cur) => (cur === id ? null : id))}
-        focusKey={focusKey}
+        focusKey={`${focusKey}-${members.length}`}
       />
 
       <View style={styles.sheet}>

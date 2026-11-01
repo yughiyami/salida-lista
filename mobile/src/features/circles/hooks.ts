@@ -104,8 +104,16 @@ export function useCircleRoster(circleId: string | null) {
   return useMemo(() => {
     const byUser = new Map<string, MemberLocation>();
     for (const l of locations.data ?? []) byUser.set(l.user_id, l);
+    const seen = new Set<string>();
     return (members.data ?? [])
       .filter((m) => circleId === null || m.circle_id === circleId)
+      .filter((m) => {
+        // In "all circles" view a person who shares two circles appears once.
+        if (circleId !== null) return true;
+        if (seen.has(m.user_id)) return false;
+        seen.add(m.user_id);
+        return true;
+      })
       .map((m) => ({
         member: m,
         profile: profiles.get(m.user_id) ?? null,

@@ -8,17 +8,30 @@ Primer incremento **móvil** del flujo del guía, React Native + Expo SDK 58 + E
 
 **APK para celular 1.0.1:** generada y verificada estáticamente para ARM64 y x86_64, con iconos SVG y nueva marca local. La instalación y el GPS real se registran por separado en la [guía de prueba Android](docs/PRUEBA-CELULAR-ANDROID-04.md).
 
+## Versión 1.1.0 — círculos y ubicación en vivo (estilo Life360)
+
+Además del modo guía sin conexión, la app ahora tiene cuentas con código por correo y:
+
+- **Círculos** con código de invitación de 8 caracteres, límite de intentos y reglas de visibilidad en la base de datos (RLS).
+- **Mapa en vivo** (MapLibre + OpenFreeMap) con avatar, batería y "visto hace…" de cada miembro; Realtime de Supabase.
+- **Compartir ubicación** con consentimiento, pausa temporal, interruptor por círculo y seguimiento opcional en segundo plano con cola SQLite sin conexión.
+- **Lugares** con geocercas y avisos de llegada/salida; **"Llegué bien"**, **SOS** y **chat** del círculo; notificaciones push (requieren Firebase, ver [PUSH-FCM](docs/PUSH-FCM.md)).
+- **Privacidad:** exportar mis datos, eliminar la cuenta y retención automática (30 días de historial, 90 de chat). Ver [PRIVACIDAD](docs/PRIVACIDAD.md) y [formularios de Play Store](docs/PLAY-STORE-UBICACION.md).
+
+**Estado de verificación:** TypeScript, lint y pruebas automáticas de las reglas puras pasan; el APK compila. Las migraciones **no se han ejecutado todavía contra un Supabase real** y nada de esto se probó en un teléfono físico: sigue [SUPABASE-SETUP](docs/SUPABASE-SETUP.md) y haz la prueba con dos teléfonos antes de confiar en ello. No es un servicio de emergencias.
+
 ## Ejecutar
 
 Requisito para las pruebas de repositorio: Node 24 y `pnpm`. Dependencias fijadas en `mobile/pnpm-lock.yaml`.
 
-### 1. Configurar proyecto de Supabase y migración
+### 1. Configurar proyecto de Supabase y migraciones
 
-Desde la raíz del repositorio (`D:\proyectos\react_test`), vincula tu proyecto de Supabase y aplica la migración inicial (`supabase/migrations/20260419000000_initial_circles_schema.sql`):
+Pasos completos (incluida la plantilla del correo con `{{ .Token }}`) en [docs/SUPABASE-SETUP.md](docs/SUPABASE-SETUP.md). Resumen, desde la raíz del repositorio:
 
 ```powershell
-pnpm dlx supabase link --project-ref <project-id>
-pnpm dlx supabase db push
+npx supabase login
+npx supabase link --project-ref <project-id>
+npx supabase db push
 ```
 
 En el panel de Supabase (**Authentication → Providers → Email**), asegúrate de tener habilitado Email OTP (código de 6 dígitos).

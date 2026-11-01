@@ -66,15 +66,15 @@ aprobado para producción ni para almacenar datos personales reales.
 
 ## Ejecutar
 
-Requiere Node.js compatible con Expo SDK 58, npm y entorno nativo Android o iOS.
+Requiere Node.js compatible con Expo SDK 58, `pnpm` y entorno nativo Android o iOS.
 MapLibre contiene código nativo: **no funciona en Expo Go**.
 
 Para habilitar las pantallas de cuenta y círculos con Supabase:
 
 1. En la raíz del repositorio (`D:\proyectos\react_test`), vincula tu proyecto de Supabase y aplica la migración de esquema y políticas RLS:
    ```sh
-   npx supabase link --project-ref <project-id>
-   npx supabase db push
+   pnpm dlx supabase link --project-ref <project-id>
+   pnpm dlx supabase db push
    ```
 2. En `mobile/`, copia `mobile/.env.example` a `mobile/.env` y completa las variables públicas de tu proyecto:
    ```sh
@@ -87,23 +87,24 @@ Si `mobile/.env` no está configurado, la aplicación muestra un aviso de config
 Para verificar y compilar el development build en Android o iOS:
 
 ```sh
-npm ci
-npm run typecheck
-npm run lint
-npm test
-npx expo run:android
+pnpm install
+pnpm run typecheck
+pnpm run lint
+pnpm test
+pnpm dlx expo-doctor
+pnpm run android
 # O mediante EAS Build (development):
-# npx eas-cli@latest build --profile development --platform android
+# pnpm dlx eas-cli@latest build --profile development --platform android
 # En macOS con Xcode:
-npx expo run:ios
+pnpm run ios
 ```
 
-`npm test` ejecuta pruebas de persistencia y datos cartográficos;
+`pnpm test` ejecuta pruebas de persistencia, autenticación y datos cartográficos;
 no sustituye pruebas físicas de GPS ni una revisión completa de seguridad.
-Para arrancar Metro tras instalar una compilación nativa: `npm start`.
+Para arrancar Metro tras instalar una compilación nativa: `pnpm start`.
 La configuración nativa se genera con Expo CNG a partir de `app.json` y `plugins/`;
 no editar manualmente carpetas nativas generadas. Al añadir dependencias usar
-`npx expo install <paquete>` para resolver compatibilidad con SDK 58.
+`pnpm exec expo install <paquete>` para resolver compatibilidad con SDK 58.
 
 ### Windows: regeneración nativa
 
@@ -129,7 +130,7 @@ comandos de [la documentación cartográfica](assets/maps/README.md), y ejecutar
 python -m venv .venv-maps
 .\.venv-maps\Scripts\python.exe -m pip install osmium==4.3.1 shapely==2.1.2
 .\.venv-maps\Scripts\python.exe scripts/prepare-peru-maps.py
-npm test
+pnpm test
 ```
 
 Entradas: `.cache/maps/peru-latest.osm.pbf` y

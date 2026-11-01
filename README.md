@@ -10,15 +10,15 @@ Primer incremento **móvil** del flujo del guía, React Native + Expo SDK 58 + E
 
 ## Ejecutar
 
-Requisito para las pruebas de repositorio: Node 24. Dependencias fijadas en `mobile/package-lock.json`.
+Requisito para las pruebas de repositorio: Node 24 y `pnpm`. Dependencias fijadas en `mobile/pnpm-lock.yaml`.
 
 ### 1. Configurar proyecto de Supabase y migración
 
 Desde la raíz del repositorio (`D:\proyectos\react_test`), vincula tu proyecto de Supabase y aplica la migración inicial (`supabase/migrations/20260419000000_initial_circles_schema.sql`):
 
 ```powershell
-npx supabase link --project-ref <project-id>
-npx supabase db push
+pnpm dlx supabase link --project-ref <project-id>
+pnpm dlx supabase db push
 ```
 
 En el panel de Supabase (**Authentication → Providers → Email**), asegúrate de tener habilitado Email OTP (código de 6 dígitos).
@@ -39,22 +39,22 @@ Si `mobile/.env` no existe o es inválido, la aplicación nunca falla al arranca
 
 ```powershell
 cd D:\proyectos\react_test\mobile
-npm ci
-npm start
+pnpm install
+pnpm start
 ```
 
 Abrir en un dispositivo/entorno compatible con SDK 58 (MapLibre y `expo-secure-store` requieren compilación nativa / development build, no Expo Go). Para compilar el development build localmente o con EAS:
 
 ```powershell
-npx expo run:android
+pnpm run android
 # O con EAS Build:
-npx eas-cli@latest build --profile development --platform android
+pnpm dlx eas-cli@latest build --profile development --platform android
 ```
 
 Para un APK interno de vista previa con JavaScript embebido:
 
 ```powershell
-npx eas-cli@latest build --platform android --profile preview
+pnpm dlx eas-cli@latest build --platform android --profile preview
 ```
 
 El perfil está definido; **no se ha solicitado ni generado un build EAS**. La primera configuración puede pedir autenticación/asociación del proyecto. iOS físico requiere provisionamiento Apple. Si usas SDKs nativos adicionales, necesitarás reconstruir la app.
@@ -79,10 +79,11 @@ Bókun, WhatsApp Business Platform, backend/identidad, aceptación de operacione
 ## Verificación automatizada
 
 ```powershell
-npm test
-npm run typecheck
-npm run lint
-npm run export:native
+pnpm test
+pnpm run typecheck
+pnpm run lint
+pnpm dlx expo-doctor
+pnpm run export:native
 ```
 
 Los tests ejecutan las reglas y el repositorio TypeScript contra SQLite real de Node: persistencia de 100 eventos al cerrar/reabrir archivo, outbox atómica, rollback, migración, validación y partes. **No prueban el puente nativo Expo, UI física, permisos ni WhatsApp.** La exportación genera bundles JS de Android/iOS, no un APK/IPA.

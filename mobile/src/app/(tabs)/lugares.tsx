@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Alert, Text, View } from "react-native";
+import { Alert, View } from "react-native";
 import { useRouter } from "expo-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSession } from "../../features/auth/useSession";
 import * as api from "../../features/circles/api";
 import { keys, useCircles, usePlaces } from "../../features/circles/hooks";
 import { mapCircleError } from "../../features/circles/validation";
-import { Banner, Body, Button, Card, CardTitle, Screen, colors } from "../../ui/kit";
+import { MapPin, Plus, Trash2 } from "lucide-react-native";
+import { Banner, Body, Button, Card, CardTitle, Pill, Screen, Text, colors } from "../../ui/kit";
 
 export default function PlacesTabScreen() {
   const router = useRouter();
@@ -38,25 +39,28 @@ export default function PlacesTabScreen() {
   const hasCircles = (circles.data?.length ?? 0) > 0;
 
   return (
-    <Screen title="Lugares">
-      <Body>Marca casa, el colegio o el trabajo. Tu círculo recibe un aviso cuando alguien llega o sale.</Body>
+    <Screen title="Lugares" subtitle="Casa, colegio, trabajo: tu círculo sabe cuándo llegas o sales.">
       {error ? <Banner tone="danger">{error}</Banner> : null}
       {hasCircles ? (
-        <Button label="Agregar lugar" onPress={() => router.push("/lugar/nuevo")} />
+        <Button label="Agregar lugar" icon={Plus} onPress={() => router.push("/lugar/nuevo")} />
       ) : (
         <Banner tone="warn">Primero crea o únete a un círculo para poder agregar lugares.</Banner>
       )}
 
       {(places.data ?? []).map((p) => (
         <Card key={p.id}>
-          <CardTitle>{p.name}</CardTitle>
-          <Text style={{ color: colors.muted }}>
-            {circleName(p.circle_id)} · radio {p.radius_m} m
-          </Text>
-          {p.created_by === me || (circles.data ?? []).some((c) => c.id === p.circle_id && c.owner_id === me) ? (
-            <View>
-              <Button label="Eliminar" variant="ghost" onPress={() => confirmDelete(p.id, p.name)} accessibilityLabel={`Eliminar ${p.name}`} />
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 12 }}>
+            <View style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: colors.spruceTint, alignItems: "center", justifyContent: "center" }}>
+              <MapPin color={colors.spruce} size={22} strokeWidth={2.3} />
             </View>
+            <View style={{ flex: 1, gap: 4 }}>
+              <CardTitle>{p.name}</CardTitle>
+              <Text variant="small">{circleName(p.circle_id)}</Text>
+            </View>
+            <Pill>{p.radius_m} m</Pill>
+          </View>
+          {p.created_by === me || (circles.data ?? []).some((c) => c.id === p.circle_id && c.owner_id === me) ? (
+            <Button label="Eliminar" icon={Trash2} variant="ghost" onPress={() => confirmDelete(p.id, p.name)} accessibilityLabel={`Eliminar ${p.name}`} />
           ) : null}
         </Card>
       ))}

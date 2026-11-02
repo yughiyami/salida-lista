@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
+import { ChevronRight, KeyRound, Plus } from "lucide-react-native";
 import {
   useCircleMutations,
   useCircles,
   useMembers,
+  useProfilesById,
 } from "../../features/circles/hooks";
 import {
   formatInviteCode,
@@ -12,21 +14,22 @@ import {
   validateCircleName,
   validateInviteCode,
 } from "../../features/circles/validation";
-import { Banner, Body, Button, Card, CardTitle, Field, Screen, colors } from "../../ui/kit";
+import { Avatar, Banner, Button, Card, Field, Pill, Screen, Segmented, Text, colors, radius, shadow } from "../../ui/kit";
 
 export default function CirclesTabScreen() {
   const router = useRouter();
   const circles = useCircles();
   const members = useMembers();
+  const profiles = useProfilesById();
   const { create, join } = useCircleMutations();
+  const [mode, setMode] = useState<"create" | "join">("create");
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
   const [nameError, setNameError] = useState<string | null>(null);
   const [codeError, setCodeError] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
 
-  const countFor = (id: string) =>
-    (members.data ?? []).filter((m) => m.circle_id === id).length;
+  const membersOf = (id: string) => (members.data ?? []).filter((m) => m.circle_id === id);
 
   const submitCreate = () => {
     const parsed = validateCircleName(name);
@@ -58,55 +61,81 @@ export default function CirclesTabScreen() {
   };
 
   return (
-    <Screen title="Círculos">
+    <Screen title="Círculos" subtitle="Tu gente de confianza, a un toque.">
       {circles.isError ? <Banner tone="danger">No pudimos cargar tus círculos. Revisa tu conexión.</Banner> : null}
       {message ? <Banner>{message}</Banner> : null}
 
-      {(circles.data ?? []).map((c) => (
-        <Pressable
-          key={c.id}
-          accessibilityRole="button"
-          accessibilityLabel={`Abrir círculo ${c.name}`}
-          onPress={() => router.push({ pathname: "/circulo/[id]", params: { id: c.id } })}
-          style={({ pressed }) => [styles.circle, pressed && { opacity: 0.8 }]}
-        >
-          <View style={{ flex: 1 }}>
-            <Text style={styles.circleName}>{c.name}</Text>
-            <Text style={styles.circleMeta}>
-              {countFor(c.id)} {countFor(c.id) === 1 ? "persona" : "personas"} · código {formatInviteCode(c.invite_code)}
-            </Text>
-          </View>
-          <Text style={styles.chevron}>›</Text>
-        </Pressable>
-      ))}
+      {(circles.data ?? []).map((c) => {
+        const list = membersOf(c.id);
+        return (
+          <Pressable
+            key={c.id}
+            accessibilityRole="button"
+            accessibilityLabel={`Abrir círculo ${c.name}`}
+            onPress={() => router.push({ pathname: "/circulo/[id]", params: { id: c.id } })}
+            style={({ pressed }) => [styles.circle, pressed && { transform: [{ scale: 0.985 }] }]}
+          >
+            <View style={{ flex: 1, gap: 8 }}>
+              <Text variant="title" numberOfLines={1}>
+                {c.name}
+              </Text>
+              <View style={styles.stack}>
+                {list.slice(0, 4).map((m, i) => (
+                  <View key={m.user_id} style={[styles.stackItem, i > 0 && { marginLeft: -12 }]}>
+                    <Avatar name={profiles.get(m.user_id)?.display_name ?? "Miembro"} id={m.user_id} size={34} />
+                  </View>
+                ))}
+                <Text variant="small" style={{ marginLeft: 10 }}>
+                  {list.length} {list.length === 1 ? "persona" : "personas"}
+                </Text>
+              </View>
+              <Pill icon={KeyRound}>{formatInviteCode(c.invite_code)}</Pill>
+            </View>
+            <ChevronRight color={colors.inkSoft} size={26} />
+          </Pressable>
+        );
+      })}
 
       {circles.isSuccess && circles.data.length === 0 ? (
         <Card>
-          <Body>Todavía no tienes círculos. Crea uno para tu familia o amigos, o únete con el código que te compartieron.</Body>
+          <Text variant="heading">Aún no tienes círculos</Text>
+          <Text variant="body">Crea uno para tu familia o amigos, o únete con el código que te compartieron.</Text>
         </Card>
       ) : null}
 
       <Card>
-        <CardTitle>Crear un círculo</CardTitle>
-        <Field label="Nombre del círculo" value={name} onChangeText={setName} placeholder="Familia, Amigos…" maxLength={40} error={nameError} />
-        <Button label="Crear círculo" onPress={submitCreate} loading={create.isPending} />
-      </Card>
-
-      <Card>
-        <CardTitle>Unirme con un código</CardTitle>
-        <Field
-          label="Código de invitación"
-          value={code}
-          onChangeText={setCode}
-          placeholder="ABCD-EFGH"
-          autoCapitalize="characters"
-          autoCorrect={false}
-          maxLength={12}
-          error={codeError}
+        <Segmented
+          value={mode}
+          onChange={setMode}
+          options={[
+            { value: "create", label: "Crear círculo" },
+            { value: "join", label: "Tengo un código" },
+          ]}
         />
-        <Button label="Unirme" variant="secondary" onPress={submitJoin} loading={join.isPending} />
+        {mode === "create" ? (
+          <>
+            <Field label="Nombre del círculo" value={name} onChangeText={setName} placeholder="Familia, Amigos…" maxLength={40} error={nameError} />
+            <Button label="Crear círculo" icon={Plus} onPress={submitCreate} loading={create.isPending} />
+          </>
+        ) : (
+          <>
+            <Field
+              label="Código de invitación"
+              value={code}
+              onChangeText={setCode}
+              placeholder="ABCD-EFGH"
+              autoCapitalize="characters"
+              autoCorrect={false}
+              maxLength={12}
+              error={codeError}
+            />
+            <Button label="Unirme" icon={KeyRound} onPress={submitJoin} loading={join.isPending} />
+          </>
+        )}
       </Card>
-      <Body>Solo las personas de tus círculos ven tu ubicación. Puedes dejar de compartir con un círculo cuando quieras.</Body>
+      <Text variant="small" style={{ textAlign: "center" }}>
+        Solo las personas de tus círculos ven tu ubicación. Puedes dejar de compartir con un círculo cuando quieras.
+      </Text>
     </Screen>
   );
 }
@@ -116,13 +145,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 18,
-    minHeight: 72,
-    backgroundColor: colors.card,
-    borderRadius: 18,
-    borderWidth: 1,
-    borderColor: colors.border,
+    backgroundColor: colors.white,
+    borderRadius: radius.lg,
+    ...shadow.card,
   },
-  circleName: { fontSize: 18, fontWeight: "700", color: colors.ink },
-  circleMeta: { fontSize: 13, color: colors.muted, marginTop: 2 },
-  chevron: { fontSize: 28, color: colors.muted },
+  stack: { flexDirection: "row", alignItems: "center" },
+  stackItem: { borderRadius: 20, borderWidth: 2, borderColor: colors.white },
 });

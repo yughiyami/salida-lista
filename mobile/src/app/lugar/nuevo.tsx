@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSession } from "../../features/auth/useSession";
@@ -9,7 +9,8 @@ import { mapCircleError, validatePlaceName } from "../../features/circles/valida
 import { currentPosition } from "../../features/location/sharing";
 import type { LatLng } from "../../domain/geo";
 import { LiveMap } from "../../ui/LiveMap";
-import { Banner, Body, Button, Field, Screen, colors } from "../../ui/kit";
+import { ChevronLeft, LocateFixed, Save } from "lucide-react-native";
+import { Banner, Button, Field, Screen, Text, colors, radius, shadow } from "../../ui/kit";
 
 const RADII = [100, 150, 300, 500];
 
@@ -65,11 +66,18 @@ export default function NewPlaceScreen() {
   };
 
   return (
-    <Screen title="Nuevo lugar" edges={["top", "bottom"]}>
+    <Screen edges={["top", "bottom"]}>
+      <Pressable accessibilityRole="button" accessibilityLabel="Volver" onPress={() => router.back()} style={styles.back}>
+        <ChevronLeft color={colors.ink} size={26} />
+        <Text variant="bodyStrong">Lugares</Text>
+      </Pressable>
+      <Text accessibilityRole="header" variant="display" style={{ marginTop: -4 }}>
+        Nuevo lugar
+      </Text>
       {error ? <Banner tone="danger">{error}</Banner> : null}
       <Field label="Nombre del lugar" value={name} onChangeText={setName} placeholder="Casa, Colegio…" maxLength={40} error={nameError} />
 
-      <Text style={styles.label}>Círculo que recibe los avisos</Text>
+      <Text variant="caption" style={{ color: colors.ink }}>Círculo que recibe los avisos</Text>
       <View style={styles.chips}>
         {(circles.data ?? []).map((c) => (
           <Pressable
@@ -79,12 +87,12 @@ export default function NewPlaceScreen() {
             onPress={() => setCircleId(c.id)}
             style={[styles.chip, selectedCircle === c.id && styles.chipOn]}
           >
-            <Text style={[styles.chipText, selectedCircle === c.id && { color: "#FFFFFF" }]}>{c.name}</Text>
+            <Text variant="bodyStrong" style={{ fontSize: 14, color: selectedCircle === c.id ? colors.white : colors.ink }}>{c.name}</Text>
           </Pressable>
         ))}
       </View>
 
-      <Text style={styles.label}>Radio</Text>
+      <Text variant="caption" style={{ color: colors.ink }}>Radio de la zona</Text>
       <View style={styles.chips}>
         {RADII.map((r) => (
           <Pressable
@@ -94,26 +102,25 @@ export default function NewPlaceScreen() {
             onPress={() => setRadius(r)}
             style={[styles.chip, radius === r && styles.chipOn]}
           >
-            <Text style={[styles.chipText, radius === r && { color: "#FFFFFF" }]}>{r} m</Text>
+            <Text variant="bodyStrong" style={{ fontSize: 14, color: radius === r ? colors.white : colors.ink }}>{r} m</Text>
           </Pressable>
         ))}
       </View>
 
-      <Body>Toca el mapa para mover el punto. El círculo verde es la zona que dispara el aviso.</Body>
+      <Text variant="small">Toca el mapa para mover el punto. La zona verde es la que dispara el aviso.</Text>
       <View style={styles.map}>
         <LiveMap members={[]} pin={pin} pinRadius={radius} initialCenter={start} focusKey={pin ? `${pin.latitude}` : "none"} onPressMap={setPin} />
       </View>
-      <Button label="Usar mi ubicación actual" variant="secondary" onPress={() => void currentPosition().then((p) => p && setPin(p))} />
-      <Button label="Guardar lugar" onPress={() => void save()} loading={saving} />
+      <Button label="Usar mi ubicación actual" icon={LocateFixed} variant="secondary" onPress={() => void currentPosition().then((p) => p && setPin(p))} />
+      <Button label="Guardar lugar" icon={Save} onPress={() => void save()} loading={saving} />
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
-  label: { fontSize: 13, fontWeight: "600", color: colors.ink },
+  back: { flexDirection: "row", alignItems: "center", minHeight: 48, marginLeft: -6 },
   chips: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
-  chip: { minHeight: 44, paddingHorizontal: 16, borderRadius: 22, backgroundColor: colors.soft, justifyContent: "center" },
-  chipOn: { backgroundColor: colors.ink },
-  chipText: { color: colors.ink, fontWeight: "600" },
-  map: { height: 300, borderRadius: 18, overflow: "hidden", borderWidth: 1, borderColor: colors.border },
+  chip: { minHeight: 44, paddingHorizontal: 16, borderRadius: radius.pill, backgroundColor: colors.white, justifyContent: "center", ...shadow.card },
+  chipOn: { backgroundColor: colors.spruceDeep },
+  map: { height: 300, borderRadius: radius.lg, overflow: "hidden", ...shadow.card },
 });

@@ -2,7 +2,7 @@
   "expo": {
     "name": "Salida Lista",
     "slug": "salida-lista",
-    "version": "1.1.2",
+    "version": "1.2.0",
     "orientation": "portrait",
     "icon": "./assets/brand/salida-lista-mark.png",
     "userInterfaceStyle": "light",
@@ -17,7 +17,7 @@
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.salidalista.mobile",
-      "versionCode": 8,
+      "versionCode": 9,
       "permissions": [
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",
@@ -54,7 +54,8 @@
           "color": "#163F35",
           "defaultChannel": "circle"
         }
-      ]
+      ],
+      "expo-font"
     ],
     "scheme": "salidalista",
     "platforms": [

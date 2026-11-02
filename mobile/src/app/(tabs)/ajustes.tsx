@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Alert, Share, StyleSheet, Switch, Text, View } from "react-native";
+import { Alert, Share, StyleSheet, Switch, View } from "react-native";
 import { useRouter } from "expo-router";
 import { useQueryClient } from "@tanstack/react-query";
 import { useSession } from "../../features/auth/useSession";
@@ -15,7 +15,8 @@ import {
 } from "../../features/location/sharing";
 import { clearLocationData } from "../../features/location/store";
 import { registerForPush } from "../../features/push/register";
-import { Banner, Body, Button, Card, CardTitle, Screen, colors } from "../../ui/kit";
+import { Bell, Download, MapPinned, ShieldCheck, Trash2, Route } from "lucide-react-native";
+import { Avatar, Banner, Body, Button, Card, CardTitle, Pill, Screen, Text, colors } from "../../ui/kit";
 import { useNow } from "../../ui/useNow";
 
 async function stopAllLocationWork() {
@@ -157,18 +158,22 @@ export default function SettingsTabScreen() {
     });
 
   return (
-    <Screen title="Ajustes">
+    <Screen title="Ajustes" subtitle="Tu cuenta, tu ubicación y tu privacidad.">
       {notice ? <Banner tone={notice.tone}>{notice.text}</Banner> : null}
 
       <Card>
-        <CardTitle>Mi cuenta</CardTitle>
-        <Info label="Nombre visible" value={profile?.display_name ?? "Sin configurar"} />
-        <Info label="Correo electrónico" value={user?.email ?? "No disponible"} />
+        <View style={styles.account}>
+          <Avatar name={profile?.display_name ?? "?"} id={user?.id ?? "me"} size={56} />
+          <View style={{ flex: 1 }}>
+            <Text variant="heading" numberOfLines={1}>{profile?.display_name ?? "Sin configurar"}</Text>
+            <Text variant="small" numberOfLines={1}>{user?.email ?? "No disponible"}</Text>
+          </View>
+        </View>
         <Button label="Cerrar sesión" variant="ghost" onPress={() => void handleSignOut()} loading={busy === "signout"} />
       </Card>
 
       <Card>
-        <CardTitle>Compartir ubicación</CardTitle>
+        <View style={styles.titleRow}><MapPinned color={colors.spruce} size={20} strokeWidth={2.3} /><CardTitle>Compartir ubicación</CardTitle></View>
         <ToggleRow
           label="Compartir mi ubicación con mis círculos"
           value={consent}
@@ -177,7 +182,7 @@ export default function SettingsTabScreen() {
         />
         {consent ? (
           <>
-            <Text style={styles.status}>{pause.label}</Text>
+            <Pill tone={pause.paused ? "warn" : "live"}>{pause.label}</Pill>
             {pause.paused ? (
               <Button label="Reanudar ahora" onPress={() => void resume()} loading={busy === "pause"} />
             ) : (
@@ -210,35 +215,26 @@ export default function SettingsTabScreen() {
       </Card>
 
       <Card>
-        <CardTitle>Notificaciones</CardTitle>
+        <View style={styles.titleRow}><Bell color={colors.spruce} size={20} strokeWidth={2.3} /><CardTitle>Notificaciones</CardTitle></View>
         <Body>Recibe avisos de SOS, llegadas a lugares y mensajes aunque tengas la app cerrada.</Body>
         <Button label="Activar notificaciones" variant="secondary" onPress={() => void enablePush()} loading={busy === "push"} />
       </Card>
 
       <Card>
-        <CardTitle>Privacidad y datos</CardTitle>
+        <View style={styles.titleRow}><ShieldCheck color={colors.spruce} size={20} strokeWidth={2.3} /><CardTitle>Privacidad y datos</CardTitle></View>
         <Body>
           Solo las personas de tus círculos ven tu ubicación, y solo la de los círculos con los que la compartes. Guardamos tu historial de ubicación 30 días y el chat 90 días; después se borran solos.
         </Body>
-        <Button label="Descargar mis datos" variant="secondary" onPress={() => void exportData()} loading={busy === "export"} />
-        <Button label="Eliminar mi cuenta" variant="danger" onPress={confirmDelete} loading={busy === "delete"} />
+        <Button label="Descargar mis datos" icon={Download} variant="secondary" onPress={() => void exportData()} loading={busy === "export"} />
+        <Button label="Eliminar mi cuenta" icon={Trash2} variant="danger" onPress={confirmDelete} loading={busy === "delete"} />
       </Card>
 
       <Card>
-        <CardTitle>Operación en campo</CardTitle>
+        <View style={styles.titleRow}><Route color={colors.spruce} size={20} strokeWidth={2.3} /><CardTitle>Operación en campo</CardTitle></View>
         <Body>Accede al modo guía para preparar salidas, revisar asistencia y registrar eventos locales sin conexión.</Body>
         <Button label="Modo guía (offline)" onPress={() => router.push("/guia")} />
       </Card>
     </Screen>
-  );
-}
-
-function Info({ label, value }: { label: string; value: string }) {
-  return (
-    <View style={styles.info}>
-      <Text style={styles.label}>{label}</Text>
-      <Text style={styles.value}>{value}</Text>
-    </View>
   );
 }
 
@@ -255,24 +251,23 @@ function ToggleRow({
 }) {
   return (
     <View style={styles.toggle}>
-      <Text style={styles.toggleText}>{label}</Text>
+      <Text variant="bodyStrong" style={styles.toggleText}>{label}</Text>
       <Switch
         accessibilityLabel={label}
         value={value}
         disabled={disabled}
         onValueChange={onChange}
-        trackColor={{ true: colors.ink, false: colors.border }}
+        trackColor={{ true: colors.spruce, false: colors.line }}
+        thumbColor={colors.white}
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  info: { gap: 3, paddingVertical: 4, borderBottomWidth: 1, borderBottomColor: "#EFECE4" },
-  label: { fontSize: 12, color: colors.muted },
-  value: { fontSize: 16, fontWeight: "600", color: colors.ink },
-  status: { fontSize: 15, fontWeight: "700", color: colors.ink },
+  account: { flexDirection: "row", alignItems: "center", gap: 14 },
+  titleRow: { flexDirection: "row", alignItems: "center", gap: 8 },
   row: { flexDirection: "row", flexWrap: "wrap", gap: 8 },
   toggle: { flexDirection: "row", alignItems: "center", gap: 12 },
-  toggleText: { flex: 1, fontSize: 15, color: colors.ink, fontWeight: "600" },
+  toggleText: { flex: 1 },
 });

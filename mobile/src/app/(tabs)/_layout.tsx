@@ -1,13 +1,14 @@
 import { useCallback, useEffect } from "react";
-import { Alert } from "react-native";
+import { Alert, StyleSheet, View } from "react-native";
 import { Tabs, useRouter } from "expo-router";
 import * as Notifications from "expo-notifications";
-import { Map, MapPin, Settings, Users } from "lucide-react-native";
+import { Map, MapPin, Settings, Users, type LucideIcon } from "lucide-react-native";
 import { useSession } from "../../features/auth/useSession";
 import { useRealtimeSync } from "../../features/circles/hooks";
 import type { FeedMessage } from "../../features/circles/types";
 import { SharingController } from "../../features/location/SharingController";
 import { registerForPush } from "../../features/push/register";
+import { colors, fonts } from "../../ui/theme";
 
 function AuthedServices() {
   const router = useRouter();
@@ -48,6 +49,14 @@ function AuthedServices() {
   return <SharingController />;
 }
 
+function TabIcon({ Icon, focused }: { Icon: LucideIcon; focused: boolean }) {
+  return (
+    <View style={[tab.pill, focused && tab.pillOn]}>
+      <Icon color={focused ? colors.spruceDeep : colors.inkSoft} size={22} strokeWidth={focused ? 2.6 : 2.1} />
+    </View>
+  );
+}
+
 export default function TabsLayout() {
   return (
     <>
@@ -55,13 +64,17 @@ export default function TabsLayout() {
       <Tabs
         screenOptions={{
           headerShown: false,
-          sceneStyle: { backgroundColor: "#F7F5EF" },
-          tabBarActiveTintColor: "#163F35",
-          tabBarInactiveTintColor: "#5B665F",
+          sceneStyle: { backgroundColor: colors.ground },
+          tabBarActiveTintColor: colors.spruceDeep,
+          tabBarInactiveTintColor: colors.inkSoft,
+          tabBarLabelStyle: { fontFamily: fonts.semibold, fontSize: 11, marginTop: 2 },
           tabBarStyle: {
-            backgroundColor: "#FFFFFF",
-            borderTopColor: "#D8D2C5",
+            backgroundColor: colors.white,
+            borderTopColor: colors.line,
             borderTopWidth: 1,
+            height: 70,
+            paddingTop: 8,
+            paddingBottom: 10,
           },
         }}
       >
@@ -69,31 +82,36 @@ export default function TabsLayout() {
           name="mapa"
           options={{
             title: "Mapa",
-            tabBarIcon: ({ color, size }) => <Map color={color} size={size} />,
+            tabBarIcon: ({ focused }) => <TabIcon Icon={Map} focused={focused} />,
           }}
         />
         <Tabs.Screen
           name="circulos"
           options={{
             title: "Círculos",
-            tabBarIcon: ({ color, size }) => <Users color={color} size={size} />,
+            tabBarIcon: ({ focused }) => <TabIcon Icon={Users} focused={focused} />,
           }}
         />
         <Tabs.Screen
           name="lugares"
           options={{
             title: "Lugares",
-            tabBarIcon: ({ color, size }) => <MapPin color={color} size={size} />,
+            tabBarIcon: ({ focused }) => <TabIcon Icon={MapPin} focused={focused} />,
           }}
         />
         <Tabs.Screen
           name="ajustes"
           options={{
             title: "Ajustes",
-            tabBarIcon: ({ color, size }) => <Settings color={color} size={size} />,
+            tabBarIcon: ({ focused }) => <TabIcon Icon={Settings} focused={focused} />,
           }}
         />
       </Tabs>
     </>
   );
 }
+
+const tab = StyleSheet.create({
+  pill: { width: 58, height: 32, borderRadius: 16, alignItems: "center", justifyContent: "center" },
+  pillOn: { backgroundColor: colors.lime },
+});

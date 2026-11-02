@@ -2,6 +2,14 @@ import { useEffect, useState } from "react";
 import { Stack, usePathname } from "expo-router";
 import { SQLiteProvider } from "expo-sqlite";
 import { StatusBar } from "expo-status-bar";
+import {
+  Figtree_400Regular,
+  Figtree_500Medium,
+  Figtree_600SemiBold,
+  Figtree_700Bold,
+  Figtree_800ExtraBold,
+  useFonts,
+} from "@expo-google-fonts/figtree";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import {
@@ -20,6 +28,13 @@ import { SupabaseConfigErrorScreen } from "../ui/SupabaseConfigErrorScreen";
 const queryClient = new QueryClient();
 
 export default function RootLayout() {
+  const [fontsLoaded, fontError] = useFonts({
+    Figtree_400Regular,
+    Figtree_500Medium,
+    Figtree_600SemiBold,
+    Figtree_700Bold,
+    Figtree_800ExtraBold,
+  });
   const [error, setError] = useState<string | null>(null);
   const [attempt, setAttempt] = useState(0);
   const pathname = usePathname();
@@ -44,6 +59,11 @@ export default function RootLayout() {
   );
   const isAuthBootstrapping =
     supabaseEnv.ok && (!isInitialized || isLoadingProfile);
+
+  // Hold the first frame until the app font is ready; never block on a font error.
+  if (!fontsLoaded && !fontError) {
+    return <View style={styles.container} />;
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -77,7 +97,7 @@ export default function RootLayout() {
               <Stack
                 screenOptions={{
                   headerShown: false,
-                  contentStyle: { backgroundColor: "#F7F5EF" },
+                  contentStyle: { backgroundColor: "#F2F4EF" },
                 }}
               >
                 <Stack.Screen name="guia" />
@@ -122,10 +142,10 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F7F5EF",
+    backgroundColor: "#F2F4EF",
   },
   loadingOverlay: {
-    backgroundColor: "#F7F5EF",
+    backgroundColor: "#F2F4EF",
     alignItems: "center",
     justifyContent: "center",
     gap: 12,
@@ -139,7 +159,7 @@ const styles = StyleSheet.create({
     padding: 32,
     gap: 20,
     justifyContent: "center",
-    backgroundColor: "#F7F5EF",
+    backgroundColor: "#F2F4EF",
   },
   retry: {
     minHeight: 52,

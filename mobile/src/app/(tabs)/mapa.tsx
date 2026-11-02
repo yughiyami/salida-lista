@@ -1,8 +1,9 @@
 import { useMemo, useState } from "react";
-import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Alert, Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { Link } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useQueryClient } from "@tanstack/react-query";
+import { Check, LocateFixed, Siren, Users } from "lucide-react-native";
 import { useSession } from "../../features/auth/useSession";
 import * as api from "../../features/circles/api";
 import {
@@ -15,13 +16,10 @@ import {
 } from "../../features/circles/hooks";
 import { mapCircleError } from "../../features/circles/validation";
 import { describePause } from "../../features/location/pause";
-import {
-  currentPosition,
-  ensureForegroundPermission,
-} from "../../features/location/sharing";
+import { currentPosition, ensureForegroundPermission } from "../../features/location/sharing";
 import { formatBattery, formatLastSeen, isStale } from "../../domain/geo";
 import { LiveMap, type MapMember } from "../../ui/LiveMap";
-import { Avatar, Banner, Button, colors } from "../../ui/kit";
+import { Avatar, Banner, Button, IconButton, Pill, Text, colors, radius, shadow } from "../../ui/kit";
 import { useNow } from "../../ui/useNow";
 
 export default function MapTabScreen() {
@@ -65,6 +63,7 @@ export default function MapTabScreen() {
   const visiblePlaces = (places.data ?? []).filter((p) => !circleId || p.circle_id === circleId);
   const hasCircles = (circles.data?.length ?? 0) > 0;
   const activeSos = (sos.data ?? []).filter((m) => m.user_id !== me);
+  const mySos = (sos.data ?? []).some((m) => m.user_id === me);
 
   const grantConsent = async () => {
     setBusy("consent");
@@ -133,17 +132,22 @@ export default function MapTabScreen() {
     }
   };
 
-  const mySos = (sos.data ?? []).some((m) => m.user_id === me);
-
   if (circles.isSuccess && !hasCircles) {
     return (
       <SafeAreaView style={styles.safe} edges={["top"]}>
         <View style={styles.empty}>
-          <Text accessibilityRole="header" style={styles.title}>Mapa</Text>
-          <Banner>Aún no estás en ningún círculo. Crea uno o únete con un código para ver a tu gente en el mapa.</Banner>
+          <View style={styles.emptyIcon}>
+            <Users color={colors.spruceDeep} size={34} strokeWidth={2} />
+          </View>
+          <Text variant="title" style={{ textAlign: "center" }}>
+            Tu gente aparecerá aquí
+          </Text>
+          <Text variant="body" style={{ textAlign: "center" }}>
+            Crea un círculo o únete con un código para ver a tu familia y amigos en el mapa.
+          </Text>
           <Link href="/(tabs)/circulos" asChild>
-            <Pressable accessibilityRole="button" style={styles.link}>
-              <Text style={styles.linkText}>Ir a Círculos</Text>
+            <Pressable accessibilityRole="button" style={styles.emptyButton}>
+              <Text variant="button">Ir a Círculos</Text>
             </Pressable>
           </Link>
         </View>
@@ -151,31 +155,14 @@ export default function MapTabScreen() {
     );
   }
 
+  const refit = (id: string | null) => {
+    setCircleId(id);
+    setSelected(null);
+    setFocusKey((k) => k + 1);
+  };
+
   return (
-    <SafeAreaView style={styles.safe} edges={["top"]}>
-      <View style={styles.header}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
-          <Chip label="Todos" active={circleId === null} onPress={() => { setCircleId(null); setSelected(null); setFocusKey((k) => k + 1); }} />
-          {(circles.data ?? []).map((c) => (
-            <Chip key={c.id} label={c.name} active={circleId === c.id} onPress={() => { setCircleId(c.id); setSelected(null); setFocusKey((k) => k + 1); }} />
-          ))}
-        </ScrollView>
-      </View>
-
-      {!consent && settings.isSuccess ? (
-        <View style={styles.banners}>
-          <Banner tone="warn">Para que tu círculo te vea, activa el uso compartido de tu ubicación. Puedes pausarlo o retirarlo cuando quieras.</Banner>
-          <Button label="Activar compartir ubicación" onPress={() => void grantConsent()} loading={busy === "consent"} />
-        </View>
-      ) : null}
-      {pause.paused ? <View style={styles.banners}><Banner tone="warn">{pause.label}. Nadie ve tu ubicación hasta que la reanudes en Ajustes.</Banner></View> : null}
-      {activeSos.map((m) => (
-        <View key={m.id} style={styles.banners}>
-          <Banner tone="danger">{m.body}</Banner>
-        </View>
-      ))}
-      {notice ? <View style={styles.banners}><Banner tone={notice.tone}>{notice.text}</Banner></View> : null}
-
+    <View style={styles.safe}>
       <LiveMap
         members={members}
         places={visiblePlaces}
@@ -184,44 +171,87 @@ export default function MapTabScreen() {
         focusKey={`${focusKey}-${members.length}`}
       />
 
-      <View style={styles.sheet}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.people}>
-          {roster.map((r) => {
-            const name = r.profile?.display_name ?? "Miembro";
-            const rec = r.location ? Date.parse(r.location.recorded_at) : null;
-            return (
-              <Pressable
-                key={`${r.member.circle_id}-${r.member.user_id}`}
-                accessibilityRole="button"
-                accessibilityLabel={`Ver a ${name}`}
-                onPress={() => r.location && setSelected(r.member.user_id)}
-                style={[styles.person, selected === r.member.user_id && styles.personSelected]}
-              >
-                <Avatar name={name} id={r.member.user_id} size={36} />
-                <View>
-                  <Text style={styles.personName}>{r.member.user_id === me ? "Yo" : name}</Text>
-                  <Text style={styles.personMeta}>
-                    {rec ? `${formatLastSeen(rec, now)} · ${formatBattery(r.location?.battery_level, r.location?.is_charging)}` : "Sin ubicación"}
-                  </Text>
-                </View>
-              </Pressable>
-            );
-          })}
-        </ScrollView>
-        <View style={styles.actions}>
-          <View style={{ flex: 1 }}>
-            <Button label="Llegué bien" variant="secondary" onPress={() => void checkin()} loading={busy === "checkin"} disabled={!hasCircles} />
-          </View>
-          <View style={{ flex: 1 }}>
-            {mySos ? (
-              <Button label="Resolver SOS" variant="ghost" onPress={() => void resolveMine()} />
-            ) : (
-              <Button label="SOS" variant="danger" onPress={triggerSos} loading={busy === "sos"} disabled={!hasCircles} accessibilityLabel="Enviar SOS a mis círculos" />
-            )}
-          </View>
+      <SafeAreaView style={styles.top} edges={["top"]} pointerEvents="box-none">
+        <View style={styles.chipsWrap}>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
+            <Chip label="Todos" active={circleId === null} onPress={() => refit(null)} />
+            {(circles.data ?? []).map((c) => (
+              <Chip key={c.id} label={c.name} active={circleId === c.id} onPress={() => refit(c.id)} />
+            ))}
+          </ScrollView>
         </View>
+        <View style={styles.statusRow} pointerEvents="box-none">
+          {consent ? (
+            <Pill tone={pause.paused ? "warn" : "live"}>{pause.paused ? pause.label : "Compartiendo ubicación"}</Pill>
+          ) : null}
+        </View>
+        <View style={styles.banners} pointerEvents="box-none">
+          {activeSos.map((m) => (
+            <Banner key={m.id} tone="danger">
+              {m.body}
+            </Banner>
+          ))}
+          {notice ? <Banner tone={notice.tone}>{notice.text}</Banner> : null}
+        </View>
+      </SafeAreaView>
+
+      <View style={styles.fab} pointerEvents="box-none">
+        <IconButton icon={LocateFixed} label="Centrar el mapa" onPress={() => { setSelected(null); setFocusKey((k) => k + 1); }} />
       </View>
-    </SafeAreaView>
+
+      <View style={styles.sheet}>
+        <View style={styles.handle} />
+        {!consent && settings.isSuccess ? (
+          <View style={{ gap: 10 }}>
+            <Text variant="heading">Comparte tu ubicación con tu círculo</Text>
+            <Text variant="body">Solo las personas de tus círculos la ven. Puedes pausarla o retirarla cuando quieras en Ajustes.</Text>
+            <Button label="Activar compartir ubicación" onPress={() => void grantConsent()} loading={busy === "consent"} />
+          </View>
+        ) : (
+          <>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.people}>
+              {roster.map((r) => {
+                const name = r.profile?.display_name ?? "Miembro";
+                const rec = r.location ? Date.parse(r.location.recorded_at) : null;
+                const isSos = (sos.data ?? []).some((m) => m.user_id === r.member.user_id);
+                const status = isSos ? "sos" : rec ? (isStale(rec, now) ? "stale" : "live") : "none";
+                return (
+                  <Pressable
+                    key={`${r.member.circle_id}-${r.member.user_id}`}
+                    accessibilityRole="button"
+                    accessibilityLabel={`Ver a ${name}`}
+                    onPress={() => r.location && setSelected(r.member.user_id)}
+                    style={[styles.person, selected === r.member.user_id && styles.personSelected]}
+                  >
+                    <Avatar name={name} id={r.member.user_id} size={46} status={status} />
+                    <View style={{ maxWidth: 130 }}>
+                      <Text variant="bodyStrong" numberOfLines={1}>
+                        {r.member.user_id === me ? "Yo" : name}
+                      </Text>
+                      <Text variant="caption" numberOfLines={1}>
+                        {rec ? `${formatLastSeen(rec, now)} · ${formatBattery(r.location?.battery_level, r.location?.is_charging)}` : "Sin ubicación"}
+                      </Text>
+                    </View>
+                  </Pressable>
+                );
+              })}
+            </ScrollView>
+            <View style={styles.actions}>
+              <View style={{ flex: 1 }}>
+                <Button label="Llegué bien" icon={Check} onPress={() => void checkin()} loading={busy === "checkin"} disabled={!hasCircles} />
+              </View>
+              <View style={{ flex: 0.8 }}>
+                {mySos ? (
+                  <Button label="Resolver SOS" variant="ghost" onPress={() => void resolveMine()} />
+                ) : (
+                  <Button label="SOS" icon={Siren} variant="danger" onPress={triggerSos} loading={busy === "sos"} disabled={!hasCircles} accessibilityLabel="Enviar SOS a mis círculos" />
+                )}
+              </View>
+            </View>
+          </>
+        )}
+      </View>
+    </View>
   );
 }
 
@@ -233,28 +263,59 @@ function Chip({ label, active, onPress }: { label: string; active: boolean; onPr
       onPress={onPress}
       style={[styles.chip, active && styles.chipActive]}
     >
-      <Text style={[styles.chipText, active && { color: "#FFFFFF" }]}>{label}</Text>
+      <Text variant="bodyStrong" style={{ color: active ? colors.white : colors.ink, fontSize: 14 }}>
+        {label}
+      </Text>
     </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: colors.bg },
-  empty: { flex: 1, padding: 24, gap: 14 },
-  title: { fontSize: 32, fontWeight: "700", color: colors.ink, letterSpacing: -0.8 },
-  link: { minHeight: 52, borderRadius: 14, backgroundColor: colors.ink, alignItems: "center", justifyContent: "center" },
-  linkText: { color: "#FFFFFF", fontWeight: "700", fontSize: 15 },
-  header: { paddingVertical: 8 },
+  safe: { flex: 1, backgroundColor: colors.ground },
+  top: { position: "absolute", top: 0, left: 0, right: 0, gap: 8 },
+  chipsWrap: { marginTop: 8 },
   chips: { paddingHorizontal: 16, gap: 8 },
-  chip: { minHeight: 40, paddingHorizontal: 16, borderRadius: 20, backgroundColor: colors.soft, justifyContent: "center" },
-  chipActive: { backgroundColor: colors.ink },
-  chipText: { color: colors.ink, fontWeight: "600" },
-  banners: { paddingHorizontal: 16, paddingBottom: 8, gap: 8 },
-  sheet: { backgroundColor: colors.card, borderTopWidth: 1, borderTopColor: colors.border, padding: 14, gap: 12 },
-  people: { gap: 10 },
-  person: { flexDirection: "row", alignItems: "center", gap: 10, padding: 8, borderRadius: 14, borderWidth: 1, borderColor: colors.border, minHeight: 56 },
-  personSelected: { borderColor: colors.ink, backgroundColor: colors.soft },
-  personName: { fontWeight: "700", color: colors.ink },
-  personMeta: { fontSize: 12, color: colors.muted },
+  chip: {
+    minHeight: 40,
+    paddingHorizontal: 16,
+    borderRadius: radius.pill,
+    backgroundColor: colors.white,
+    justifyContent: "center",
+    ...shadow.card,
+  },
+  chipActive: { backgroundColor: colors.spruceDeep },
+  statusRow: { paddingHorizontal: 16, alignItems: "flex-start" },
+  banners: { paddingHorizontal: 16, gap: 8 },
+  fab: { position: "absolute", right: 16, bottom: 236 },
+  sheet: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: colors.white,
+    borderTopLeftRadius: radius.xl,
+    borderTopRightRadius: radius.xl,
+    paddingHorizontal: 16,
+    paddingTop: 10,
+    paddingBottom: 16,
+    gap: 14,
+    ...shadow.float,
+  },
+  handle: { alignSelf: "center", width: 40, height: 5, borderRadius: 3, backgroundColor: colors.line },
+  people: { gap: 10, paddingRight: 8 },
+  person: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 10,
+    paddingVertical: 8,
+    paddingHorizontal: 10,
+    borderRadius: radius.lg,
+    backgroundColor: colors.ground,
+    minHeight: 64,
+  },
+  personSelected: { backgroundColor: colors.spruceTint },
   actions: { flexDirection: "row", gap: 10 },
+  empty: { flex: 1, padding: 32, gap: 14, alignItems: "center", justifyContent: "center" },
+  emptyIcon: { width: 76, height: 76, borderRadius: 38, backgroundColor: colors.lime, alignItems: "center", justifyContent: "center" },
+  emptyButton: { minHeight: 54, alignSelf: "stretch", borderRadius: radius.md, backgroundColor: colors.spruce, alignItems: "center", justifyContent: "center" },
 });

@@ -11,8 +11,8 @@ import {
 } from "@maplibre/maplibre-react-native";
 import type { FeatureCollection, Polygon } from "geojson";
 import { circlePolygon, computeBounds, type LatLng } from "../domain/geo";
-import { colorForUser } from "./kit";
 import { initials } from "../domain/geo";
+import { colorForUser, colors, fonts, shadow } from "./theme";
 
 // OpenFreeMap serves free OpenStreetMap vector tiles without an API key. If it
 // cannot load (offline), the map falls back to a plain background so markers
@@ -166,12 +166,12 @@ export function LiveMap({
           <Layer
             id="place-fill"
             type="fill"
-            paint={{ "fill-color": "#2F6F5E", "fill-opacity": 0.18 }}
+            paint={{ "fill-color": "#0D5B45", "fill-opacity": 0.16 }}
           />
           <Layer
             id="place-line"
             type="line"
-            paint={{ "line-color": "#2F6F5E", "line-width": 2 }}
+            paint={{ "line-color": "#0D5B45", "line-width": 2 }}
           />
         </GeoJSONSource>
         {places.map((p) => (
@@ -186,23 +186,36 @@ export function LiveMap({
             <View style={styles.pin} />
           </Marker>
         ) : null}
-        {members.map((m) => (
-          <Marker key={m.id} id={`member-${m.id}`} lngLat={[m.longitude, m.latitude]}>
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={`${m.name}${m.sos ? ", SOS activo" : ""}`}
-              onPress={() => onSelectMember?.(m.id)}
-              style={[
-                styles.avatar,
-                { backgroundColor: m.sos ? "#B3261E" : colorForUser(m.id) },
-                m.stale && { opacity: 0.55 },
-                selectedId === m.id && styles.avatarSelected,
-              ]}
-            >
-              <Text style={styles.avatarText}>{m.sos ? "SOS" : initials(m.name)}</Text>
-            </Pressable>
-          </Marker>
-        ))}
+        {members.map((m) => {
+          const ring = m.sos ? colors.danger : m.stale ? colors.stale : colors.live;
+          return (
+            <Marker key={m.id} id={`member-${m.id}`} lngLat={[m.longitude, m.latitude]} anchor="bottom">
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel={`${m.name}${m.sos ? ", SOS activo" : ""}`}
+                onPress={() => onSelectMember?.(m.id)}
+                style={styles.markerWrap}
+              >
+                <View
+                  style={[
+                    styles.avatar,
+                    { borderColor: ring, backgroundColor: m.sos ? colors.danger : colorForUser(m.id) },
+                    m.stale && !m.sos && { opacity: 0.7 },
+                    selectedId === m.id && styles.avatarSelected,
+                  ]}
+                >
+                  <Text style={styles.avatarText}>{m.sos ? "SOS" : initials(m.name)}</Text>
+                </View>
+                <View style={[styles.tail, { borderTopColor: ring }]} />
+                <View style={styles.nameTag}>
+                  <Text style={styles.nameText} numberOfLines={1}>
+                    {m.isMe ? "Yo" : m.name.split(" ")[0]}
+                  </Text>
+                </View>
+              </Pressable>
+            </Marker>
+          );
+        })}
       </Map>
       {failed ? (
         <View style={styles.offline} pointerEvents="none">
@@ -214,45 +227,66 @@ export function LiveMap({
 }
 
 const styles = StyleSheet.create({
-  wrap: { flex: 1, overflow: "hidden", backgroundColor: "#EAEEDF" },
+  wrap: { flex: 1, overflow: "hidden", backgroundColor: "#E4EADF" },
   map: { flex: 1 },
+  markerWrap: { alignItems: "center", paddingHorizontal: 6, minWidth: 56 },
   avatar: {
-    minWidth: 44,
-    height: 44,
-    borderRadius: 22,
-    paddingHorizontal: 6,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 3,
-    borderColor: "#FFFFFF",
+    borderWidth: 4,
+    ...shadow.float,
   },
-  avatarSelected: { borderColor: "#163F35" },
-  avatarText: { color: "#FFFFFF", fontWeight: "700", fontSize: 14 },
-  placeTag: {
-    backgroundColor: "#FFFFFFEE",
-    borderRadius: 8,
+  avatarSelected: { transform: [{ scale: 1.18 }] },
+  avatarText: { fontFamily: fonts.bold, color: "#FFFFFF", fontSize: 15 },
+  tail: {
+    width: 0,
+    height: 0,
+    marginTop: -1,
+    borderLeftWidth: 6,
+    borderRightWidth: 6,
+    borderTopWidth: 8,
+    borderLeftColor: "transparent",
+    borderRightColor: "transparent",
+  },
+  nameTag: {
+    marginTop: 2,
+    maxWidth: 90,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
     paddingHorizontal: 8,
-    paddingVertical: 3,
-    borderWidth: 1,
-    borderColor: "#2F6F5E",
+    paddingVertical: 2,
+    ...shadow.card,
   },
-  placeText: { fontSize: 11, fontWeight: "600", color: "#163F35" },
+  nameText: { fontFamily: fonts.bold, fontSize: 11, color: colors.ink },
+  placeTag: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    backgroundColor: colors.spruceDeep,
+    borderRadius: 10,
+    paddingHorizontal: 9,
+    paddingVertical: 4,
+  },
+  placeText: { fontFamily: fonts.bold, fontSize: 11, color: colors.lime },
   pin: {
-    width: 18,
-    height: 18,
-    borderRadius: 9,
-    backgroundColor: "#C0652B",
-    borderWidth: 3,
-    borderColor: "#FFFFFF",
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: colors.lime,
+    borderWidth: 4,
+    borderColor: colors.spruceDeep,
   },
   offline: {
     position: "absolute",
-    top: 8,
+    bottom: 12,
     alignSelf: "center",
-    backgroundColor: "#FFF3D6",
-    borderRadius: 10,
+    backgroundColor: colors.warnSoft,
+    borderRadius: 12,
     paddingHorizontal: 12,
     paddingVertical: 6,
   },
-  offlineText: { color: "#8A5C20", fontSize: 12 },
+  offlineText: { fontFamily: fonts.semibold, color: colors.warn, fontSize: 12 },
 });

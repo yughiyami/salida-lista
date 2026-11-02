@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { KeyboardAvoidingView, Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, View } from "react-native";
 import { useRouter } from "expo-router";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Compass, LogIn, UserPlus } from "lucide-react-native";
 import { getSupabaseClient } from "../../lib/supabase";
 import {
   mapAuthErrorMessage,
@@ -9,7 +9,8 @@ import {
   validatePassword,
   validatePasswordConfirmation,
 } from "../../features/auth/validation";
-import { Banner, Body, Button, Card, CardTitle, Field, colors } from "../../ui/kit";
+import { AuthShell } from "../../ui/AuthShell";
+import { Banner, Button, Card, Field, Segmented, Text, colors, radius } from "../../ui/kit";
 
 type Mode = "signin" | "signup";
 
@@ -70,96 +71,96 @@ export default function LoginScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safe} edges={["top", "bottom"]}>
-      <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : undefined}>
-        <ScrollView contentContainerStyle={styles.container} keyboardShouldPersistTaps="handled">
-          <Text style={styles.eyebrow}>SALIDA LISTA · ACCESO</Text>
-          <Text accessibilityRole="header" style={styles.title}>
-            {mode === "signin" ? "Iniciar sesión" : "Crear cuenta"}
-          </Text>
-          <Body>
-            {mode === "signin"
-              ? "Entra con tu correo y contraseña."
-              : "Usa tu correo y elige una contraseña de al menos 8 caracteres."}
-          </Body>
+    <AuthShell
+      title={mode === "signin" ? "Tu gente, a salvo en el mapa." : "Crea tu cuenta en un minuto."}
+      subtitle="Círculos privados, ubicación en vivo y avisos cuando llegan bien."
+    >
+      <Segmented
+        value={mode}
+        onChange={switchMode}
+        options={[
+          { value: "signin", label: "Entrar" },
+          { value: "signup", label: "Crear cuenta" },
+        ]}
+      />
 
-          {errors.form ? <Banner tone="danger">{errors.form}</Banner> : null}
-          {info ? <Banner tone="warn">{info}</Banner> : null}
+      {errors.form ? <Banner tone="danger">{errors.form}</Banner> : null}
+      {info ? <Banner tone="warn">{info}</Banner> : null}
 
-          <Card>
-            <Field
-              label="Correo electrónico"
-              value={email}
-              onChangeText={setEmail}
-              editable={!busy}
-              autoCapitalize="none"
-              autoComplete="email"
-              autoCorrect={false}
-              keyboardType="email-address"
-              placeholder="nombre@ejemplo.com"
-              error={errors.email}
-            />
-            <Field
-              label="Contraseña"
-              value={password}
-              onChangeText={setPassword}
-              editable={!busy}
-              secureTextEntry
-              autoCapitalize="none"
-              autoComplete={mode === "signin" ? "current-password" : "new-password"}
-              textContentType={mode === "signin" ? "password" : "newPassword"}
-              placeholder="Mínimo 8 caracteres"
-              error={errors.password}
-              onSubmitEditing={() => (mode === "signin" ? void submit() : undefined)}
-            />
-            {mode === "signup" ? (
-              <Field
-                label="Repite la contraseña"
-                value={confirmation}
-                onChangeText={setConfirmation}
-                editable={!busy}
-                secureTextEntry
-                autoCapitalize="none"
-                autoComplete="new-password"
-                error={errors.confirmation}
-                onSubmitEditing={() => void submit()}
-              />
-            ) : null}
-            <Button
-              label={mode === "signin" ? "Entrar" : "Crear cuenta"}
-              onPress={() => void submit()}
-              loading={busy}
-            />
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={mode === "signin" ? "Crear una cuenta nueva" : "Ya tengo cuenta"}
-              disabled={busy}
-              onPress={() => switchMode(mode === "signin" ? "signup" : "signin")}
-              style={styles.switch}
-            >
-              <Text style={styles.switchText}>
-                {mode === "signin" ? "¿No tienes cuenta? Crear una" : "¿Ya tienes cuenta? Iniciar sesión"}
-              </Text>
-            </Pressable>
-          </Card>
+      <Card>
+        <Field
+          label="Correo electrónico"
+          value={email}
+          onChangeText={setEmail}
+          editable={!busy}
+          autoCapitalize="none"
+          autoComplete="email"
+          autoCorrect={false}
+          keyboardType="email-address"
+          placeholder="nombre@ejemplo.com"
+          error={errors.email}
+        />
+        <Field
+          label="Contraseña"
+          value={password}
+          onChangeText={setPassword}
+          editable={!busy}
+          secureTextEntry
+          autoCapitalize="none"
+          autoComplete={mode === "signin" ? "current-password" : "new-password"}
+          textContentType={mode === "signin" ? "password" : "newPassword"}
+          placeholder="Mínimo 8 caracteres"
+          error={errors.password}
+          onSubmitEditing={() => (mode === "signin" ? void submit() : undefined)}
+        />
+        {mode === "signup" ? (
+          <Field
+            label="Repite la contraseña"
+            value={confirmation}
+            onChangeText={setConfirmation}
+            editable={!busy}
+            secureTextEntry
+            autoCapitalize="none"
+            autoComplete="new-password"
+            error={errors.confirmation}
+            onSubmitEditing={() => void submit()}
+          />
+        ) : null}
+        <Button
+          label={mode === "signin" ? "Entrar" : "Crear cuenta"}
+          icon={mode === "signin" ? LogIn : UserPlus}
+          onPress={() => void submit()}
+          loading={busy}
+        />
+      </Card>
 
-          <View style={styles.offline}>
-            <CardTitle>¿Estás en ruta o sin señal?</CardTitle>
-            <Body>El modo guía funciona localmente en este teléfono sin iniciar sesión ni tener conexión.</Body>
-            <Button label="Usar modo guía sin cuenta" variant="ghost" disabled={busy} onPress={() => router.push("/guia")} />
-          </View>
-        </ScrollView>
-      </KeyboardAvoidingView>
-    </SafeAreaView>
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel="Usar modo guía sin cuenta"
+        disabled={busy}
+        onPress={() => router.push("/guia")}
+        style={({ pressed }) => [styles.guide, pressed && { opacity: 0.85 }]}
+      >
+        <View style={styles.guideIcon}>
+          <Compass color={colors.spruceDeep} size={22} strokeWidth={2.3} />
+        </View>
+        <View style={{ flex: 1 }}>
+          <Text variant="bodyStrong">¿En ruta o sin señal?</Text>
+          <Text variant="small">Modo guía: funciona sin cuenta y sin internet.</Text>
+        </View>
+      </Pressable>
+    </AuthShell>
   );
 }
 
 const styles = StyleSheet.create({
-  safe: { flex: 1, backgroundColor: colors.bg },
-  container: { padding: 24, gap: 16, maxWidth: 520, width: "100%", alignSelf: "center" },
-  eyebrow: { fontSize: 10, fontWeight: "700", letterSpacing: 1.8, color: colors.muted },
-  title: { fontSize: 32, fontWeight: "700", color: colors.ink, letterSpacing: -0.8 },
-  switch: { minHeight: 48, alignItems: "center", justifyContent: "center" },
-  switchText: { color: colors.ink, fontWeight: "600", textDecorationLine: "underline" },
-  offline: { padding: 20, backgroundColor: "#EAF0E4", borderRadius: 18, gap: 10 },
+  guide: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    padding: 14,
+    borderRadius: radius.lg,
+    backgroundColor: colors.spruceTint,
+  },
+  guideIcon: { width: 44, height: 44, borderRadius: 22, backgroundColor: colors.lime, alignItems: "center", justifyContent: "center" },
 });

@@ -1,4 +1,6 @@
-# Salida Lista
+# Salida Lista (app móvil)
+
+> **Visión general, estado actual y guías:** [../README.md](../README.md). Este archivo documenta el **modo guía offline** (1.0.x); las cuentas, círculos y el mapa en vivo (1.1+) se describen en la raíz.
 
 Prototipo móvil offline para guías turísticos en Perú: consulta cartografía local,
 registra hitos e incidencias y conserva la asistencia aunque no haya internet.

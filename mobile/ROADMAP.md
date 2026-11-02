@@ -1,5 +1,18 @@
 # Prioridades de Salida Lista
 
+## 0. Hecho en 1.1 y 1.2
+
+Cuentas con correo y contraseña, círculos con códigos de invitación, mapa en vivo,
+compartir ubicación con consentimiento y pausa, ubicación en segundo plano con cola
+sin conexión, lugares con geocercas, "Llegué bien", SOS, chat, exportar y borrar
+datos, retención y rediseño de la interfaz. El backend está aplicado y probado a
+nivel de permisos; **falta validarlo con dos teléfonos reales.**
+
+**Pendiente inmediato:** prueba física entre dos teléfonos (segundo plano, lugares,
+SOS, chat); Firebase y proyecto de EAS para push con la app cerrada; recuperación de
+contraseña (requiere SMTP); formularios de Play Store y build firmada; iOS nunca se
+compiló; 28 alertas de `npm audit`; dividir `GuideScreen.tsx` (~1.270 líneas).
+
 ## 1. Cartografía offline útil, no una promesa de cobertura total
 
 Implementado en el código 1.0.3: una capa nacional generalizada (vías principales,

@@ -5,8 +5,8 @@ Written against: checkout actual; commit no registrado en este plan. Cambios sel
 ## Evidence chain
 
 - Surface: mobile/src/app/index.tsx, preparar.tsx y ruta.tsx, todos consumen mobile/src/ui/GuideScreen.tsx.
-- Problem: captura real docs/evidence/android-2026-10-16/01-home-real.png carece de la fotografía del concepto; 04-ruta-real.png muestra un esquema elemental y el CTA queda fuera del primer viewport.
-- Design evidence: docs/design/01-salidas-preparacion.png y 02-ruta-participantes.png, seleccionados por el usuario para acercar la implementación.
+- Problem: captura real docs/historial/evidence/android-2026-10-16/01-home-real.png carece de la fotografía del concepto; 04-ruta-real.png muestra un esquema elemental y el CTA queda fuera del primer viewport.
+- Design evidence: docs/historial/design/01-salidas-preparacion.png y 02-ruta-participantes.png, seleccionados por el usuario para acercar la implementación.
 - Owner: GuideScreen.tsx, StyleSheet local s, Button y Card. Paleta gobernante #F7F5EF, #163F35, #C18A34.
 - Scope: UI del guía; foto local y representación ilustrativa de ruta. No conectores, datos ni migraciones.
 - Uncertainty: validar alturas pequeñas y escala de fuente; el esquema no puede presentarse como cartografía real.

@@ -33,7 +33,7 @@ async function ensureChannels(): Promise<void> {
 /**
  * Registers the device for push. Returns a reason string when it cannot, so the
  * app keeps working through realtime updates. Android pushes additionally need
- * FCM credentials in the EAS project (see docs/PUSH-FCM.md).
+ * FCM credentials in the EAS project (see docs/guias/PUSH-FCM.md).
  */
 export async function registerForPush(userId: string): Promise<string | null> {
   try {

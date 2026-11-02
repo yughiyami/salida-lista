@@ -27,6 +27,9 @@ artifacts/
 *.local
 docs/server.env
 docs/server.env.*
+docs/guias/server.env
+docs/guias/server.env.*
+!docs/guias/server.env.example
 !.env.example
 !mobile/.env.example
 !docs/server.env.example

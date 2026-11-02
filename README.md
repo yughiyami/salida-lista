@@ -20,6 +20,8 @@ Además del modo guía sin conexión, la app ahora tiene cuentas con correo y co
 
 **Estado de verificación:** TypeScript, lint y pruebas automáticas de las reglas puras pasan; el APK compila. Las migraciones **no se han ejecutado todavía contra un Supabase real** y nada de esto se probó en un teléfono físico: sigue [SUPABASE-SETUP](docs/SUPABASE-SETUP.md) y haz la prueba con dos teléfonos antes de confiar en ello. No es un servicio de emergencias.
 
+Diseño: sistema "Señal de ruta" (verde abeto, marca lima, contornos topográficos y tipografía Figtree) en [docs/DISENO.md](docs/DISENO.md).
+
 ## Ejecutar
 
 Requisito para las pruebas de repositorio: Node 24 y `pnpm`. Dependencias fijadas en `mobile/pnpm-lock.yaml`.

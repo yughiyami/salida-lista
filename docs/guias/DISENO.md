@@ -37,8 +37,14 @@ Tipografía: **Figtree** (400, 500, 600, 700, 800), empaquetada en la app; escal
 
 Los iconos son de Lucide, con trazo uniforme. El modo guía sin conexión (`GuideScreen`) conserva su diseño anterior.
 
+## Captura
+
+![Pestaña Círculos](capturas/02-circulos.png)
+
+Captura real de un Redmi (Android 14). El código de invitación está difuminado a propósito: quien lo tenga puede unirse al círculo. No se incluye la captura del mapa porque muestra una ubicación real.
+
 ## Alcance honesto
 
 - Se aplicó el rediseño completo a las pantallas de cuentas, círculos, mapa, lugares, chat y ajustes. **No** se rediseñó el modo guía.
 - No se hizo la revisión de contraste ni de accesibilidad con herramientas; solo se eligieron colores con contraste alto.
-- Se instaló y abrió en un Redmi (Android 14, ARM64) y se comprobaron visualmente el mapa, la barra de pestañas, Ajustes y Lugares. No hay pruebas en pantallas pequeñas ni en tabletas, y no se incluyen capturas en el repositorio.
+- Se instaló y abrió en un Redmi (Android 14, ARM64) y se comprobaron visualmente el mapa, la barra de pestañas, Ajustes y Lugares. No hay pruebas en pantallas pequeñas ni en tabletas, y solo hay una captura en el repositorio (ver arriba).
